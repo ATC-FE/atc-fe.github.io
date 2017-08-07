@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "./js/";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -52,28 +52,28 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	var _vue = __webpack_require__(2);
-
+	
 	var _vue2 = _interopRequireDefault(_vue);
-
+	
 	var _app = __webpack_require__(4);
-
+	
 	var _app2 = _interopRequireDefault(_app);
-
+	
 	var _router = __webpack_require__(23);
-
+	
 	var _router2 = _interopRequireDefault(_router);
-
+	
 	var _vueMaterial = __webpack_require__(30);
-
+	
 	var _vueMaterial2 = _interopRequireDefault(_vueMaterial);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	__webpack_require__(31);
-
-
+	
+	
 	_vue2.default.use(_vueMaterial2.default);
 	_vue2.default.material.registerTheme('default', {
 	  primary: 'blue',
@@ -81,17 +81,17 @@
 	  warn: 'red',
 	  background: 'white'
 	});
-
+	
 	var app = new _vue2.default(_vue2.default.util.extend({ el: '#app', router: _router2.default }, _app2.default));
-
+	
 	'use strict';
-
+	
 	if ('serviceWorker' in navigator) {
 	  window.addEventListener('load', function () {
-	    navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+	    navigator.serviceWorker.register('js/service-worker.js').then(function (reg) {
 	      reg.onupdatefound = function () {
 	        var installingWorker = reg.installing;
-
+	
 	        installingWorker.onstatechange = function () {
 	          switch (installingWorker.state) {
 	            case 'installed':
@@ -101,7 +101,7 @@
 	                console.log('Content is now available offline!');
 	              }
 	              break;
-
+	
 	            case 'redundant':
 	              console.error('The installing service worker became redundant.');
 	              break;
@@ -124,27 +124,27 @@
 	 * Released under the MIT License.
 	 */
 	'use strict';
-
+	
 	/*  */
-
+	
 	// these helpers produces better vm code in JS engines due to their
 	// explicitness and function inlining
 	function isUndef (v) {
 	  return v === undefined || v === null
 	}
-
+	
 	function isDef (v) {
 	  return v !== undefined && v !== null
 	}
-
+	
 	function isTrue (v) {
 	  return v === true
 	}
-
+	
 	function isFalse (v) {
 	  return v === false
 	}
-
+	
 	/**
 	 * Check if value is primitive
 	 */
@@ -155,7 +155,7 @@
 	    typeof value === 'boolean'
 	  )
 	}
-
+	
 	/**
 	 * Quick object check - this is primarily used to tell
 	 * Objects from primitive values when we know the value
@@ -164,9 +164,9 @@
 	function isObject (obj) {
 	  return obj !== null && typeof obj === 'object'
 	}
-
+	
 	var _toString = Object.prototype.toString;
-
+	
 	/**
 	 * Strict object type check. Only returns true
 	 * for plain JavaScript objects.
@@ -174,11 +174,11 @@
 	function isPlainObject (obj) {
 	  return _toString.call(obj) === '[object Object]'
 	}
-
+	
 	function isRegExp (v) {
 	  return _toString.call(v) === '[object RegExp]'
 	}
-
+	
 	/**
 	 * Check if val is a valid array index.
 	 */
@@ -186,7 +186,7 @@
 	  var n = parseFloat(val);
 	  return n >= 0 && Math.floor(n) === n && isFinite(val)
 	}
-
+	
 	/**
 	 * Convert a value to a string that is actually rendered.
 	 */
@@ -197,7 +197,7 @@
 	      ? JSON.stringify(val, null, 2)
 	      : String(val)
 	}
-
+	
 	/**
 	 * Convert a input value to a number for persistence.
 	 * If the conversion fails, return original string.
@@ -206,7 +206,7 @@
 	  var n = parseFloat(val);
 	  return isNaN(n) ? val : n
 	}
-
+	
 	/**
 	 * Make a map and return a function for checking if a key
 	 * is in that map.
@@ -224,17 +224,17 @@
 	    ? function (val) { return map[val.toLowerCase()]; }
 	    : function (val) { return map[val]; }
 	}
-
+	
 	/**
 	 * Check if a tag is a built-in tag.
 	 */
 	var isBuiltInTag = makeMap('slot,component', true);
-
+	
 	/**
 	 * Check if a attribute is a reserved attribute.
 	 */
 	var isReservedAttribute = makeMap('key,ref,slot,is');
-
+	
 	/**
 	 * Remove an item from an array
 	 */
@@ -246,7 +246,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Check whether the object has the property.
 	 */
@@ -254,7 +254,7 @@
 	function hasOwn (obj, key) {
 	  return hasOwnProperty.call(obj, key)
 	}
-
+	
 	/**
 	 * Create a cached version of a pure function.
 	 */
@@ -265,7 +265,7 @@
 	    return hit || (cache[str] = fn(str))
 	  })
 	}
-
+	
 	/**
 	 * Camelize a hyphen-delimited string.
 	 */
@@ -273,14 +273,14 @@
 	var camelize = cached(function (str) {
 	  return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : ''; })
 	});
-
+	
 	/**
 	 * Capitalize a string.
 	 */
 	var capitalize = cached(function (str) {
 	  return str.charAt(0).toUpperCase() + str.slice(1)
 	});
-
+	
 	/**
 	 * Hyphenate a camelCase string.
 	 */
@@ -291,7 +291,7 @@
 	    .replace(hyphenateRE, '$1-$2')
 	    .toLowerCase()
 	});
-
+	
 	/**
 	 * Simple bind, faster than native
 	 */
@@ -308,7 +308,7 @@
 	  boundFn._length = fn.length;
 	  return boundFn
 	}
-
+	
 	/**
 	 * Convert an Array-like object to a real Array.
 	 */
@@ -321,7 +321,7 @@
 	  }
 	  return ret
 	}
-
+	
 	/**
 	 * Mix properties into target object.
 	 */
@@ -331,7 +331,7 @@
 	  }
 	  return to
 	}
-
+	
 	/**
 	 * Merge an Array of Objects into a single Object.
 	 */
@@ -344,29 +344,29 @@
 	  }
 	  return res
 	}
-
+	
 	/**
 	 * Perform no operation.
 	 * Stubbing args to make Flow happy without leaving useless transpiled code
 	 * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/)
 	 */
 	function noop (a, b, c) {}
-
+	
 	/**
 	 * Always return false.
 	 */
 	var no = function (a, b, c) { return false; };
-
+	
 	/**
 	 * Return same value
 	 */
 	var identity = function (_) { return _; };
-
+	
 	/**
 	 * Generate a static keys string from compiler modules.
 	 */
-
-
+	
+	
 	/**
 	 * Check if two values are loosely equal - that is,
 	 * if they are plain objects, do they have the same shape?
@@ -403,14 +403,14 @@
 	    return false
 	  }
 	}
-
+	
 	function looseIndexOf (arr, val) {
 	  for (var i = 0; i < arr.length; i++) {
 	    if (looseEqual(arr[i], val)) { return i }
 	  }
 	  return -1
 	}
-
+	
 	/**
 	 * Ensure a function is called only once.
 	 */
@@ -423,15 +423,15 @@
 	    }
 	  }
 	}
-
+	
 	var SSR_ATTR = 'data-server-rendered';
-
+	
 	var ASSET_TYPES = [
 	  'component',
 	  'directive',
 	  'filter'
 	];
-
+	
 	var LIFECYCLE_HOOKS = [
 	  'beforeCreate',
 	  'created',
@@ -444,99 +444,99 @@
 	  'activated',
 	  'deactivated'
 	];
-
+	
 	/*  */
-
+	
 	var config = ({
 	  /**
 	   * Option merge strategies (used in core/util/options)
 	   */
 	  optionMergeStrategies: Object.create(null),
-
+	
 	  /**
 	   * Whether to suppress warnings.
 	   */
 	  silent: false,
-
+	
 	  /**
 	   * Show production mode tip message on boot?
 	   */
 	  productionTip: process.env.NODE_ENV !== 'production',
-
+	
 	  /**
 	   * Whether to enable devtools
 	   */
 	  devtools: process.env.NODE_ENV !== 'production',
-
+	
 	  /**
 	   * Whether to record perf
 	   */
 	  performance: false,
-
+	
 	  /**
 	   * Error handler for watcher errors
 	   */
 	  errorHandler: null,
-
+	
 	  /**
 	   * Warn handler for watcher warns
 	   */
 	  warnHandler: null,
-
+	
 	  /**
 	   * Ignore certain custom elements
 	   */
 	  ignoredElements: [],
-
+	
 	  /**
 	   * Custom user key aliases for v-on
 	   */
 	  keyCodes: Object.create(null),
-
+	
 	  /**
 	   * Check if a tag is reserved so that it cannot be registered as a
 	   * component. This is platform-dependent and may be overwritten.
 	   */
 	  isReservedTag: no,
-
+	
 	  /**
 	   * Check if an attribute is reserved so that it cannot be used as a component
 	   * prop. This is platform-dependent and may be overwritten.
 	   */
 	  isReservedAttr: no,
-
+	
 	  /**
 	   * Check if a tag is an unknown element.
 	   * Platform-dependent.
 	   */
 	  isUnknownElement: no,
-
+	
 	  /**
 	   * Get the namespace of an element
 	   */
 	  getTagNamespace: noop,
-
+	
 	  /**
 	   * Parse the real tag name for the specific platform.
 	   */
 	  parsePlatformTagName: identity,
-
+	
 	  /**
 	   * Check if an attribute must be bound using property, e.g. value
 	   * Platform-dependent.
 	   */
 	  mustUseProp: no,
-
+	
 	  /**
 	   * Exposed for legacy reasons
 	   */
 	  _lifecycleHooks: LIFECYCLE_HOOKS
 	});
-
+	
 	/*  */
-
+	
 	var emptyObject = Object.freeze({});
-
+	
 	/**
 	 * Check if a string starts with $ or _
 	 */
@@ -544,7 +544,7 @@
 	  var c = (str + '').charCodeAt(0);
 	  return c === 0x24 || c === 0x5F
 	}
-
+	
 	/**
 	 * Define a property.
 	 */
@@ -556,7 +556,7 @@
 	    configurable: true
 	  });
 	}
-
+	
 	/**
 	 * Parse simple path.
 	 */
@@ -574,30 +574,30 @@
 	    return obj
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var warn = noop;
 	var tip = noop;
 	var formatComponentName = (null); // work around flow check
-
+	
 	if (process.env.NODE_ENV !== 'production') {
 	  var hasConsole = typeof console !== 'undefined';
 	  var classifyRE = /(?:^|[-_])(\w)/g;
 	  var classify = function (str) { return str
 	    .replace(classifyRE, function (c) { return c.toUpperCase(); })
 	    .replace(/[-_]/g, ''); };
-
+	
 	  warn = function (msg, vm) {
 	    var trace = vm ? generateComponentTrace(vm) : '';
-
+	
 	    if (config.warnHandler) {
 	      config.warnHandler.call(null, msg, vm, trace);
 	    } else if (hasConsole && (!config.silent)) {
 	      console.error(("[Vue warn]: " + msg + trace));
 	    }
 	  };
-
+	
 	  tip = function (msg, vm) {
 	    if (hasConsole && (!config.silent)) {
 	      console.warn("[Vue tip]: " + msg + (
@@ -605,7 +605,7 @@
 	      ));
 	    }
 	  };
-
+	
 	  formatComponentName = function (vm, includeFile) {
 	    if (vm.$root === vm) {
 	      return '<Root>'
@@ -617,19 +617,19 @@
 	        : vm._isVue
 	          ? vm.$options.name || vm.$options._componentTag
 	          : vm.name;
-
+	
 	    var file = vm._isVue && vm.$options.__file;
 	    if (!name && file) {
 	      var match = file.match(/([^/\\]+)\.vue$/);
 	      name = match && match[1];
 	    }
-
+	
 	    return (
 	      (name ? ("<" + (classify(name)) + ">") : "<Anonymous>") +
 	      (file && includeFile !== false ? (" at " + file) : '')
 	    )
 	  };
-
+	
 	  var repeat = function (str, n) {
 	    var res = '';
 	    while (n) {
@@ -639,7 +639,7 @@
 	    }
 	    return res
 	  };
-
+	
 	  var generateComponentTrace = function (vm) {
 	    if (vm._isVue && vm.$parent) {
 	      var tree = [];
@@ -669,9 +669,9 @@
 	    }
 	  };
 	}
-
+	
 	/*  */
-
+	
 	function handleError (err, vm, info) {
 	  if (config.errorHandler) {
 	    config.errorHandler.call(null, err, vm, info);
@@ -687,13 +687,13 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
 	/* globals MutationObserver */
-
+	
 	// can we use __proto__?
 	var hasProto = '__proto__' in {};
-
+	
 	// Browser environment sniffing
 	var inBrowser = typeof window !== 'undefined';
 	var UA = inBrowser && window.navigator.userAgent.toLowerCase();
@@ -703,10 +703,10 @@
 	var isAndroid = UA && UA.indexOf('android') > 0;
 	var isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 	var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
-
+	
 	// Firefix has a "watch" function on Object.prototype...
 	var nativeWatch = ({}).watch;
-
+	
 	var supportsPassive = false;
 	if (inBrowser) {
 	  try {
@@ -720,7 +720,7 @@
 	    window.addEventListener('test-passive', null, opts);
 	  } catch (e) {}
 	}
-
+	
 	// this needs to be lazy-evaled because vue may be required before
 	// vue-server-renderer can set VUE_ENV
 	var _isServer;
@@ -737,19 +737,19 @@
 	  }
 	  return _isServer
 	};
-
+	
 	// detect devtools
 	var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
+	
 	/* istanbul ignore next */
 	function isNative (Ctor) {
 	  return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
 	}
-
+	
 	var hasSymbol =
 	  typeof Symbol !== 'undefined' && isNative(Symbol) &&
 	  typeof Reflect !== 'undefined' && isNative(Reflect.ownKeys);
-
+	
 	/**
 	 * Defer a task to execute it asynchronously.
 	 */
@@ -757,7 +757,7 @@
 	  var callbacks = [];
 	  var pending = false;
 	  var timerFunc;
-
+	
 	  function nextTickHandler () {
 	    pending = false;
 	    var copies = callbacks.slice(0);
@@ -766,7 +766,7 @@
 	      copies[i]();
 	    }
 	  }
-
+	
 	  // the nextTick behavior leverages the microtask queue, which can be accessed
 	  // via either native Promise.then or MutationObserver.
 	  // MutationObserver has wider support, however it is seriously bugged in
@@ -810,7 +810,7 @@
 	      setTimeout(nextTickHandler, 0);
 	    };
 	  }
-
+	
 	  return function queueNextTick (cb, ctx) {
 	    var _resolve;
 	    callbacks.push(function () {
@@ -835,7 +835,7 @@
 	    }
 	  }
 	})();
-
+	
 	var _Set;
 	/* istanbul ignore if */
 	if (typeof Set !== 'undefined' && isNative(Set)) {
@@ -856,16 +856,16 @@
 	    Set.prototype.clear = function clear () {
 	      this.set = Object.create(null);
 	    };
-
+	
 	    return Set;
 	  }());
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var uid$1 = 0;
-
+	
 	/**
 	 * A dep is an observable that can have multiple
 	 * directives subscribing to it.
@@ -874,21 +874,21 @@
 	  this.id = uid$1++;
 	  this.subs = [];
 	};
-
+	
 	Dep.prototype.addSub = function addSub (sub) {
 	  this.subs.push(sub);
 	};
-
+	
 	Dep.prototype.removeSub = function removeSub (sub) {
 	  remove(this.subs, sub);
 	};
-
+	
 	Dep.prototype.depend = function depend () {
 	  if (Dep.target) {
 	    Dep.target.addDep(this);
 	  }
 	};
-
+	
 	Dep.prototype.notify = function notify () {
 	  // stabilize the subscriber list first
 	  var subs = this.subs.slice();
@@ -896,27 +896,27 @@
 	    subs[i].update();
 	  }
 	};
-
+	
 	// the current target watcher being evaluated.
 	// this is globally unique because there could be only one
 	// watcher being evaluated at any time.
 	Dep.target = null;
 	var targetStack = [];
-
+	
 	function pushTarget (_target) {
 	  if (Dep.target) { targetStack.push(Dep.target); }
 	  Dep.target = _target;
 	}
-
+	
 	function popTarget () {
 	  Dep.target = targetStack.pop();
 	}
-
+	
 	/*
 	 * not type checking this file because flow doesn't play well with
 	 * dynamically accessing methods on Array prototype
 	 */
-
+	
 	var arrayProto = Array.prototype;
 	var arrayMethods = Object.create(arrayProto);[
 	  'push',
@@ -933,7 +933,7 @@
 	  def(arrayMethods, method, function mutator () {
 	    var args = [], len = arguments.length;
 	    while ( len-- ) args[ len ] = arguments[ len ];
-
+	
 	    var result = original.apply(this, args);
 	    var ob = this.__ob__;
 	    var inserted;
@@ -952,11 +952,11 @@
 	    return result
 	  });
 	});
-
+	
 	/*  */
-
+	
 	var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
-
+	
 	/**
 	 * By default, when a reactive property is set, the new value is
 	 * also converted to become reactive. However when passing down props,
@@ -966,7 +966,7 @@
 	var observerState = {
 	  shouldConvert: true
 	};
-
+	
 	/**
 	 * Observer class that are attached to each observed
 	 * object. Once attached, the observer converts target
@@ -988,7 +988,7 @@
 	    this.walk(value);
 	  }
 	};
-
+	
 	/**
 	 * Walk through each property and convert them into
 	 * getter/setters. This method should only be called when
@@ -1000,7 +1000,7 @@
 	    defineReactive$$1(obj, keys[i], obj[keys[i]]);
 	  }
 	};
-
+	
 	/**
 	 * Observe a list of Array items.
 	 */
@@ -1009,9 +1009,9 @@
 	    observe(items[i]);
 	  }
 	};
-
+	
 	// helpers
-
+	
 	/**
 	 * Augment an target Object or Array by intercepting
 	 * the prototype chain using __proto__
@@ -1021,7 +1021,7 @@
 	  target.__proto__ = src;
 	  /* eslint-enable no-proto */
 	}
-
+	
 	/**
 	 * Augment an target Object or Array by defining
 	 * hidden properties.
@@ -1033,7 +1033,7 @@
 	    def(target, key, src[key]);
 	  }
 	}
-
+	
 	/**
 	 * Attempt to create an observer instance for a value,
 	 * returns the new observer if successfully observed,
@@ -1060,7 +1060,7 @@
 	  }
 	  return ob
 	}
-
+	
 	/**
 	 * Define a reactive property on an Object.
 	 */
@@ -1072,16 +1072,16 @@
 	  shallow
 	) {
 	  var dep = new Dep();
-
+	
 	  var property = Object.getOwnPropertyDescriptor(obj, key);
 	  if (property && property.configurable === false) {
 	    return
 	  }
-
+	
 	  // cater for pre-defined getter/setters
 	  var getter = property && property.get;
 	  var setter = property && property.set;
-
+	
 	  var childOb = !shallow && observe(val);
 	  Object.defineProperty(obj, key, {
 	    enumerable: true,
@@ -1119,7 +1119,7 @@
 	    }
 	  });
 	}
-
+	
 	/**
 	 * Set a property on an object. Adds the new property and
 	 * triggers change notification if the property doesn't
@@ -1151,7 +1151,7 @@
 	  ob.dep.notify();
 	  return val
 	}
-
+	
 	/**
 	 * Delete a property and trigger change if necessary.
 	 */
@@ -1177,7 +1177,7 @@
 	  }
 	  ob.dep.notify();
 	}
-
+	
 	/**
 	 * Collect dependencies on array elements when the array is touched, since
 	 * we cannot intercept array element access like property getters.
@@ -1191,16 +1191,16 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Option overwriting strategies are functions that handle
 	 * how to merge a parent option value and a child option
 	 * value into the final value.
 	 */
 	var strats = config.optionMergeStrategies;
-
+	
 	/**
 	 * Options with restrictions
 	 */
@@ -1215,7 +1215,7 @@
 	    return defaultStrat(parent, child)
 	  };
 	}
-
+	
 	/**
 	 * Helper that recursively merges two data objects together.
 	 */
@@ -1235,7 +1235,7 @@
 	  }
 	  return to
 	}
-
+	
 	/**
 	 * Data
 	 */
@@ -1280,7 +1280,7 @@
 	    }
 	  }
 	}
-
+	
 	strats.data = function (
 	  parentVal,
 	  childVal,
@@ -1294,15 +1294,15 @@
 	        'definitions.',
 	        vm
 	      );
-
+	
 	      return parentVal
 	    }
 	    return mergeDataOrFn.call(this, parentVal, childVal)
 	  }
-
+	
 	  return mergeDataOrFn(parentVal, childVal, vm)
 	};
-
+	
 	/**
 	 * Hooks and props are merged as arrays.
 	 */
@@ -1318,11 +1318,11 @@
 	        : [childVal]
 	    : parentVal
 	}
-
+	
 	LIFECYCLE_HOOKS.forEach(function (hook) {
 	  strats[hook] = mergeHook;
 	});
-
+	
 	/**
 	 * Assets
 	 *
@@ -1336,11 +1336,11 @@
 	    ? extend(res, childVal)
 	    : res
 	}
-
+	
 	ASSET_TYPES.forEach(function (type) {
 	  strats[type + 's'] = mergeAssets;
 	});
-
+	
 	/**
 	 * Watchers.
 	 *
@@ -1368,7 +1368,7 @@
 	  }
 	  return ret
 	};
-
+	
 	/**
 	 * Other object hashes.
 	 */
@@ -1383,7 +1383,7 @@
 	  return ret
 	};
 	strats.provide = mergeDataOrFn;
-
+	
 	/**
 	 * Default strategy.
 	 */
@@ -1392,7 +1392,7 @@
 	    ? parentVal
 	    : childVal
 	};
-
+	
 	/**
 	 * Validate component names
 	 */
@@ -1407,7 +1407,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Ensure all props option syntax are normalized into the
 	 * Object-based format.
@@ -1439,7 +1439,7 @@
 	  }
 	  options.props = res;
 	}
-
+	
 	/**
 	 * Normalize all injections into Object-based format
 	 */
@@ -1452,7 +1452,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Normalize raw function directives into object format.
 	 */
@@ -1467,7 +1467,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Merge two option objects into a new one.
 	 * Core utility used in both instantiation and inheritance.
@@ -1480,11 +1480,11 @@
 	  if (process.env.NODE_ENV !== 'production') {
 	    checkComponents(child);
 	  }
-
+	
 	  if (typeof child === 'function') {
 	    child = child.options;
 	  }
-
+	
 	  normalizeProps(child);
 	  normalizeInject(child);
 	  normalizeDirectives(child);
@@ -1513,7 +1513,7 @@
 	  }
 	  return options
 	}
-
+	
 	/**
 	 * Resolve an asset.
 	 * This function is used because child instances need access
@@ -1546,9 +1546,9 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	function validateProp (
 	  key,
 	  propOptions,
@@ -1581,7 +1581,7 @@
 	  }
 	  return value
 	}
-
+	
 	/**
 	 * Get the default value of a prop.
 	 */
@@ -1614,7 +1614,7 @@
 	    ? def.call(vm)
 	    : def
 	}
-
+	
 	/**
 	 * Assert whether a prop is valid.
 	 */
@@ -1667,9 +1667,9 @@
 	    }
 	  }
 	}
-
+	
 	var simpleCheckRE = /^(String|Number|Boolean|Function|Symbol)$/;
-
+	
 	function assertType (value, type) {
 	  var valid;
 	  var expectedType = getType(type);
@@ -1687,7 +1687,7 @@
 	    expectedType: expectedType
 	  }
 	}
-
+	
 	/**
 	 * Use function string name to check built-in types,
 	 * because a simple equality check will fail when running
@@ -1697,7 +1697,7 @@
 	  var match = fn && fn.toString().match(/^\s*function (\w+)/);
 	  return match ? match[1] : ''
 	}
-
+	
 	function isType (type, fn) {
 	  if (!Array.isArray(fn)) {
 	    return getType(fn) === getType(type)
@@ -1710,13 +1710,13 @@
 	  /* istanbul ignore next */
 	  return false
 	}
-
+	
 	/*  */
-
+	
 	/* not type checking this file because flow doesn't play well with Proxy */
-
+	
 	var initProxy;
-
+	
 	if (process.env.NODE_ENV !== 'production') {
 	  var allowedGlobals = makeMap(
 	    'Infinity,undefined,NaN,isFinite,isNaN,' +
@@ -1724,7 +1724,7 @@
 	    'Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,' +
 	    'require' // for Webpack/Browserify
 	  );
-
+	
 	  var warnNonPresent = function (target, key) {
 	    warn(
 	      "Property or method \"" + key + "\" is not defined on the instance but " +
@@ -1733,11 +1733,11 @@
 	      target
 	    );
 	  };
-
+	
 	  var hasProxy =
 	    typeof Proxy !== 'undefined' &&
 	    Proxy.toString().match(/native code/);
-
+	
 	  if (hasProxy) {
 	    var isBuiltInModifier = makeMap('stop,prevent,self,ctrl,shift,alt,meta');
 	    config.keyCodes = new Proxy(config.keyCodes, {
@@ -1752,7 +1752,7 @@
 	      }
 	    });
 	  }
-
+	
 	  var hasHandler = {
 	    has: function has (target, key) {
 	      var has = key in target;
@@ -1763,7 +1763,7 @@
 	      return has || !isAllowed
 	    }
 	  };
-
+	
 	  var getHandler = {
 	    get: function get (target, key) {
 	      if (typeof key === 'string' && !(key in target)) {
@@ -1772,7 +1772,7 @@
 	      return target[key]
 	    }
 	  };
-
+	
 	  initProxy = function initProxy (vm) {
 	    if (hasProxy) {
 	      // determine which proxy handler to use
@@ -1786,10 +1786,10 @@
 	    }
 	  };
 	}
-
+	
 	var mark;
 	var measure;
-
+	
 	if (process.env.NODE_ENV !== 'production') {
 	  var perf = inBrowser && window.performance;
 	  /* istanbul ignore if */
@@ -1809,9 +1809,9 @@
 	    };
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var VNode = function VNode (
 	  tag,
 	  data,
@@ -1844,30 +1844,30 @@
 	  this.asyncMeta = undefined;
 	  this.isAsyncPlaceholder = false;
 	};
-
+	
 	var prototypeAccessors = { child: {} };
-
+	
 	// DEPRECATED: alias for componentInstance for backwards compat.
 	/* istanbul ignore next */
 	prototypeAccessors.child.get = function () {
 	  return this.componentInstance
 	};
-
+	
 	Object.defineProperties( VNode.prototype, prototypeAccessors );
-
+	
 	var createEmptyVNode = function (text) {
 	  if ( text === void 0 ) text = '';
-
+	
 	  var node = new VNode();
 	  node.text = text;
 	  node.isComment = true;
 	  return node
 	};
-
+	
 	function createTextVNode (val) {
 	  return new VNode(undefined, undefined, undefined, String(val))
 	}
-
+	
 	// optimized shallow clone
 	// used for static nodes and slot nodes because they may be reused across
 	// multiple renders, cloning them avoids errors when DOM manipulations rely
@@ -1890,7 +1890,7 @@
 	  cloned.isCloned = true;
 	  return cloned
 	}
-
+	
 	function cloneVNodes (vnodes) {
 	  var len = vnodes.length;
 	  var res = new Array(len);
@@ -1899,9 +1899,9 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	var normalizeEvent = cached(function (name) {
 	  var passive = name.charAt(0) === '&';
 	  name = passive ? name.slice(1) : name;
@@ -1916,11 +1916,11 @@
 	    passive: passive
 	  }
 	});
-
+	
 	function createFnInvoker (fns) {
 	  function invoker () {
 	    var arguments$1 = arguments;
-
+	
 	    var fns = invoker.fns;
 	    if (Array.isArray(fns)) {
 	      var cloned = fns.slice();
@@ -1935,7 +1935,7 @@
 	  invoker.fns = fns;
 	  return invoker
 	}
-
+	
 	function updateListeners (
 	  on,
 	  oldOn,
@@ -1970,20 +1970,20 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function mergeVNodeHook (def, hookKey, hook) {
 	  var invoker;
 	  var oldHook = def[hookKey];
-
+	
 	  function wrappedHook () {
 	    hook.apply(this, arguments);
 	    // important: remove merged hook to ensure it's called only once
 	    // and prevent memory leak
 	    remove(invoker.fns, wrappedHook);
 	  }
-
+	
 	  if (isUndef(oldHook)) {
 	    // no existing hook
 	    invoker = createFnInvoker([wrappedHook]);
@@ -1998,13 +1998,13 @@
 	      invoker = createFnInvoker([oldHook, wrappedHook]);
 	    }
 	  }
-
+	
 	  invoker.merged = true;
 	  def[hookKey] = invoker;
 	}
-
+	
 	/*  */
-
+	
 	function extractPropsFromVNodeData (
 	  data,
 	  Ctor,
@@ -2045,7 +2045,7 @@
 	  }
 	  return res
 	}
-
+	
 	function checkProp (
 	  res,
 	  hash,
@@ -2070,16 +2070,16 @@
 	  }
 	  return false
 	}
-
+	
 	/*  */
-
+	
 	// The template compiler attempts to minimize the need for normalization by
 	// statically analyzing the template at compile time.
 	//
 	// For plain HTML markup, normalization can be completely skipped because the
 	// generated render function is guaranteed to return Array<VNode>. There are
 	// two cases where extra normalization is needed:
-
+	
 	// 1. When the children contains components - because a functional component
 	// may return an Array instead of a single root. In this case, just a simple
 	// normalization is needed - if any child is an Array, we flatten the whole
@@ -2093,7 +2093,7 @@
 	  }
 	  return children
 	}
-
+	
 	// 2. When the children contains constructs that always generated nested Arrays,
 	// e.g. <template>, <slot>, v-for, or when the children is provided by user
 	// with hand-written render functions / JSX. In such cases a full normalization
@@ -2105,11 +2105,11 @@
 	      ? normalizeArrayChildren(children)
 	      : undefined
 	}
-
+	
 	function isTextNode (node) {
 	  return isDef(node) && isDef(node.text) && isFalse(node.isComment)
 	}
-
+	
 	function normalizeArrayChildren (children, nestedIndex) {
 	  var res = [];
 	  var i, c, last;
@@ -2148,9 +2148,9 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	function ensureCtor (comp, base) {
 	  if (comp.__esModule && comp.default) {
 	    comp = comp.default;
@@ -2159,7 +2159,7 @@
 	    ? base.extend(comp)
 	    : comp
 	}
-
+	
 	function createAsyncPlaceholder (
 	  factory,
 	  data,
@@ -2172,7 +2172,7 @@
 	  node.asyncMeta = { data: data, context: context, children: children, tag: tag };
 	  return node
 	}
-
+	
 	function resolveAsyncComponent (
 	  factory,
 	  baseCtor,
@@ -2181,28 +2181,28 @@
 	  if (isTrue(factory.error) && isDef(factory.errorComp)) {
 	    return factory.errorComp
 	  }
-
+	
 	  if (isDef(factory.resolved)) {
 	    return factory.resolved
 	  }
-
+	
 	  if (isTrue(factory.loading) && isDef(factory.loadingComp)) {
 	    return factory.loadingComp
 	  }
-
+	
 	  if (isDef(factory.contexts)) {
 	    // already pending
 	    factory.contexts.push(context);
 	  } else {
 	    var contexts = factory.contexts = [context];
 	    var sync = true;
-
+	
 	    var forceRender = function () {
 	      for (var i = 0, l = contexts.length; i < l; i++) {
 	        contexts[i].$forceUpdate();
 	      }
 	    };
-
+	
 	    var resolve = once(function (res) {
 	      // cache resolved
 	      factory.resolved = ensureCtor(res, baseCtor);
@@ -2212,7 +2212,7 @@
 	        forceRender();
 	      }
 	    });
-
+	
 	    var reject = once(function (reason) {
 	      process.env.NODE_ENV !== 'production' && warn(
 	        "Failed to resolve async component: " + (String(factory)) +
@@ -2223,9 +2223,9 @@
 	        forceRender();
 	      }
 	    });
-
+	
 	    var res = factory(resolve, reject);
-
+	
 	    if (isObject(res)) {
 	      if (typeof res.then === 'function') {
 	        // () => Promise
@@ -2234,11 +2234,11 @@
 	        }
 	      } else if (isDef(res.component) && typeof res.component.then === 'function') {
 	        res.component.then(resolve, reject);
-
+	
 	        if (isDef(res.error)) {
 	          factory.errorComp = ensureCtor(res.error, baseCtor);
 	        }
-
+	
 	        if (isDef(res.loading)) {
 	          factory.loadingComp = ensureCtor(res.loading, baseCtor);
 	          if (res.delay === 0) {
@@ -2252,7 +2252,7 @@
 	            }, res.delay || 200);
 	          }
 	        }
-
+	
 	        if (isDef(res.timeout)) {
 	          setTimeout(function () {
 	            if (isUndef(factory.resolved)) {
@@ -2266,7 +2266,7 @@
 	        }
 	      }
 	    }
-
+	
 	    sync = false;
 	    // return in case resolved synchronously
 	    return factory.loading
@@ -2274,9 +2274,9 @@
 	      : factory.resolved
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function getFirstComponentChild (children) {
 	  if (Array.isArray(children)) {
 	    for (var i = 0; i < children.length; i++) {
@@ -2287,11 +2287,11 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/*  */
-
+	
 	function initEvents (vm) {
 	  vm._events = Object.create(null);
 	  vm._hasHookEvent = false;
@@ -2301,9 +2301,9 @@
 	    updateComponentListeners(vm, listeners);
 	  }
 	}
-
+	
 	var target;
-
+	
 	function add (event, fn, once$$1) {
 	  if (once$$1) {
 	    target.$once(event, fn);
@@ -2311,11 +2311,11 @@
 	    target.$on(event, fn);
 	  }
 	}
-
+	
 	function remove$1 (event, fn) {
 	  target.$off(event, fn);
 	}
-
+	
 	function updateComponentListeners (
 	  vm,
 	  listeners,
@@ -2324,12 +2324,12 @@
 	  target = vm;
 	  updateListeners(listeners, oldListeners || {}, add, remove$1, vm);
 	}
-
+	
 	function eventsMixin (Vue) {
 	  var hookRE = /^hook:/;
 	  Vue.prototype.$on = function (event, fn) {
 	    var this$1 = this;
-
+	
 	    var vm = this;
 	    if (Array.isArray(event)) {
 	      for (var i = 0, l = event.length; i < l; i++) {
@@ -2345,7 +2345,7 @@
 	    }
 	    return vm
 	  };
-
+	
 	  Vue.prototype.$once = function (event, fn) {
 	    var vm = this;
 	    function on () {
@@ -2356,10 +2356,10 @@
 	    vm.$on(event, on);
 	    return vm
 	  };
-
+	
 	  Vue.prototype.$off = function (event, fn) {
 	    var this$1 = this;
-
+	
 	    var vm = this;
 	    // all
 	    if (!arguments.length) {
@@ -2394,7 +2394,7 @@
 	    }
 	    return vm
 	  };
-
+	
 	  Vue.prototype.$emit = function (event) {
 	    var vm = this;
 	    if (process.env.NODE_ENV !== 'production') {
@@ -2424,9 +2424,9 @@
 	    return vm
 	  };
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for resolving raw children VNodes into a slot object.
 	 */
@@ -2463,11 +2463,11 @@
 	  }
 	  return slots
 	}
-
+	
 	function isWhitespace (node) {
 	  return node.isComment || node.text === ' '
 	}
-
+	
 	function resolveScopedSlots (
 	  fns, // see flow/vnode
 	  res
@@ -2482,15 +2482,15 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	var activeInstance = null;
 	var isUpdatingChildComponent = false;
-
+	
 	function initLifecycle (vm) {
 	  var options = vm.$options;
-
+	
 	  // locate first non-abstract parent
 	  var parent = options.parent;
 	  if (parent && !options.abstract) {
@@ -2499,13 +2499,13 @@
 	    }
 	    parent.$children.push(vm);
 	  }
-
+	
 	  vm.$parent = parent;
 	  vm.$root = parent ? parent.$root : vm;
-
+	
 	  vm.$children = [];
 	  vm.$refs = {};
-
+	
 	  vm._watcher = null;
 	  vm._inactive = null;
 	  vm._directInactive = false;
@@ -2513,7 +2513,7 @@
 	  vm._isDestroyed = false;
 	  vm._isBeingDestroyed = false;
 	}
-
+	
 	function lifecycleMixin (Vue) {
 	  Vue.prototype._update = function (vnode, hydrating) {
 	    var vm = this;
@@ -2556,14 +2556,14 @@
 	    // updated hook is called by the scheduler to ensure that children are
 	    // updated in a parent's updated hook.
 	  };
-
+	
 	  Vue.prototype.$forceUpdate = function () {
 	    var vm = this;
 	    if (vm._watcher) {
 	      vm._watcher.update();
 	    }
 	  };
-
+	
 	  Vue.prototype.$destroy = function () {
 	    var vm = this;
 	    if (vm._isBeingDestroyed) {
@@ -2603,7 +2603,7 @@
 	    }
 	  };
 	}
-
+	
 	function mountComponent (
 	  vm,
 	  el,
@@ -2631,7 +2631,7 @@
 	    }
 	  }
 	  callHook(vm, 'beforeMount');
-
+	
 	  var updateComponent;
 	  /* istanbul ignore if */
 	  if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
@@ -2640,12 +2640,12 @@
 	      var id = vm._uid;
 	      var startTag = "vue-perf-start:" + id;
 	      var endTag = "vue-perf-end:" + id;
-
+	
 	      mark(startTag);
 	      var vnode = vm._render();
 	      mark(endTag);
 	      measure((name + " render"), startTag, endTag);
-
+	
 	      mark(startTag);
 	      vm._update(vnode, hydrating);
 	      mark(endTag);
@@ -2656,10 +2656,10 @@
 	      vm._update(vm._render(), hydrating);
 	    };
 	  }
-
+	
 	  vm._watcher = new Watcher(vm, updateComponent, noop);
 	  hydrating = false;
-
+	
 	  // manually mounted instance, call mounted on self
 	  // mounted is called for render-created child components in its inserted hook
 	  if (vm.$vnode == null) {
@@ -2668,7 +2668,7 @@
 	  }
 	  return vm
 	}
-
+	
 	function updateChildComponent (
 	  vm,
 	  propsData,
@@ -2679,7 +2679,7 @@
 	  if (process.env.NODE_ENV !== 'production') {
 	    isUpdatingChildComponent = true;
 	  }
-
+	
 	  // determine whether component has slot children
 	  // we need to do this before overwriting $options._renderChildren
 	  var hasChildren = !!(
@@ -2688,21 +2688,21 @@
 	    parentVnode.data.scopedSlots || // has new scoped slots
 	    vm.$scopedSlots !== emptyObject // has old scoped slots
 	  );
-
+	
 	  vm.$options._parentVnode = parentVnode;
 	  vm.$vnode = parentVnode; // update vm's placeholder node without re-render
-
+	
 	  if (vm._vnode) { // update child tree's parent
 	    vm._vnode.parent = parentVnode;
 	  }
 	  vm.$options._renderChildren = renderChildren;
-
+	
 	  // update $attrs and $listensers hash
 	  // these are also reactive so they may trigger child update if the child
 	  // used them during render
 	  vm.$attrs = parentVnode.data && parentVnode.data.attrs;
 	  vm.$listeners = listeners;
-
+	
 	  // update props
 	  if (propsData && vm.$options.props) {
 	    observerState.shouldConvert = false;
@@ -2716,7 +2716,7 @@
 	    // keep a copy of raw propsData
 	    vm.$options.propsData = propsData;
 	  }
-
+	
 	  // update listeners
 	  if (listeners) {
 	    var oldListeners = vm.$options._parentListeners;
@@ -2728,19 +2728,19 @@
 	    vm.$slots = resolveSlots(renderChildren, parentVnode.context);
 	    vm.$forceUpdate();
 	  }
-
+	
 	  if (process.env.NODE_ENV !== 'production') {
 	    isUpdatingChildComponent = false;
 	  }
 	}
-
+	
 	function isInInactiveTree (vm) {
 	  while (vm && (vm = vm.$parent)) {
 	    if (vm._inactive) { return true }
 	  }
 	  return false
 	}
-
+	
 	function activateChildComponent (vm, direct) {
 	  if (direct) {
 	    vm._directInactive = false;
@@ -2758,7 +2758,7 @@
 	    callHook(vm, 'activated');
 	  }
 	}
-
+	
 	function deactivateChildComponent (vm, direct) {
 	  if (direct) {
 	    vm._directInactive = true;
@@ -2774,7 +2774,7 @@
 	    callHook(vm, 'deactivated');
 	  }
 	}
-
+	
 	function callHook (vm, hook) {
 	  var handlers = vm.$options[hook];
 	  if (handlers) {
@@ -2790,12 +2790,12 @@
 	    vm.$emit('hook:' + hook);
 	  }
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var MAX_UPDATE_COUNT = 100;
-
+	
 	var queue = [];
 	var activatedChildren = [];
 	var has = {};
@@ -2803,7 +2803,7 @@
 	var waiting = false;
 	var flushing = false;
 	var index = 0;
-
+	
 	/**
 	 * Reset the scheduler's state.
 	 */
@@ -2815,14 +2815,14 @@
 	  }
 	  waiting = flushing = false;
 	}
-
+	
 	/**
 	 * Flush both queues and run the watchers.
 	 */
 	function flushSchedulerQueue () {
 	  flushing = true;
 	  var watcher, id;
-
+	
 	  // Sort queue before flush.
 	  // This ensures that:
 	  // 1. Components are updated from parent to child. (because parent is always
@@ -2832,7 +2832,7 @@
 	  // 3. If a component is destroyed during a parent component's watcher run,
 	  //    its watchers can be skipped.
 	  queue.sort(function (a, b) { return a.id - b.id; });
-
+	
 	  // do not cache length because more watchers might be pushed
 	  // as we run existing watchers
 	  for (index = 0; index < queue.length; index++) {
@@ -2856,24 +2856,24 @@
 	      }
 	    }
 	  }
-
+	
 	  // keep copies of post queues before resetting state
 	  var activatedQueue = activatedChildren.slice();
 	  var updatedQueue = queue.slice();
-
+	
 	  resetSchedulerState();
-
+	
 	  // call component updated and activated hooks
 	  callActivatedHooks(activatedQueue);
 	  callUpdatedHooks(updatedQueue);
-
+	
 	  // devtool hook
 	  /* istanbul ignore if */
 	  if (devtools && config.devtools) {
 	    devtools.emit('flush');
 	  }
 	}
-
+	
 	function callUpdatedHooks (queue) {
 	  var i = queue.length;
 	  while (i--) {
@@ -2884,7 +2884,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Queue a kept-alive component that was activated during patch.
 	 * The queue will be processed after the entire tree has been patched.
@@ -2895,14 +2895,14 @@
 	  vm._inactive = false;
 	  activatedChildren.push(vm);
 	}
-
+	
 	function callActivatedHooks (queue) {
 	  for (var i = 0; i < queue.length; i++) {
 	    queue[i]._inactive = true;
 	    activateChildComponent(queue[i], true /* true */);
 	  }
 	}
-
+	
 	/**
 	 * Push a watcher into the watcher queue.
 	 * Jobs with duplicate IDs will be skipped unless it's
@@ -2930,11 +2930,11 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var uid$2 = 0;
-
+	
 	/**
 	 * A watcher parses an expression, collects dependencies,
 	 * and fires callback when the expression value changes.
@@ -2987,7 +2987,7 @@
 	    ? undefined
 	    : this.get();
 	};
-
+	
 	/**
 	 * Evaluate the getter, and re-collect dependencies.
 	 */
@@ -3014,7 +3014,7 @@
 	  }
 	  return value
 	};
-
+	
 	/**
 	 * Add a dependency to this directive.
 	 */
@@ -3028,13 +3028,13 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Clean up for dependency collection.
 	 */
 	Watcher.prototype.cleanupDeps = function cleanupDeps () {
 	    var this$1 = this;
-
+	
 	  var i = this.deps.length;
 	  while (i--) {
 	    var dep = this$1.deps[i];
@@ -3051,7 +3051,7 @@
 	  this.newDeps = tmp;
 	  this.newDeps.length = 0;
 	};
-
+	
 	/**
 	 * Subscriber interface.
 	 * Will be called when a dependency changes.
@@ -3066,7 +3066,7 @@
 	    queueWatcher(this);
 	  }
 	};
-
+	
 	/**
 	 * Scheduler job interface.
 	 * Will be called by the scheduler.
@@ -3097,7 +3097,7 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Evaluate the value of the watcher.
 	 * This only gets called for lazy watchers.
@@ -3106,25 +3106,25 @@
 	  this.value = this.get();
 	  this.dirty = false;
 	};
-
+	
 	/**
 	 * Depend on all deps collected by this watcher.
 	 */
 	Watcher.prototype.depend = function depend () {
 	    var this$1 = this;
-
+	
 	  var i = this.deps.length;
 	  while (i--) {
 	    this$1.deps[i].depend();
 	  }
 	};
-
+	
 	/**
 	 * Remove self from all dependencies' subscriber list.
 	 */
 	Watcher.prototype.teardown = function teardown () {
 	    var this$1 = this;
-
+	
 	  if (this.active) {
 	    // remove self from vm's watcher list
 	    // this is a somewhat expensive operation so we skip it
@@ -3139,7 +3139,7 @@
 	    this.active = false;
 	  }
 	};
-
+	
 	/**
 	 * Recursively traverse an object to evoke all converted
 	 * getters, so that every nested property inside the object
@@ -3150,7 +3150,7 @@
 	  seenObjects.clear();
 	  _traverse(val, seenObjects);
 	}
-
+	
 	function _traverse (val, seen) {
 	  var i, keys;
 	  var isA = Array.isArray(val);
@@ -3173,16 +3173,16 @@
 	    while (i--) { _traverse(val[keys[i]], seen); }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var sharedPropertyDefinition = {
 	  enumerable: true,
 	  configurable: true,
 	  get: noop,
 	  set: noop
 	};
-
+	
 	function proxy (target, sourceKey, key) {
 	  sharedPropertyDefinition.get = function proxyGetter () {
 	    return this[sourceKey][key]
@@ -3192,7 +3192,7 @@
 	  };
 	  Object.defineProperty(target, key, sharedPropertyDefinition);
 	}
-
+	
 	function initState (vm) {
 	  vm._watchers = [];
 	  var opts = vm.$options;
@@ -3208,7 +3208,7 @@
 	    initWatch(vm, opts.watch);
 	  }
 	}
-
+	
 	function checkOptionType (vm, name) {
 	  var option = vm.$options[name];
 	  if (!isPlainObject(option)) {
@@ -3218,7 +3218,7 @@
 	    );
 	  }
 	}
-
+	
 	function initProps (vm, propsOptions) {
 	  var propsData = vm.$options.propsData || {};
 	  var props = vm._props = {};
@@ -3260,11 +3260,11 @@
 	      proxy(vm, "_props", key);
 	    }
 	  };
-
+	
 	  for (var key in propsOptions) loop( key );
 	  observerState.shouldConvert = true;
 	}
-
+	
 	function initData (vm) {
 	  var data = vm.$options.data;
 	  data = vm._data = typeof data === 'function'
@@ -3306,7 +3306,7 @@
 	  // observe data
 	  observe(data, true /* asRootData */);
 	}
-
+	
 	function getData (data, vm) {
 	  try {
 	    return data.call(vm)
@@ -3315,13 +3315,13 @@
 	    return {}
 	  }
 	}
-
+	
 	var computedWatcherOptions = { lazy: true };
-
+	
 	function initComputed (vm, computed) {
 	  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'computed');
 	  var watchers = vm._computedWatchers = Object.create(null);
-
+	
 	  for (var key in computed) {
 	    var userDef = computed[key];
 	    var getter = typeof userDef === 'function' ? userDef : userDef.get;
@@ -3333,7 +3333,7 @@
 	    }
 	    // create internal watcher for the computed property.
 	    watchers[key] = new Watcher(vm, getter || noop, noop, computedWatcherOptions);
-
+	
 	    // component-defined computed properties are already defined on the
 	    // component prototype. We only need to define computed properties defined
 	    // at instantiation here.
@@ -3348,7 +3348,7 @@
 	    }
 	  }
 	}
-
+	
 	function defineComputed (target, key, userDef) {
 	  if (typeof userDef === 'function') {
 	    sharedPropertyDefinition.get = createComputedGetter(key);
@@ -3374,7 +3374,7 @@
 	  }
 	  Object.defineProperty(target, key, sharedPropertyDefinition);
 	}
-
+	
 	function createComputedGetter (key) {
 	  return function computedGetter () {
 	    var watcher = this._computedWatchers && this._computedWatchers[key];
@@ -3389,7 +3389,7 @@
 	    }
 	  }
 	}
-
+	
 	function initMethods (vm, methods) {
 	  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'methods');
 	  var props = vm.$options.props;
@@ -3412,7 +3412,7 @@
 	    }
 	  }
 	}
-
+	
 	function initWatch (vm, watch) {
 	  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'watch');
 	  for (var key in watch) {
@@ -3426,7 +3426,7 @@
 	    }
 	  }
 	}
-
+	
 	function createWatcher (
 	  vm,
 	  keyOrFn,
@@ -3442,7 +3442,7 @@
 	  }
 	  return vm.$watch(keyOrFn, handler, options)
 	}
-
+	
 	function stateMixin (Vue) {
 	  // flow somehow has problems with directly declared definition object
 	  // when using Object.defineProperty, so we have to procedurally build up
@@ -3465,10 +3465,10 @@
 	  }
 	  Object.defineProperty(Vue.prototype, '$data', dataDef);
 	  Object.defineProperty(Vue.prototype, '$props', propsDef);
-
+	
 	  Vue.prototype.$set = set;
 	  Vue.prototype.$delete = del;
-
+	
 	  Vue.prototype.$watch = function (
 	    expOrFn,
 	    cb,
@@ -3489,9 +3489,9 @@
 	    }
 	  };
 	}
-
+	
 	/*  */
-
+	
 	function initProvide (vm) {
 	  var provide = vm.$options.provide;
 	  if (provide) {
@@ -3500,7 +3500,7 @@
 	      : provide;
 	  }
 	}
-
+	
 	function initInjections (vm) {
 	  var result = resolveInject(vm.$options.inject, vm);
 	  if (result) {
@@ -3523,7 +3523,7 @@
 	    observerState.shouldConvert = true;
 	  }
 	}
-
+	
 	function resolveInject (inject, vm) {
 	  if (inject) {
 	    // inject is :any because flow is not smart enough to figure out cached
@@ -3531,7 +3531,7 @@
 	    var keys = hasSymbol
 	        ? Reflect.ownKeys(inject)
 	        : Object.keys(inject);
-
+	
 	    for (var i = 0; i < keys.length; i++) {
 	      var key = keys[i];
 	      var provideKey = inject[key];
@@ -3550,9 +3550,9 @@
 	    return result
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function createFunctionalComponent (
 	  Ctor,
 	  propsData,
@@ -3592,15 +3592,15 @@
 	  }
 	  return vnode
 	}
-
+	
 	function mergeProps (to, from) {
 	  for (var key in from) {
 	    to[camelize(key)] = from[key];
 	  }
 	}
-
+	
 	/*  */
-
+	
 	// hooks to be invoked on component VNodes during patch
 	var componentVNodeHooks = {
 	  init: function init (
@@ -3623,7 +3623,7 @@
 	      componentVNodeHooks.prepatch(mountedNode, mountedNode);
 	    }
 	  },
-
+	
 	  prepatch: function prepatch (oldVnode, vnode) {
 	    var options = vnode.componentOptions;
 	    var child = vnode.componentInstance = oldVnode.componentInstance;
@@ -3635,7 +3635,7 @@
 	      options.children // new children
 	    );
 	  },
-
+	
 	  insert: function insert (vnode) {
 	    var context = vnode.context;
 	    var componentInstance = vnode.componentInstance;
@@ -3656,7 +3656,7 @@
 	      }
 	    }
 	  },
-
+	
 	  destroy: function destroy (vnode) {
 	    var componentInstance = vnode.componentInstance;
 	    if (!componentInstance._isDestroyed) {
@@ -3668,9 +3668,9 @@
 	    }
 	  }
 	};
-
+	
 	var hooksToMerge = Object.keys(componentVNodeHooks);
-
+	
 	function createComponent (
 	  Ctor,
 	  data,
@@ -3681,14 +3681,14 @@
 	  if (isUndef(Ctor)) {
 	    return
 	  }
-
+	
 	  var baseCtor = context.$options._base;
-
+	
 	  // plain options object: turn it into a constructor
 	  if (isObject(Ctor)) {
 	    Ctor = baseCtor.extend(Ctor);
 	  }
-
+	
 	  // if at this stage it's not a constructor or an async component factory,
 	  // reject.
 	  if (typeof Ctor !== 'function') {
@@ -3697,7 +3697,7 @@
 	    }
 	    return
 	  }
-
+	
 	  // async component
 	  var asyncFactory;
 	  if (isUndef(Ctor.cid)) {
@@ -3716,37 +3716,37 @@
 	      )
 	    }
 	  }
-
+	
 	  data = data || {};
-
+	
 	  // resolve constructor options in case global mixins are applied after
 	  // component constructor creation
 	  resolveConstructorOptions(Ctor);
-
+	
 	  // transform component v-model data into props & events
 	  if (isDef(data.model)) {
 	    transformModel(Ctor.options, data);
 	  }
-
+	
 	  // extract props
 	  var propsData = extractPropsFromVNodeData(data, Ctor, tag);
-
+	
 	  // functional component
 	  if (isTrue(Ctor.options.functional)) {
 	    return createFunctionalComponent(Ctor, propsData, data, context, children)
 	  }
-
+	
 	  // extract listeners, since these needs to be treated as
 	  // child component listeners instead of DOM listeners
 	  var listeners = data.on;
 	  // replace with listeners with .native modifier
 	  // so it gets processed during parent component patch.
 	  data.on = data.nativeOn;
-
+	
 	  if (isTrue(Ctor.options.abstract)) {
 	    // abstract components do not keep anything
 	    // other than props & listeners & slot
-
+	
 	    // work around flow
 	    var slot = data.slot;
 	    data = {};
@@ -3754,10 +3754,10 @@
 	      data.slot = slot;
 	    }
 	  }
-
+	
 	  // merge component management hooks onto the placeholder node
 	  mergeHooks(data);
-
+	
 	  // return a placeholder vnode
 	  var name = Ctor.options.name || tag;
 	  var vnode = new VNode(
@@ -3768,7 +3768,7 @@
 	  );
 	  return vnode
 	}
-
+	
 	function createComponentInstanceForVnode (
 	  vnode, // we know it's MountedComponentVNode but flow doesn't
 	  parent, // activeInstance in lifecycle state
@@ -3795,7 +3795,7 @@
 	  }
 	  return new vnodeComponentOptions.Ctor(options)
 	}
-
+	
 	function mergeHooks (data) {
 	  if (!data.hook) {
 	    data.hook = {};
@@ -3807,14 +3807,14 @@
 	    data.hook[key] = fromParent ? mergeHook$1(ours, fromParent) : ours;
 	  }
 	}
-
+	
 	function mergeHook$1 (one, two) {
 	  return function (a, b, c, d) {
 	    one(a, b, c, d);
 	    two(a, b, c, d);
 	  }
 	}
-
+	
 	// transform component v-model info (value and callback) into
 	// prop and event handler respectively.
 	function transformModel (options, data) {
@@ -3827,12 +3827,12 @@
 	    on[event] = data.model.callback;
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var SIMPLE_NORMALIZE = 1;
 	var ALWAYS_NORMALIZE = 2;
-
+	
 	// wrapper function for providing a more flexible interface
 	// without getting yelled at by flow
 	function createElement (
@@ -3853,7 +3853,7 @@
 	  }
 	  return _createElement(context, tag, data, children, normalizationType)
 	}
-
+	
 	function _createElement (
 	  context,
 	  tag,
@@ -3933,7 +3933,7 @@
 	    return createEmptyVNode()
 	  }
 	}
-
+	
 	function applyNS (vnode, ns) {
 	  vnode.ns = ns;
 	  if (vnode.tag === 'foreignObject') {
@@ -3949,9 +3949,9 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for rendering v-for lists.
 	 */
@@ -3983,9 +3983,9 @@
 	  }
 	  return ret
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for rendering <slot>
 	 */
@@ -4016,18 +4016,18 @@
 	    return slotNodes || fallback
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for resolving filters
 	 */
 	function resolveFilter (id) {
 	  return resolveAsset(this.$options, 'filters', id, true) || identity
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for checking keyCodes from config.
 	 */
@@ -4043,9 +4043,9 @@
 	    return keyCodes !== eventKeyCode
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for merging v-bind="object" into a VNode's data.
 	 */
@@ -4082,7 +4082,7 @@
 	        }
 	        if (!(key in hash)) {
 	          hash[key] = value[key];
-
+	
 	          if (isSync) {
 	            var on = data.on || (data.on = {});
 	            on[("update:" + key)] = function ($event) {
@@ -4091,15 +4091,15 @@
 	          }
 	        }
 	      };
-
+	
 	      for (var key in value) loop( key );
 	    }
 	  }
 	  return data
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Runtime helper for rendering static trees.
 	 */
@@ -4121,7 +4121,7 @@
 	  markStatic(tree, ("__static__" + index), false);
 	  return tree
 	}
-
+	
 	/**
 	 * Runtime helper for v-once.
 	 * Effectively it means marking the node as static with a unique key.
@@ -4134,7 +4134,7 @@
 	  markStatic(tree, ("__once__" + index + (key ? ("_" + key) : "")), true);
 	  return tree
 	}
-
+	
 	function markStatic (
 	  tree,
 	  key,
@@ -4150,15 +4150,15 @@
 	    markStaticNode(tree, key, isOnce);
 	  }
 	}
-
+	
 	function markStaticNode (node, key, isOnce) {
 	  node.isStatic = true;
 	  node.key = key;
 	  node.isOnce = isOnce;
 	}
-
+	
 	/*  */
-
+	
 	function bindObjectListeners (data, value) {
 	  if (value) {
 	    if (!isPlainObject(value)) {
@@ -4177,9 +4177,9 @@
 	  }
 	  return data
 	}
-
+	
 	/*  */
-
+	
 	function initRender (vm) {
 	  vm._vnode = null; // the root of the child tree
 	  vm._staticTrees = null;
@@ -4195,7 +4195,7 @@
 	  // normalization is always applied for the public version, used in
 	  // user-written render functions.
 	  vm.$createElement = function (a, b, c, d) { return createElement(vm, a, b, c, d, true); };
-
+	
 	  // $attrs & $listeners are exposed for easier HOC creation.
 	  // they need to be reactive so that HOCs using them are always updated
 	  var parentData = parentVnode && parentVnode.data;
@@ -4212,28 +4212,28 @@
 	    defineReactive$$1(vm, '$listeners', vm.$options._parentListeners, null, true);
 	  }
 	}
-
+	
 	function renderMixin (Vue) {
 	  Vue.prototype.$nextTick = function (fn) {
 	    return nextTick(fn, this)
 	  };
-
+	
 	  Vue.prototype._render = function () {
 	    var vm = this;
 	    var ref = vm.$options;
 	    var render = ref.render;
 	    var staticRenderFns = ref.staticRenderFns;
 	    var _parentVnode = ref._parentVnode;
-
+	
 	    if (vm._isMounted) {
 	      // clone slot nodes on re-renders
 	      for (var key in vm.$slots) {
 	        vm.$slots[key] = cloneVNodes(vm.$slots[key]);
 	      }
 	    }
-
+	
 	    vm.$scopedSlots = (_parentVnode && _parentVnode.data.scopedSlots) || emptyObject;
-
+	
 	    if (staticRenderFns && !vm._staticTrees) {
 	      vm._staticTrees = [];
 	    }
@@ -4272,7 +4272,7 @@
 	    vnode.parent = _parentVnode;
 	    return vnode
 	  };
-
+	
 	  // internal render helpers.
 	  // these are exposed on the instance prototype to reduce generated render
 	  // code size.
@@ -4292,17 +4292,17 @@
 	  Vue.prototype._u = resolveScopedSlots;
 	  Vue.prototype._g = bindObjectListeners;
 	}
-
+	
 	/*  */
-
+	
 	var uid = 0;
-
+	
 	function initMixin (Vue) {
 	  Vue.prototype._init = function (options) {
 	    var vm = this;
 	    // a uid
 	    vm._uid = uid++;
-
+	
 	    var startTag, endTag;
 	    /* istanbul ignore if */
 	    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
@@ -4310,7 +4310,7 @@
 	      endTag = "vue-perf-end:" + (vm._uid);
 	      mark(startTag);
 	    }
-
+	
 	    // a flag to avoid this being observed
 	    vm._isVue = true;
 	    // merge options
@@ -4342,20 +4342,20 @@
 	    initState(vm);
 	    initProvide(vm); // resolve provide after data/props
 	    callHook(vm, 'created');
-
+	
 	    /* istanbul ignore if */
 	    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
 	      vm._name = formatComponentName(vm, false);
 	      mark(endTag);
 	      measure(((vm._name) + " init"), startTag, endTag);
 	    }
-
+	
 	    if (vm.$options.el) {
 	      vm.$mount(vm.$options.el);
 	    }
 	  };
 	}
-
+	
 	function initInternalComponent (vm, options) {
 	  var opts = vm.$options = Object.create(vm.constructor.options);
 	  // doing this because it's faster than dynamic enumeration.
@@ -4372,7 +4372,7 @@
 	    opts.staticRenderFns = options.staticRenderFns;
 	  }
 	}
-
+	
 	function resolveConstructorOptions (Ctor) {
 	  var options = Ctor.options;
 	  if (Ctor.super) {
@@ -4396,7 +4396,7 @@
 	  }
 	  return options
 	}
-
+	
 	function resolveModifiedOptions (Ctor) {
 	  var modified;
 	  var latest = Ctor.options;
@@ -4410,7 +4410,7 @@
 	  }
 	  return modified
 	}
-
+	
 	function dedupe (latest, extended, sealed) {
 	  // compare latest and sealed to ensure lifecycle hooks won't be duplicated
 	  // between merges
@@ -4429,7 +4429,7 @@
 	    return latest
 	  }
 	}
-
+	
 	function Vue$3 (options) {
 	  if (process.env.NODE_ENV !== 'production' &&
 	    !(this instanceof Vue$3)
@@ -4438,22 +4438,22 @@
 	  }
 	  this._init(options);
 	}
-
+	
 	initMixin(Vue$3);
 	stateMixin(Vue$3);
 	eventsMixin(Vue$3);
 	lifecycleMixin(Vue$3);
 	renderMixin(Vue$3);
-
+	
 	/*  */
-
+	
 	function initUse (Vue) {
 	  Vue.use = function (plugin) {
 	    var installedPlugins = (this._installedPlugins || (this._installedPlugins = []));
 	    if (installedPlugins.indexOf(plugin) > -1) {
 	      return this
 	    }
-
+	
 	    // additional parameters
 	    var args = toArray(arguments, 1);
 	    args.unshift(this);
@@ -4466,18 +4466,18 @@
 	    return this
 	  };
 	}
-
+	
 	/*  */
-
+	
 	function initMixin$1 (Vue) {
 	  Vue.mixin = function (mixin) {
 	    this.options = mergeOptions(this.options, mixin);
 	    return this
 	  };
 	}
-
+	
 	/*  */
-
+	
 	function initExtend (Vue) {
 	  /**
 	   * Each instance constructor, including Vue, has a unique
@@ -4486,7 +4486,7 @@
 	   */
 	  Vue.cid = 0;
 	  var cid = 1;
-
+	
 	  /**
 	   * Class inheritance
 	   */
@@ -4498,7 +4498,7 @@
 	    if (cachedCtors[SuperId]) {
 	      return cachedCtors[SuperId]
 	    }
-
+	
 	    var name = extendOptions.name || Super.options.name;
 	    if (process.env.NODE_ENV !== 'production') {
 	      if (!/^[a-zA-Z][\w-]*$/.test(name)) {
@@ -4509,7 +4509,7 @@
 	        );
 	      }
 	    }
-
+	
 	    var Sub = function VueComponent (options) {
 	      this._init(options);
 	    };
@@ -4521,7 +4521,7 @@
 	      extendOptions
 	    );
 	    Sub['super'] = Super;
-
+	
 	    // For props and computed properties, we define the proxy getters on
 	    // the Vue instances at extension time, on the extended prototype. This
 	    // avoids Object.defineProperty calls for each instance created.
@@ -4531,12 +4531,12 @@
 	    if (Sub.options.computed) {
 	      initComputed$1(Sub);
 	    }
-
+	
 	    // allow further extension/mixin/plugin usage
 	    Sub.extend = Super.extend;
 	    Sub.mixin = Super.mixin;
 	    Sub.use = Super.use;
-
+	
 	    // create asset registers, so extended classes
 	    // can have their private assets too.
 	    ASSET_TYPES.forEach(function (type) {
@@ -4546,36 +4546,36 @@
 	    if (name) {
 	      Sub.options.components[name] = Sub;
 	    }
-
+	
 	    // keep a reference to the super options at extension time.
 	    // later at instantiation we can check if Super's options have
 	    // been updated.
 	    Sub.superOptions = Super.options;
 	    Sub.extendOptions = extendOptions;
 	    Sub.sealedOptions = extend({}, Sub.options);
-
+	
 	    // cache constructor
 	    cachedCtors[SuperId] = Sub;
 	    return Sub
 	  };
 	}
-
+	
 	function initProps$1 (Comp) {
 	  var props = Comp.options.props;
 	  for (var key in props) {
 	    proxy(Comp.prototype, "_props", key);
 	  }
 	}
-
+	
 	function initComputed$1 (Comp) {
 	  var computed = Comp.options.computed;
 	  for (var key in computed) {
 	    defineComputed(Comp.prototype, key, computed[key]);
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function initAssetRegisters (Vue) {
 	  /**
 	   * Create asset registration methods.
@@ -4610,15 +4610,15 @@
 	    };
 	  });
 	}
-
+	
 	/*  */
-
+	
 	var patternTypes = [String, RegExp, Array];
-
+	
 	function getComponentName (opts) {
 	  return opts && (opts.Ctor.options.name || opts.tag)
 	}
-
+	
 	function matches (pattern, name) {
 	  if (Array.isArray(pattern)) {
 	    return pattern.indexOf(name) > -1
@@ -4630,7 +4630,7 @@
 	  /* istanbul ignore next */
 	  return false
 	}
-
+	
 	function pruneCache (cache, current, filter) {
 	  for (var key in cache) {
 	    var cachedNode = cache[key];
@@ -4645,34 +4645,34 @@
 	    }
 	  }
 	}
-
+	
 	function pruneCacheEntry (vnode) {
 	  if (vnode) {
 	    vnode.componentInstance.$destroy();
 	  }
 	}
-
+	
 	var KeepAlive = {
 	  name: 'keep-alive',
 	  abstract: true,
-
+	
 	  props: {
 	    include: patternTypes,
 	    exclude: patternTypes
 	  },
-
+	
 	  created: function created () {
 	    this.cache = Object.create(null);
 	  },
-
+	
 	  destroyed: function destroyed () {
 	    var this$1 = this;
-
+	
 	    for (var key in this$1.cache) {
 	      pruneCacheEntry(this$1.cache[key]);
 	    }
 	  },
-
+	
 	  watch: {
 	    include: function include (val) {
 	      pruneCache(this.cache, this._vnode, function (name) { return matches(val, name); });
@@ -4681,7 +4681,7 @@
 	      pruneCache(this.cache, this._vnode, function (name) { return !matches(val, name); });
 	    }
 	  },
-
+	
 	  render: function render () {
 	    var vnode = getFirstComponentChild(this.$slots.default);
 	    var componentOptions = vnode && vnode.componentOptions;
@@ -4709,13 +4709,13 @@
 	    return vnode
 	  }
 	};
-
+	
 	var builtInComponents = {
 	  KeepAlive: KeepAlive
 	};
-
+	
 	/*  */
-
+	
 	function initGlobalAPI (Vue) {
 	  // config
 	  var configDef = {};
@@ -4728,7 +4728,7 @@
 	    };
 	  }
 	  Object.defineProperty(Vue, 'config', configDef);
-
+	
 	  // exposed util methods.
 	  // NOTE: these are not considered part of the public API - avoid relying on
 	  // them unless you are aware of the risk.
@@ -4738,49 +4738,49 @@
 	    mergeOptions: mergeOptions,
 	    defineReactive: defineReactive$$1
 	  };
-
+	
 	  Vue.set = set;
 	  Vue.delete = del;
 	  Vue.nextTick = nextTick;
-
+	
 	  Vue.options = Object.create(null);
 	  ASSET_TYPES.forEach(function (type) {
 	    Vue.options[type + 's'] = Object.create(null);
 	  });
-
+	
 	  // this is used to identify the "base" constructor to extend all plain-object
 	  // components with in Weex's multi-instance scenarios.
 	  Vue.options._base = Vue;
-
+	
 	  extend(Vue.options.components, builtInComponents);
-
+	
 	  initUse(Vue);
 	  initMixin$1(Vue);
 	  initExtend(Vue);
 	  initAssetRegisters(Vue);
 	}
-
+	
 	initGlobalAPI(Vue$3);
-
+	
 	Object.defineProperty(Vue$3.prototype, '$isServer', {
 	  get: isServerRendering
 	});
-
+	
 	Object.defineProperty(Vue$3.prototype, '$ssrContext', {
 	  get: function get () {
 	    /* istanbul ignore next */
 	    return this.$vnode && this.$vnode.ssrContext
 	  }
 	});
-
+	
 	Vue$3.version = '2.4.2';
-
+	
 	/*  */
-
+	
 	// these are reserved for web because they are directly compiled away
 	// during template compilation
 	var isReservedAttr = makeMap('style,class');
-
+	
 	// attributes that should be using props for binding
 	var acceptValue = makeMap('input,textarea,option,select');
 	var mustUseProp = function (tag, type, attr) {
@@ -4791,9 +4791,9 @@
 	    (attr === 'muted' && tag === 'video')
 	  )
 	};
-
+	
 	var isEnumeratedAttr = makeMap('contenteditable,draggable,spellcheck');
-
+	
 	var isBooleanAttr = makeMap(
 	  'allowfullscreen,async,autofocus,autoplay,checked,compact,controls,declare,' +
 	  'default,defaultchecked,defaultmuted,defaultselected,defer,disabled,' +
@@ -4802,23 +4802,23 @@
 	  'required,reversed,scoped,seamless,selected,sortable,translate,' +
 	  'truespeed,typemustmatch,visible'
 	);
-
+	
 	var xlinkNS = 'http://www.w3.org/1999/xlink';
-
+	
 	var isXlink = function (name) {
 	  return name.charAt(5) === ':' && name.slice(0, 5) === 'xlink'
 	};
-
+	
 	var getXlinkProp = function (name) {
 	  return isXlink(name) ? name.slice(6, name.length) : ''
 	};
-
+	
 	var isFalsyAttrValue = function (val) {
 	  return val == null || val === false
 	};
-
+	
 	/*  */
-
+	
 	function genClassForVnode (vnode) {
 	  var data = vnode.data;
 	  var parentNode = vnode;
@@ -4836,7 +4836,7 @@
 	  }
 	  return renderClass(data.staticClass, data.class)
 	}
-
+	
 	function mergeClassData (child, parent) {
 	  return {
 	    staticClass: concat(child.staticClass, parent.staticClass),
@@ -4845,7 +4845,7 @@
 	      : parent.class
 	  }
 	}
-
+	
 	function renderClass (
 	  staticClass,
 	  dynamicClass
@@ -4856,11 +4856,11 @@
 	  /* istanbul ignore next */
 	  return ''
 	}
-
+	
 	function concat (a, b) {
 	  return a ? b ? (a + ' ' + b) : a : (b || '')
 	}
-
+	
 	function stringifyClass (value) {
 	  if (Array.isArray(value)) {
 	    return stringifyArray(value)
@@ -4874,7 +4874,7 @@
 	  /* istanbul ignore next */
 	  return ''
 	}
-
+	
 	function stringifyArray (value) {
 	  var res = '';
 	  var stringified;
@@ -4886,7 +4886,7 @@
 	  }
 	  return res
 	}
-
+	
 	function stringifyObject (value) {
 	  var res = '';
 	  for (var key in value) {
@@ -4897,14 +4897,14 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	var namespaceMap = {
 	  svg: 'http://www.w3.org/2000/svg',
 	  math: 'http://www.w3.org/1998/Math/MathML'
 	};
-
+	
 	var isHTMLTag = makeMap(
 	  'html,body,base,head,link,meta,style,title,' +
 	  'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
@@ -4918,7 +4918,7 @@
 	  'details,dialog,menu,menuitem,summary,' +
 	  'content,element,shadow,template,blockquote,iframe,tfoot'
 	);
-
+	
 	// this map is intentionally selective, only covering SVG elements that may
 	// contain child elements.
 	var isSVG = makeMap(
@@ -4927,13 +4927,13 @@
 	  'polygon,polyline,rect,switch,symbol,text,textpath,tspan,use,view',
 	  true
 	);
-
-
-
+	
+	
+	
 	var isReservedTag = function (tag) {
 	  return isHTMLTag(tag) || isSVG(tag)
 	};
-
+	
 	function getTagNamespace (tag) {
 	  if (isSVG(tag)) {
 	    return 'svg'
@@ -4944,7 +4944,7 @@
 	    return 'math'
 	  }
 	}
-
+	
 	var unknownElementCache = Object.create(null);
 	function isUnknownElement (tag) {
 	  /* istanbul ignore if */
@@ -4970,9 +4970,9 @@
 	    return (unknownElementCache[tag] = /HTMLUnknownElement/.test(el.toString()))
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/**
 	 * Query an element selector if it's not an element already.
 	 */
@@ -4990,9 +4990,9 @@
 	    return el
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function createElement$1 (tagName, vnode) {
 	  var elm = document.createElement(tagName);
 	  if (tagName !== 'select') {
@@ -5004,52 +5004,52 @@
 	  }
 	  return elm
 	}
-
+	
 	function createElementNS (namespace, tagName) {
 	  return document.createElementNS(namespaceMap[namespace], tagName)
 	}
-
+	
 	function createTextNode (text) {
 	  return document.createTextNode(text)
 	}
-
+	
 	function createComment (text) {
 	  return document.createComment(text)
 	}
-
+	
 	function insertBefore (parentNode, newNode, referenceNode) {
 	  parentNode.insertBefore(newNode, referenceNode);
 	}
-
+	
 	function removeChild (node, child) {
 	  node.removeChild(child);
 	}
-
+	
 	function appendChild (node, child) {
 	  node.appendChild(child);
 	}
-
+	
 	function parentNode (node) {
 	  return node.parentNode
 	}
-
+	
 	function nextSibling (node) {
 	  return node.nextSibling
 	}
-
+	
 	function tagName (node) {
 	  return node.tagName
 	}
-
+	
 	function setTextContent (node, text) {
 	  node.textContent = text;
 	}
-
+	
 	function setAttribute (node, key, val) {
 	  node.setAttribute(key, val);
 	}
-
-
+	
+	
 	var nodeOps = Object.freeze({
 		createElement: createElement$1,
 		createElementNS: createElementNS,
@@ -5064,9 +5064,9 @@
 		setTextContent: setTextContent,
 		setAttribute: setAttribute
 	});
-
+	
 	/*  */
-
+	
 	var ref = {
 	  create: function create (_, vnode) {
 	    registerRef(vnode);
@@ -5081,11 +5081,11 @@
 	    registerRef(vnode, true);
 	  }
 	};
-
+	
 	function registerRef (vnode, isRemoval) {
 	  var key = vnode.data.ref;
 	  if (!key) { return }
-
+	
 	  var vm = vnode.context;
 	  var ref = vnode.componentInstance || vnode.elm;
 	  var refs = vm.$refs;
@@ -5108,7 +5108,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Virtual DOM patching algorithm based on Snabbdom by
 	 * Simon Friis Vindum (@paldepind)
@@ -5117,16 +5117,16 @@
 	 *
 	 * modified by Evan You (@yyx990803)
 	 *
-
+	
 	/*
 	 * Not type-checking this because this file is perf-critical and the cost
 	 * of making flow understand it is not worth it.
 	 */
-
+	
 	var emptyNode = new VNode('', {}, []);
-
+	
 	var hooks = ['create', 'activate', 'update', 'remove', 'destroy'];
-
+	
 	function sameVnode (a, b) {
 	  return (
 	    a.key === b.key && (
@@ -5143,7 +5143,7 @@
 	    )
 	  )
 	}
-
+	
 	// Some browsers do not support dynamically changing type for <input>
 	// so they need to be treated as different nodes
 	function sameInputType (a, b) {
@@ -5153,7 +5153,7 @@
 	  var typeB = isDef(i = b.data) && isDef(i = i.attrs) && i.type;
 	  return typeA === typeB
 	}
-
+	
 	function createKeyToOldIdx (children, beginIdx, endIdx) {
 	  var i, key;
 	  var map = {};
@@ -5163,14 +5163,14 @@
 	  }
 	  return map
 	}
-
+	
 	function createPatchFunction (backend) {
 	  var i, j;
 	  var cbs = {};
-
+	
 	  var modules = backend.modules;
 	  var nodeOps = backend.nodeOps;
-
+	
 	  for (i = 0; i < hooks.length; ++i) {
 	    cbs[hooks[i]] = [];
 	    for (j = 0; j < modules.length; ++j) {
@@ -5179,11 +5179,11 @@
 	      }
 	    }
 	  }
-
+	
 	  function emptyNodeAt (elm) {
 	    return new VNode(nodeOps.tagName(elm).toLowerCase(), {}, [], undefined, elm)
 	  }
-
+	
 	  function createRmCb (childElm, listeners) {
 	    function remove$$1 () {
 	      if (--remove$$1.listeners === 0) {
@@ -5193,7 +5193,7 @@
 	    remove$$1.listeners = listeners;
 	    return remove$$1
 	  }
-
+	
 	  function removeNode (el) {
 	    var parent = nodeOps.parentNode(el);
 	    // element may have already been removed due to v-html / v-text
@@ -5201,14 +5201,14 @@
 	      nodeOps.removeChild(parent, el);
 	    }
 	  }
-
+	
 	  var inPre = 0;
 	  function createElm (vnode, insertedVnodeQueue, parentElm, refElm, nested) {
 	    vnode.isRootInsert = !nested; // for transition enter check
 	    if (createComponent(vnode, insertedVnodeQueue, parentElm, refElm)) {
 	      return
 	    }
-
+	
 	    var data = vnode.data;
 	    var children = vnode.children;
 	    var tag = vnode.tag;
@@ -5235,7 +5235,7 @@
 	        ? nodeOps.createElementNS(vnode.ns, tag)
 	        : nodeOps.createElement(tag, vnode);
 	      setScope(vnode);
-
+	
 	      /* istanbul ignore if */
 	      {
 	        createChildren(vnode, children, insertedVnodeQueue);
@@ -5244,7 +5244,7 @@
 	        }
 	        insert(parentElm, vnode.elm, refElm);
 	      }
-
+	
 	      if (process.env.NODE_ENV !== 'production' && data && data.pre) {
 	        inPre--;
 	      }
@@ -5256,7 +5256,7 @@
 	      insert(parentElm, vnode.elm, refElm);
 	    }
 	  }
-
+	
 	  function createComponent (vnode, insertedVnodeQueue, parentElm, refElm) {
 	    var i = vnode.data;
 	    if (isDef(i)) {
@@ -5277,7 +5277,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function initComponent (vnode, insertedVnodeQueue) {
 	    if (isDef(vnode.data.pendingInsert)) {
 	      insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
@@ -5295,7 +5295,7 @@
 	      insertedVnodeQueue.push(vnode);
 	    }
 	  }
-
+	
 	  function reactivateComponent (vnode, insertedVnodeQueue, parentElm, refElm) {
 	    var i;
 	    // hack for #4339: a reactivated component with inner transition
@@ -5317,7 +5317,7 @@
 	    // a reactivated keep-alive component doesn't insert itself
 	    insert(parentElm, vnode.elm, refElm);
 	  }
-
+	
 	  function insert (parent, elm, ref$$1) {
 	    if (isDef(parent)) {
 	      if (isDef(ref$$1)) {
@@ -5329,7 +5329,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function createChildren (vnode, children, insertedVnodeQueue) {
 	    if (Array.isArray(children)) {
 	      for (var i = 0; i < children.length; ++i) {
@@ -5339,14 +5339,14 @@
 	      nodeOps.appendChild(vnode.elm, nodeOps.createTextNode(vnode.text));
 	    }
 	  }
-
+	
 	  function isPatchable (vnode) {
 	    while (vnode.componentInstance) {
 	      vnode = vnode.componentInstance._vnode;
 	    }
 	    return isDef(vnode.tag)
 	  }
-
+	
 	  function invokeCreateHooks (vnode, insertedVnodeQueue) {
 	    for (var i$1 = 0; i$1 < cbs.create.length; ++i$1) {
 	      cbs.create[i$1](emptyNode, vnode);
@@ -5357,7 +5357,7 @@
 	      if (isDef(i.insert)) { insertedVnodeQueue.push(vnode); }
 	    }
 	  }
-
+	
 	  // set scope id attribute for scoped CSS.
 	  // this is implemented as a special case to avoid the overhead
 	  // of going through the normal attribute patching process.
@@ -5378,13 +5378,13 @@
 	      nodeOps.setAttribute(vnode.elm, i, '');
 	    }
 	  }
-
+	
 	  function addVnodes (parentElm, refElm, vnodes, startIdx, endIdx, insertedVnodeQueue) {
 	    for (; startIdx <= endIdx; ++startIdx) {
 	      createElm(vnodes[startIdx], insertedVnodeQueue, parentElm, refElm);
 	    }
 	  }
-
+	
 	  function invokeDestroyHook (vnode) {
 	    var i, j;
 	    var data = vnode.data;
@@ -5398,7 +5398,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
 	    for (; startIdx <= endIdx; ++startIdx) {
 	      var ch = vnodes[startIdx];
@@ -5412,7 +5412,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function removeAndInvokeRemoveHook (vnode, rm) {
 	    if (isDef(rm) || isDef(vnode.data)) {
 	      var i;
@@ -5441,7 +5441,7 @@
 	      removeNode(vnode.elm);
 	    }
 	  }
-
+	
 	  function updateChildren (parentElm, oldCh, newCh, insertedVnodeQueue, removeOnly) {
 	    var oldStartIdx = 0;
 	    var newStartIdx = 0;
@@ -5452,12 +5452,12 @@
 	    var newStartVnode = newCh[0];
 	    var newEndVnode = newCh[newEndIdx];
 	    var oldKeyToIdx, idxInOld, elmToMove, refElm;
-
+	
 	    // removeOnly is a special flag used only by <transition-group>
 	    // to ensure removed elements stay in correct relative positions
 	    // during leaving transitions
 	    var canMove = !removeOnly;
-
+	
 	    while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
 	      if (isUndef(oldStartVnode)) {
 	        oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
@@ -5516,14 +5516,14 @@
 	      removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
 	    }
 	  }
-
+	
 	  function patchVnode (oldVnode, vnode, insertedVnodeQueue, removeOnly) {
 	    if (oldVnode === vnode) {
 	      return
 	    }
-
+	
 	    var elm = vnode.elm = oldVnode.elm;
-
+	
 	    if (isTrue(oldVnode.isAsyncPlaceholder)) {
 	      if (isDef(vnode.asyncFactory.resolved)) {
 	        hydrate(oldVnode.elm, vnode, insertedVnodeQueue);
@@ -5532,7 +5532,7 @@
 	      }
 	      return
 	    }
-
+	
 	    // reuse element for static trees.
 	    // note we only do this if the vnode is cloned -
 	    // if the new node is not cloned it means the render functions have been
@@ -5545,13 +5545,13 @@
 	      vnode.componentInstance = oldVnode.componentInstance;
 	      return
 	    }
-
+	
 	    var i;
 	    var data = vnode.data;
 	    if (isDef(data) && isDef(i = data.hook) && isDef(i = i.prepatch)) {
 	      i(oldVnode, vnode);
 	    }
-
+	
 	    var oldCh = oldVnode.children;
 	    var ch = vnode.children;
 	    if (isDef(data) && isPatchable(vnode)) {
@@ -5576,7 +5576,7 @@
 	      if (isDef(i = data.hook) && isDef(i = i.postpatch)) { i(oldVnode, vnode); }
 	    }
 	  }
-
+	
 	  function invokeInsertHook (vnode, queue, initial) {
 	    // delay insert hooks for component root nodes, invoke them after the
 	    // element is really inserted
@@ -5588,12 +5588,12 @@
 	      }
 	    }
 	  }
-
+	
 	  var bailed = false;
 	  // list of modules that can skip create hook during hydration because they
 	  // are already rendered on the client or has no need for initialization
 	  var isRenderedModule = makeMap('attrs,style,class,staticClass,staticStyle,key');
-
+	
 	  // Note: this is a browser-only function so we can assume elms are DOM nodes.
 	  function hydrate (elm, vnode, insertedVnodeQueue) {
 	    if (isTrue(vnode.isComment) && isDef(vnode.asyncFactory)) {
@@ -5661,7 +5661,7 @@
 	    }
 	    return true
 	  }
-
+	
 	  function assertNodeMatch (node, vnode) {
 	    if (isDef(vnode.tag)) {
 	      return (
@@ -5672,16 +5672,16 @@
 	      return node.nodeType === (vnode.isComment ? 8 : 3)
 	    }
 	  }
-
+	
 	  return function patch (oldVnode, vnode, hydrating, removeOnly, parentElm, refElm) {
 	    if (isUndef(vnode)) {
 	      if (isDef(oldVnode)) { invokeDestroyHook(oldVnode); }
 	      return
 	    }
-
+	
 	    var isInitialPatch = false;
 	    var insertedVnodeQueue = [];
-
+	
 	    if (isUndef(oldVnode)) {
 	      // empty mount (likely as component), create new root element
 	      isInitialPatch = true;
@@ -5730,7 +5730,7 @@
 	          oldElm._leaveCb ? null : parentElm$1,
 	          nodeOps.nextSibling(oldElm)
 	        );
-
+	
 	        if (isDef(vnode.parent)) {
 	          // component root element replaced.
 	          // update parent placeholder node element, recursively
@@ -5745,7 +5745,7 @@
 	            }
 	          }
 	        }
-
+	
 	        if (isDef(parentElm$1)) {
 	          removeVnodes(parentElm$1, [oldVnode], 0, 0);
 	        } else if (isDef(oldVnode.tag)) {
@@ -5753,14 +5753,14 @@
 	        }
 	      }
 	    }
-
+	
 	    invokeInsertHook(vnode, insertedVnodeQueue, isInitialPatch);
 	    return vnode.elm
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var directives = {
 	  create: updateDirectives,
 	  update: updateDirectives,
@@ -5768,22 +5768,22 @@
 	    updateDirectives(vnode, emptyNode);
 	  }
 	};
-
+	
 	function updateDirectives (oldVnode, vnode) {
 	  if (oldVnode.data.directives || vnode.data.directives) {
 	    _update(oldVnode, vnode);
 	  }
 	}
-
+	
 	function _update (oldVnode, vnode) {
 	  var isCreate = oldVnode === emptyNode;
 	  var isDestroy = vnode === emptyNode;
 	  var oldDirs = normalizeDirectives$1(oldVnode.data.directives, oldVnode.context);
 	  var newDirs = normalizeDirectives$1(vnode.data.directives, vnode.context);
-
+	
 	  var dirsWithInsert = [];
 	  var dirsWithPostpatch = [];
-
+	
 	  var key, oldDir, dir;
 	  for (key in newDirs) {
 	    oldDir = oldDirs[key];
@@ -5803,7 +5803,7 @@
 	      }
 	    }
 	  }
-
+	
 	  if (dirsWithInsert.length) {
 	    var callInsert = function () {
 	      for (var i = 0; i < dirsWithInsert.length; i++) {
@@ -5816,7 +5816,7 @@
 	      callInsert();
 	    }
 	  }
-
+	
 	  if (dirsWithPostpatch.length) {
 	    mergeVNodeHook(vnode.data.hook || (vnode.data.hook = {}), 'postpatch', function () {
 	      for (var i = 0; i < dirsWithPostpatch.length; i++) {
@@ -5824,7 +5824,7 @@
 	      }
 	    });
 	  }
-
+	
 	  if (!isCreate) {
 	    for (key in oldDirs) {
 	      if (!newDirs[key]) {
@@ -5834,9 +5834,9 @@
 	    }
 	  }
 	}
-
+	
 	var emptyModifiers = Object.create(null);
-
+	
 	function normalizeDirectives$1 (
 	  dirs,
 	  vm
@@ -5856,11 +5856,11 @@
 	  }
 	  return res
 	}
-
+	
 	function getRawDirName (dir) {
 	  return dir.rawName || ((dir.name) + "." + (Object.keys(dir.modifiers || {}).join('.')))
 	}
-
+	
 	function callHook$1 (dir, hook, vnode, oldVnode, isDestroy) {
 	  var fn = dir.def && dir.def[hook];
 	  if (fn) {
@@ -5871,14 +5871,14 @@
 	    }
 	  }
 	}
-
+	
 	var baseModules = [
 	  ref,
 	  directives
 	];
-
+	
 	/*  */
-
+	
 	function updateAttrs (oldVnode, vnode) {
 	  var opts = vnode.componentOptions;
 	  if (isDef(opts) && opts.Ctor.options.inheritAttrs === false) {
@@ -5895,7 +5895,7 @@
 	  if (isDef(attrs.__ob__)) {
 	    attrs = vnode.data.attrs = extend({}, attrs);
 	  }
-
+	
 	  for (key in attrs) {
 	    cur = attrs[key];
 	    old = oldAttrs[key];
@@ -5918,7 +5918,7 @@
 	    }
 	  }
 	}
-
+	
 	function setAttr (el, key, value) {
 	  if (isBooleanAttr(key)) {
 	    // set attribute for blank value
@@ -5944,14 +5944,14 @@
 	    }
 	  }
 	}
-
+	
 	var attrs = {
 	  create: updateAttrs,
 	  update: updateAttrs
 	};
-
+	
 	/*  */
-
+	
 	function updateClass (oldVnode, vnode) {
 	  var el = vnode.elm;
 	  var data = vnode.data;
@@ -5967,33 +5967,33 @@
 	  ) {
 	    return
 	  }
-
+	
 	  var cls = genClassForVnode(vnode);
-
+	
 	  // handle transition classes
 	  var transitionClass = el._transitionClasses;
 	  if (isDef(transitionClass)) {
 	    cls = concat(cls, stringifyClass(transitionClass));
 	  }
-
+	
 	  // set the class
 	  if (cls !== el._prevClass) {
 	    el.setAttribute('class', cls);
 	    el._prevClass = cls;
 	  }
 	}
-
+	
 	var klass = {
 	  create: updateClass,
 	  update: updateClass
 	};
-
+	
 	/*  */
-
+	
 	var validDivisionCharRE = /[\w).+\-_$\]]/;
-
-
-
+	
+	
+	
 	function wrapFilter (exp, filter) {
 	  var i = filter.indexOf('(');
 	  if (i < 0) {
@@ -6005,21 +6005,21 @@
 	    return ("_f(\"" + name + "\")(" + exp + "," + args)
 	  }
 	}
-
+	
 	/*  */
-
+	
 	/*  */
-
+	
 	/**
 	 * Cross-platform code generation for component v-model
 	 */
-
-
+	
+	
 	/**
 	 * Cross-platform codegen helper for generating v-model value assignment code.
 	 */
-
-
+	
+	
 	/**
 	 * parse directive model to do the array update transform. a[idx] = val => $$a.splice($$idx, 1, val)
 	 *
@@ -6033,19 +6033,19 @@
 	 * - test.xxx.a["asa"][test1[idx]]
 	 *
 	 */
-
+	
 	var str;
 	var index$1;
-
+	
 	/*  */
-
+	
 	// in some cases, the event used has to be determined at runtime
 	// so we used some reserved tokens during compile.
 	var RANGE_TOKEN = '__r';
 	var CHECKBOX_RADIO_TOKEN = '__c';
-
+	
 	/*  */
-
+	
 	// normalize v-model event tokens that can only be determined at runtime.
 	// it's important to place the event as the first in the array because
 	// the whole point is ensuring the v-model callback gets called before
@@ -6066,9 +6066,9 @@
 	    delete on[CHECKBOX_RADIO_TOKEN];
 	  }
 	}
-
+	
 	var target$1;
-
+	
 	function add$1 (
 	  event,
 	  handler,
@@ -6096,7 +6096,7 @@
 	      : capture
 	  );
 	}
-
+	
 	function remove$2 (
 	  event,
 	  handler,
@@ -6105,7 +6105,7 @@
 	) {
 	  (_target || target$1).removeEventListener(event, handler, capture);
 	}
-
+	
 	function updateDOMListeners (oldVnode, vnode) {
 	  if (isUndef(oldVnode.data.on) && isUndef(vnode.data.on)) {
 	    return
@@ -6116,14 +6116,14 @@
 	  normalizeEvents(on);
 	  updateListeners(on, oldOn, add$1, remove$2, vnode.context);
 	}
-
+	
 	var events = {
 	  create: updateDOMListeners,
 	  update: updateDOMListeners
 	};
-
+	
 	/*  */
-
+	
 	function updateDOMProps (oldVnode, vnode) {
 	  if (isUndef(oldVnode.data.domProps) && isUndef(vnode.data.domProps)) {
 	    return
@@ -6136,7 +6136,7 @@
 	  if (isDef(props.__ob__)) {
 	    props = vnode.data.domProps = extend({}, props);
 	  }
-
+	
 	  for (key in oldProps) {
 	    if (isUndef(props[key])) {
 	      elm[key] = '';
@@ -6151,7 +6151,7 @@
 	      if (vnode.children) { vnode.children.length = 0; }
 	      if (cur === oldProps[key]) { continue }
 	    }
-
+	
 	    if (key === 'value') {
 	      // store value as _value as well since
 	      // non-string values will be stringified
@@ -6166,10 +6166,10 @@
 	    }
 	  }
 	}
-
+	
 	// check platforms/web/util/attrs.js acceptValue
-
-
+	
+	
 	function shouldUpdateValue (
 	  elm,
 	  vnode,
@@ -6181,7 +6181,7 @@
 	    isInputChanged(elm, checkVal)
 	  ))
 	}
-
+	
 	function isDirty (elm, checkVal) {
 	  // return true when textbox (.number and .trim) loses focus and its value is
 	  // not equal to the updated value
@@ -6191,7 +6191,7 @@
 	  try { notInFocus = document.activeElement !== elm; } catch (e) {}
 	  return notInFocus && elm.value !== checkVal
 	}
-
+	
 	function isInputChanged (elm, newVal) {
 	  var value = elm.value;
 	  var modifiers = elm._vModifiers; // injected by v-model runtime
@@ -6203,14 +6203,14 @@
 	  }
 	  return value !== newVal
 	}
-
+	
 	var domProps = {
 	  create: updateDOMProps,
 	  update: updateDOMProps
 	};
-
+	
 	/*  */
-
+	
 	var parseStyleText = cached(function (cssText) {
 	  var res = {};
 	  var listDelimiter = /;(?![^(]*\))/g;
@@ -6223,7 +6223,7 @@
 	  });
 	  return res
 	});
-
+	
 	// merge static and dynamic style data on the same vnode
 	function normalizeStyleData (data) {
 	  var style = normalizeStyleBinding(data.style);
@@ -6233,7 +6233,7 @@
 	    ? extend(data.staticStyle, style)
 	    : style
 	}
-
+	
 	// normalize possible array / string values into Object
 	function normalizeStyleBinding (bindingStyle) {
 	  if (Array.isArray(bindingStyle)) {
@@ -6244,7 +6244,7 @@
 	  }
 	  return bindingStyle
 	}
-
+	
 	/**
 	 * parent component style should be after child's
 	 * so that parent component's style could override it
@@ -6252,7 +6252,7 @@
 	function getStyle (vnode, checkChild) {
 	  var res = {};
 	  var styleData;
-
+	
 	  if (checkChild) {
 	    var childNode = vnode;
 	    while (childNode.componentInstance) {
@@ -6262,11 +6262,11 @@
 	      }
 	    }
 	  }
-
+	
 	  if ((styleData = normalizeStyleData(vnode.data))) {
 	    extend(res, styleData);
 	  }
-
+	
 	  var parentNode = vnode;
 	  while ((parentNode = parentNode.parent)) {
 	    if (parentNode.data && (styleData = normalizeStyleData(parentNode.data))) {
@@ -6275,9 +6275,9 @@
 	  }
 	  return res
 	}
-
+	
 	/*  */
-
+	
 	var cssVarRE = /^--/;
 	var importantRE = /\s*!important$/;
 	var setProp = function (el, name, val) {
@@ -6300,9 +6300,9 @@
 	    }
 	  }
 	};
-
+	
 	var vendorNames = ['Webkit', 'Moz', 'ms'];
-
+	
 	var emptyStyle;
 	var normalize = cached(function (prop) {
 	  emptyStyle = emptyStyle || document.createElement('div').style;
@@ -6318,36 +6318,36 @@
 	    }
 	  }
 	});
-
+	
 	function updateStyle (oldVnode, vnode) {
 	  var data = vnode.data;
 	  var oldData = oldVnode.data;
-
+	
 	  if (isUndef(data.staticStyle) && isUndef(data.style) &&
 	    isUndef(oldData.staticStyle) && isUndef(oldData.style)
 	  ) {
 	    return
 	  }
-
+	
 	  var cur, name;
 	  var el = vnode.elm;
 	  var oldStaticStyle = oldData.staticStyle;
 	  var oldStyleBinding = oldData.normalizedStyle || oldData.style || {};
-
+	
 	  // if static style exists, stylebinding already merged into it when doing normalizeStyleData
 	  var oldStyle = oldStaticStyle || oldStyleBinding;
-
+	
 	  var style = normalizeStyleBinding(vnode.data.style) || {};
-
+	
 	  // store normalized style under a different key for next diff
 	  // make sure to clone it if it's reactive, since the user likley wants
 	  // to mutate it.
 	  vnode.data.normalizedStyle = isDef(style.__ob__)
 	    ? extend({}, style)
 	    : style;
-
+	
 	  var newStyle = getStyle(vnode, true);
-
+	
 	  for (name in oldStyle) {
 	    if (isUndef(newStyle[name])) {
 	      setProp(el, name, '');
@@ -6361,14 +6361,14 @@
 	    }
 	  }
 	}
-
+	
 	var style = {
 	  create: updateStyle,
 	  update: updateStyle
 	};
-
+	
 	/*  */
-
+	
 	/**
 	 * Add class with compatibility for SVG since classList is not supported on
 	 * SVG elements in IE
@@ -6378,7 +6378,7 @@
 	  if (!cls || !(cls = cls.trim())) {
 	    return
 	  }
-
+	
 	  /* istanbul ignore else */
 	  if (el.classList) {
 	    if (cls.indexOf(' ') > -1) {
@@ -6393,7 +6393,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Remove class with compatibility for SVG since classList is not supported on
 	 * SVG elements in IE
@@ -6403,7 +6403,7 @@
 	  if (!cls || !(cls = cls.trim())) {
 	    return
 	  }
-
+	
 	  /* istanbul ignore else */
 	  if (el.classList) {
 	    if (cls.indexOf(' ') > -1) {
@@ -6428,9 +6428,9 @@
 	    }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function resolveTransition (def$$1) {
 	  if (!def$$1) {
 	    return
@@ -6447,7 +6447,7 @@
 	    return autoCssTransition(def$$1)
 	  }
 	}
-
+	
 	var autoCssTransition = cached(function (name) {
 	  return {
 	    enterClass: (name + "-enter"),
@@ -6458,11 +6458,11 @@
 	    leaveActiveClass: (name + "-leave-active")
 	  }
 	});
-
+	
 	var hasTransition = inBrowser && !isIE9;
 	var TRANSITION = 'transition';
 	var ANIMATION = 'animation';
-
+	
 	// Transition property/event sniffing
 	var transitionProp = 'transition';
 	var transitionEndEvent = 'transitionend';
@@ -6483,18 +6483,18 @@
 	    animationEndEvent = 'webkitAnimationEnd';
 	  }
 	}
-
+	
 	// binding to window is necessary to make hot reload work in IE in strict mode
 	var raf = inBrowser && window.requestAnimationFrame
 	  ? window.requestAnimationFrame.bind(window)
 	  : setTimeout;
-
+	
 	function nextFrame (fn) {
 	  raf(function () {
 	    raf(fn);
 	  });
 	}
-
+	
 	function addTransitionClass (el, cls) {
 	  var transitionClasses = el._transitionClasses || (el._transitionClasses = []);
 	  if (transitionClasses.indexOf(cls) < 0) {
@@ -6502,14 +6502,14 @@
 	    addClass(el, cls);
 	  }
 	}
-
+	
 	function removeTransitionClass (el, cls) {
 	  if (el._transitionClasses) {
 	    remove(el._transitionClasses, cls);
 	  }
 	  removeClass(el, cls);
 	}
-
+	
 	function whenTransitionEnds (
 	  el,
 	  expectedType,
@@ -6540,9 +6540,9 @@
 	  }, timeout + 1);
 	  el.addEventListener(event, onEnd);
 	}
-
+	
 	var transformRE = /\b(transform|all)(,|$)/;
-
+	
 	function getTransitionInfo (el, expectedType) {
 	  var styles = window.getComputedStyle(el);
 	  var transitionDelays = styles[transitionProp + 'Delay'].split(', ');
@@ -6551,7 +6551,7 @@
 	  var animationDelays = styles[animationProp + 'Delay'].split(', ');
 	  var animationDurations = styles[animationProp + 'Duration'].split(', ');
 	  var animationTimeout = getTimeout(animationDelays, animationDurations);
-
+	
 	  var type;
 	  var timeout = 0;
 	  var propCount = 0;
@@ -6591,43 +6591,43 @@
 	    hasTransform: hasTransform
 	  }
 	}
-
+	
 	function getTimeout (delays, durations) {
 	  /* istanbul ignore next */
 	  while (delays.length < durations.length) {
 	    delays = delays.concat(delays);
 	  }
-
+	
 	  return Math.max.apply(null, durations.map(function (d, i) {
 	    return toMs(d) + toMs(delays[i])
 	  }))
 	}
-
+	
 	function toMs (s) {
 	  return Number(s.slice(0, -1)) * 1000
 	}
-
+	
 	/*  */
-
+	
 	function enter (vnode, toggleDisplay) {
 	  var el = vnode.elm;
-
+	
 	  // call leave callback now
 	  if (isDef(el._leaveCb)) {
 	    el._leaveCb.cancelled = true;
 	    el._leaveCb();
 	  }
-
+	
 	  var data = resolveTransition(vnode.data.transition);
 	  if (isUndef(data)) {
 	    return
 	  }
-
+	
 	  /* istanbul ignore if */
 	  if (isDef(el._enterCb) || el.nodeType !== 1) {
 	    return
 	  }
-
+	
 	  var css = data.css;
 	  var type = data.type;
 	  var enterClass = data.enterClass;
@@ -6645,7 +6645,7 @@
 	  var afterAppear = data.afterAppear;
 	  var appearCancelled = data.appearCancelled;
 	  var duration = data.duration;
-
+	
 	  // activeInstance will always be the <transition> component managing this
 	  // transition. One edge case to check is when the <transition> is placed
 	  // as the root node of a child component. In that case we need to check
@@ -6656,13 +6656,13 @@
 	    transitionNode = transitionNode.parent;
 	    context = transitionNode.context;
 	  }
-
+	
 	  var isAppear = !context._isMounted || !vnode.isRootInsert;
-
+	
 	  if (isAppear && !appear && appear !== '') {
 	    return
 	  }
-
+	
 	  var startClass = isAppear && appearClass
 	    ? appearClass
 	    : enterClass;
@@ -6672,7 +6672,7 @@
 	  var toClass = isAppear && appearToClass
 	    ? appearToClass
 	    : enterToClass;
-
+	
 	  var beforeEnterHook = isAppear
 	    ? (beforeAppear || beforeEnter)
 	    : beforeEnter;
@@ -6685,20 +6685,20 @@
 	  var enterCancelledHook = isAppear
 	    ? (appearCancelled || enterCancelled)
 	    : enterCancelled;
-
+	
 	  var explicitEnterDuration = toNumber(
 	    isObject(duration)
 	      ? duration.enter
 	      : duration
 	  );
-
+	
 	  if (process.env.NODE_ENV !== 'production' && explicitEnterDuration != null) {
 	    checkDuration(explicitEnterDuration, 'enter', vnode);
 	  }
-
+	
 	  var expectsCSS = css !== false && !isIE9;
 	  var userWantsControl = getHookArgumentsLength(enterHook);
-
+	
 	  var cb = el._enterCb = once(function () {
 	    if (expectsCSS) {
 	      removeTransitionClass(el, toClass);
@@ -6714,7 +6714,7 @@
 	    }
 	    el._enterCb = null;
 	  });
-
+	
 	  if (!vnode.data.show) {
 	    // remove pending leave element on enter by injecting an insert hook
 	    mergeVNodeHook(vnode.data.hook || (vnode.data.hook = {}), 'insert', function () {
@@ -6729,7 +6729,7 @@
 	      enterHook && enterHook(el, cb);
 	    });
 	  }
-
+	
 	  // start enter transition
 	  beforeEnterHook && beforeEnterHook(el);
 	  if (expectsCSS) {
@@ -6747,36 +6747,36 @@
 	      }
 	    });
 	  }
-
+	
 	  if (vnode.data.show) {
 	    toggleDisplay && toggleDisplay();
 	    enterHook && enterHook(el, cb);
 	  }
-
+	
 	  if (!expectsCSS && !userWantsControl) {
 	    cb();
 	  }
 	}
-
+	
 	function leave (vnode, rm) {
 	  var el = vnode.elm;
-
+	
 	  // call enter callback now
 	  if (isDef(el._enterCb)) {
 	    el._enterCb.cancelled = true;
 	    el._enterCb();
 	  }
-
+	
 	  var data = resolveTransition(vnode.data.transition);
 	  if (isUndef(data)) {
 	    return rm()
 	  }
-
+	
 	  /* istanbul ignore if */
 	  if (isDef(el._leaveCb) || el.nodeType !== 1) {
 	    return
 	  }
-
+	
 	  var css = data.css;
 	  var type = data.type;
 	  var leaveClass = data.leaveClass;
@@ -6788,20 +6788,20 @@
 	  var leaveCancelled = data.leaveCancelled;
 	  var delayLeave = data.delayLeave;
 	  var duration = data.duration;
-
+	
 	  var expectsCSS = css !== false && !isIE9;
 	  var userWantsControl = getHookArgumentsLength(leave);
-
+	
 	  var explicitLeaveDuration = toNumber(
 	    isObject(duration)
 	      ? duration.leave
 	      : duration
 	  );
-
+	
 	  if (process.env.NODE_ENV !== 'production' && isDef(explicitLeaveDuration)) {
 	    checkDuration(explicitLeaveDuration, 'leave', vnode);
 	  }
-
+	
 	  var cb = el._leaveCb = once(function () {
 	    if (el.parentNode && el.parentNode._pending) {
 	      el.parentNode._pending[vnode.key] = null;
@@ -6821,13 +6821,13 @@
 	    }
 	    el._leaveCb = null;
 	  });
-
+	
 	  if (delayLeave) {
 	    delayLeave(performLeave);
 	  } else {
 	    performLeave();
 	  }
-
+	
 	  function performLeave () {
 	    // the delayed leave may have already been cancelled
 	    if (cb.cancelled) {
@@ -6859,7 +6859,7 @@
 	    }
 	  }
 	}
-
+	
 	// only used in dev mode
 	function checkDuration (val, name, vnode) {
 	  if (typeof val !== 'number') {
@@ -6876,11 +6876,11 @@
 	    );
 	  }
 	}
-
+	
 	function isValidDuration (val) {
 	  return typeof val === 'number' && !isNaN(val)
 	}
-
+	
 	/**
 	 * Normalize a transition hook's argument length. The hook may be:
 	 * - a merged hook (invoker) with the original in .fns
@@ -6903,13 +6903,13 @@
 	    return (fn._length || fn.length) > 1
 	  }
 	}
-
+	
 	function _enter (_, vnode) {
 	  if (vnode.data.show !== true) {
 	    enter(vnode);
 	  }
 	}
-
+	
 	var transition = inBrowser ? {
 	  create: _enter,
 	  activate: _enter,
@@ -6922,7 +6922,7 @@
 	    }
 	  }
 	} : {};
-
+	
 	var platformModules = [
 	  attrs,
 	  klass,
@@ -6931,22 +6931,22 @@
 	  style,
 	  transition
 	];
-
+	
 	/*  */
-
+	
 	// the directive module should be applied last, after all
 	// built-in modules have been applied.
 	var modules = platformModules.concat(baseModules);
-
+	
 	var patch = createPatchFunction({ nodeOps: nodeOps, modules: modules });
-
+	
 	/**
 	 * Not type checking this file because flow doesn't like attaching
 	 * properties to Elements.
 	 */
-
+	
 	var isTextInputType = makeMap('text,number,password,search,email,tel,url');
-
+	
 	/* istanbul ignore if */
 	if (isIE9) {
 	  // http://www.matts411.com/post/internet-explorer-9-oninput/
@@ -6957,7 +6957,7 @@
 	    }
 	  });
 	}
-
+	
 	var model$1 = {
 	  inserted: function inserted (el, binding, vnode) {
 	    if (vnode.tag === 'select') {
@@ -7004,7 +7004,7 @@
 	    }
 	  }
 	};
-
+	
 	function setSelected (el, binding, vm) {
 	  var value = binding.value;
 	  var isMultiple = el.multiple;
@@ -7037,43 +7037,43 @@
 	    el.selectedIndex = -1;
 	  }
 	}
-
+	
 	function getValue (option) {
 	  return '_value' in option
 	    ? option._value
 	    : option.value
 	}
-
+	
 	function onCompositionStart (e) {
 	  e.target.composing = true;
 	}
-
+	
 	function onCompositionEnd (e) {
 	  // prevent triggering an input event for no reason
 	  if (!e.target.composing) { return }
 	  e.target.composing = false;
 	  trigger(e.target, 'input');
 	}
-
+	
 	function trigger (el, type) {
 	  var e = document.createEvent('HTMLEvents');
 	  e.initEvent(type, true, true);
 	  el.dispatchEvent(e);
 	}
-
+	
 	/*  */
-
+	
 	// recursively search for possible transition defined inside the component root
 	function locateNode (vnode) {
 	  return vnode.componentInstance && (!vnode.data || !vnode.data.transition)
 	    ? locateNode(vnode.componentInstance._vnode)
 	    : vnode
 	}
-
+	
 	var show = {
 	  bind: function bind (el, ref, vnode) {
 	    var value = ref.value;
-
+	
 	    vnode = locateNode(vnode);
 	    var transition$$1 = vnode.data && vnode.data.transition;
 	    var originalDisplay = el.__vOriginalDisplay =
@@ -7087,11 +7087,11 @@
 	      el.style.display = value ? originalDisplay : 'none';
 	    }
 	  },
-
+	
 	  update: function update (el, ref, vnode) {
 	    var value = ref.value;
 	    var oldValue = ref.oldValue;
-
+	
 	    /* istanbul ignore if */
 	    if (value === oldValue) { return }
 	    vnode = locateNode(vnode);
@@ -7111,7 +7111,7 @@
 	      el.style.display = value ? el.__vOriginalDisplay : 'none';
 	    }
 	  },
-
+	
 	  unbind: function unbind (
 	    el,
 	    binding,
@@ -7124,17 +7124,17 @@
 	    }
 	  }
 	};
-
+	
 	var platformDirectives = {
 	  model: model$1,
 	  show: show
 	};
-
+	
 	/*  */
-
+	
 	// Provides transition support for a single element/component.
 	// supports transition mode (out-in / in-out)
-
+	
 	var transitionProps = {
 	  name: String,
 	  appear: Boolean,
@@ -7152,7 +7152,7 @@
 	  appearToClass: String,
 	  duration: [Number, String, Object]
 	};
-
+	
 	// in case the child is also an abstract component, e.g. <keep-alive>
 	// we want to recursively retrieve the real component to be rendered
 	function getRealChild (vnode) {
@@ -7163,7 +7163,7 @@
 	    return vnode
 	  }
 	}
-
+	
 	function extractTransitionData (comp) {
 	  var data = {};
 	  var options = comp.$options;
@@ -7179,7 +7179,7 @@
 	  }
 	  return data
 	}
-
+	
 	function placeholder (h, rawChild) {
 	  if (/\d-keep-alive$/.test(rawChild.tag)) {
 	    return h('keep-alive', {
@@ -7187,7 +7187,7 @@
 	    })
 	  }
 	}
-
+	
 	function hasParentTransition (vnode) {
 	  while ((vnode = vnode.parent)) {
 	    if (vnode.data.transition) {
@@ -7195,35 +7195,35 @@
 	    }
 	  }
 	}
-
+	
 	function isSameChild (child, oldChild) {
 	  return oldChild.key === child.key && oldChild.tag === child.tag
 	}
-
+	
 	function isAsyncPlaceholder (node) {
 	  return node.isComment && node.asyncFactory
 	}
-
+	
 	var Transition = {
 	  name: 'transition',
 	  props: transitionProps,
 	  abstract: true,
-
+	
 	  render: function render (h) {
 	    var this$1 = this;
-
+	
 	    var children = this.$options._renderChildren;
 	    if (!children) {
 	      return
 	    }
-
+	
 	    // filter out text nodes (possible whitespaces)
 	    children = children.filter(function (c) { return c.tag || isAsyncPlaceholder(c); });
 	    /* istanbul ignore if */
 	    if (!children.length) {
 	      return
 	    }
-
+	
 	    // warn multiple elements
 	    if (process.env.NODE_ENV !== 'production' && children.length > 1) {
 	      warn(
@@ -7232,9 +7232,9 @@
 	        this.$parent
 	      );
 	    }
-
+	
 	    var mode = this.mode;
-
+	
 	    // warn invalid mode
 	    if (process.env.NODE_ENV !== 'production' &&
 	      mode && mode !== 'in-out' && mode !== 'out-in'
@@ -7244,15 +7244,15 @@
 	        this.$parent
 	      );
 	    }
-
+	
 	    var rawChild = children[0];
-
+	
 	    // if this is a component root node and the component's
 	    // parent container node also has transition, skip.
 	    if (hasParentTransition(this.$vnode)) {
 	      return rawChild
 	    }
-
+	
 	    // apply transition data to child
 	    // use getRealChild() to ignore abstract components e.g. keep-alive
 	    var child = getRealChild(rawChild);
@@ -7260,11 +7260,11 @@
 	    if (!child) {
 	      return rawChild
 	    }
-
+	
 	    if (this._leaving) {
 	      return placeholder(h, rawChild)
 	    }
-
+	
 	    // ensure a key that is unique to the vnode type and to this transition
 	    // component instance. This key will be used to remove pending leaving nodes
 	    // during entering.
@@ -7276,17 +7276,17 @@
 	      : isPrimitive(child.key)
 	        ? (String(child.key).indexOf(id) === 0 ? child.key : id + child.key)
 	        : child.key;
-
+	
 	    var data = (child.data || (child.data = {})).transition = extractTransitionData(this);
 	    var oldRawChild = this._vnode;
 	    var oldChild = getRealChild(oldRawChild);
-
+	
 	    // mark v-show
 	    // so that the transition module can hand over the control to the directive
 	    if (child.data.directives && child.data.directives.some(function (d) { return d.name === 'show'; })) {
 	      child.data.show = true;
 	    }
-
+	
 	    if (
 	      oldChild &&
 	      oldChild.data &&
@@ -7316,16 +7316,16 @@
 	        mergeVNodeHook(oldData, 'delayLeave', function (leave) { delayedLeave = leave; });
 	      }
 	    }
-
+	
 	    return rawChild
 	  }
 	};
-
+	
 	/*  */
-
+	
 	// Provides transition support for list items.
 	// supports move transitions using the FLIP technique.
-
+	
 	// Because the vdom's children update algorithm is "unstable" - i.e.
 	// it doesn't guarantee the relative positioning of removed elements,
 	// we force transition-group to update its children into two passes:
@@ -7333,17 +7333,17 @@
 	// triggering their leaving transition; in the second pass, we insert/move
 	// into the final desired state. This way in the second pass removed
 	// nodes will remain where they should be.
-
+	
 	var props = extend({
 	  tag: String,
 	  moveClass: String
 	}, transitionProps);
-
+	
 	delete props.mode;
-
+	
 	var TransitionGroup = {
 	  props: props,
-
+	
 	  render: function render (h) {
 	    var tag = this.tag || this.$vnode.data.tag || 'span';
 	    var map = Object.create(null);
@@ -7351,7 +7351,7 @@
 	    var rawChildren = this.$slots.default || [];
 	    var children = this.children = [];
 	    var transitionData = extractTransitionData(this);
-
+	
 	    for (var i = 0; i < rawChildren.length; i++) {
 	      var c = rawChildren[i];
 	      if (c.tag) {
@@ -7366,7 +7366,7 @@
 	        }
 	      }
 	    }
-
+	
 	    if (prevChildren) {
 	      var kept = [];
 	      var removed = [];
@@ -7383,10 +7383,10 @@
 	      this.kept = h(tag, null, kept);
 	      this.removed = removed;
 	    }
-
+	
 	    return h(tag, null, children)
 	  },
-
+	
 	  beforeUpdate: function beforeUpdate () {
 	    // force removing pass
 	    this.__patch__(
@@ -7397,24 +7397,24 @@
 	    );
 	    this._vnode = this.kept;
 	  },
-
+	
 	  updated: function updated () {
 	    var children = this.prevChildren;
 	    var moveClass = this.moveClass || ((this.name || 'v') + '-move');
 	    if (!children.length || !this.hasMove(children[0].elm, moveClass)) {
 	      return
 	    }
-
+	
 	    // we divide the work into three loops to avoid mixing DOM reads and writes
 	    // in each iteration - which helps prevent layout thrashing.
 	    children.forEach(callPendingCbs);
 	    children.forEach(recordPosition);
 	    children.forEach(applyTranslation);
-
+	
 	    // force reflow to put everything in position
 	    var body = document.body;
 	    var f = body.offsetHeight; // eslint-disable-line
-
+	
 	    children.forEach(function (c) {
 	      if (c.data.moved) {
 	        var el = c.elm;
@@ -7431,7 +7431,7 @@
 	      }
 	    });
 	  },
-
+	
 	  methods: {
 	    hasMove: function hasMove (el, moveClass) {
 	      /* istanbul ignore if */
@@ -7460,7 +7460,7 @@
 	    }
 	  }
 	};
-
+	
 	function callPendingCbs (c) {
 	  /* istanbul ignore if */
 	  if (c.elm._moveCb) {
@@ -7471,11 +7471,11 @@
 	    c.elm._enterCb();
 	  }
 	}
-
+	
 	function recordPosition (c) {
 	  c.data.newPos = c.elm.getBoundingClientRect();
 	}
-
+	
 	function applyTranslation (c) {
 	  var oldPos = c.data.pos;
 	  var newPos = c.data.newPos;
@@ -7488,28 +7488,28 @@
 	    s.transitionDuration = '0s';
 	  }
 	}
-
+	
 	var platformComponents = {
 	  Transition: Transition,
 	  TransitionGroup: TransitionGroup
 	};
-
+	
 	/*  */
-
+	
 	// install platform specific utils
 	Vue$3.config.mustUseProp = mustUseProp;
 	Vue$3.config.isReservedTag = isReservedTag;
 	Vue$3.config.isReservedAttr = isReservedAttr;
 	Vue$3.config.getTagNamespace = getTagNamespace;
 	Vue$3.config.isUnknownElement = isUnknownElement;
-
+	
 	// install platform runtime directives & components
 	extend(Vue$3.options.directives, platformDirectives);
 	extend(Vue$3.options.components, platformComponents);
-
+	
 	// install platform patch function
 	Vue$3.prototype.__patch__ = inBrowser ? patch : noop;
-
+	
 	// public mount method
 	Vue$3.prototype.$mount = function (
 	  el,
@@ -7518,7 +7518,7 @@
 	  el = el && inBrowser ? query(el) : undefined;
 	  return mountComponent(this, el, hydrating)
 	};
-
+	
 	// devtools global hook
 	/* istanbul ignore next */
 	setTimeout(function () {
@@ -7543,11 +7543,11 @@
 	    );
 	  }
 	}, 0);
-
+	
 	/*  */
-
+	
 	module.exports = Vue$3;
-
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), (function() { return this; }())))
 
 /***/ }),
@@ -7556,15 +7556,15 @@
 
 	// shim for using process in browser
 	var process = module.exports = {};
-
+	
 	// cached from whatever global is present so that test runners that stub it
 	// don't break things.  But we need to wrap it in a try catch in case it is
 	// wrapped in strict mode code which doesn't define any globals.  It's inside a
 	// function because try/catches deoptimize in certain engines.
-
+	
 	var cachedSetTimeout;
 	var cachedClearTimeout;
-
+	
 	function defaultSetTimout() {
 	    throw new Error('setTimeout has not been defined');
 	}
@@ -7613,8 +7613,8 @@
 	            return cachedSetTimeout.call(this, fun, 0);
 	        }
 	    }
-
-
+	
+	
 	}
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
@@ -7639,15 +7639,15 @@
 	            return cachedClearTimeout.call(this, marker);
 	        }
 	    }
-
-
-
+	
+	
+	
 	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-
+	
 	function cleanUpNextTick() {
 	    if (!draining || !currentQueue) {
 	        return;
@@ -7662,14 +7662,14 @@
 	        drainQueue();
 	    }
 	}
-
+	
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
-
+	
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -7686,7 +7686,7 @@
 	    draining = false;
 	    runClearTimeout(timeout);
 	}
-
+	
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -7699,7 +7699,7 @@
 	        runTimeout(drainQueue);
 	    }
 	};
-
+	
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -7714,9 +7714,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-
+	
 	function noop() {}
-
+	
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -7726,13 +7726,13 @@
 	process.emit = noop;
 	process.prependListener = noop;
 	process.prependOnceListener = noop;
-
+	
 	process.listeners = function (name) { return [] }
-
+	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-
+	
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -7747,7 +7747,7 @@
 	
 	/* styles */
 	__webpack_require__(5)
-
+	
 	var Component = __webpack_require__(10)(
 	  /* script */
 	  __webpack_require__(11),
@@ -7758,7 +7758,23 @@
 	  /* cssModules */
 	  null
 	)
-
+	Component.options.__file = "/Users/vianshen/Documents/projects/teamblog/vueApp/src/app.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] app.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-7dfdc494", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-7dfdc494", Component.options)
+	  }
+	})()}
+	
 	module.exports = Component.exports
 
 
@@ -7767,13 +7783,26 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
-	var update = __webpack_require__(8)("8eb1433a", content, true);
+	var update = __webpack_require__(8)("6bb3e3a6", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-7dfdc494!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./app.vue", function() {
+	     var newContent = require("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-7dfdc494!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./app.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
 
 /***/ }),
 /* 6 */
@@ -7781,11 +7810,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
-	exports.push([module.id, "*{--background-blue:#3089dc;--basic-orange:#f18f3e;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:\"\";content:none}table{border-collapse:collapse;border-spacing:0}body,html{overflow-y:hidden;height:100%}body{width:10rem;height:100%;-webkit-box-pack:center;justify-content:center;flex-direction:column;font-size:12px}.main,body{display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal}.main{flex:1;flex-direction:column}.container,.main{-webkit-box-flex:1}.container{flex:1;overflow:auto}", ""]);
-
+	exports.push([module.id, "*{--background-blue:#3089dc;--basic-orange:#f18f3e;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;box-sizing:border-box}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body,html{overflow-y:hidden}body,html{height:100%}body{width:10rem;height:100%;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-flex-direction:column;flex-direction:column;font-size:12px}.main,body{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal}.main{-webkit-flex:1;flex:1;-webkit-flex-direction:column;flex-direction:column}.container,.main{-webkit-box-flex:1}.container{-webkit-flex:1;flex:1;overflow:auto}", "", {"version":3,"sources":["/./vueApp/src/<input css 1>"],"names":[],"mappings":"AAAA,EACE,0BAA2B,uBACH,SACd,UACC,SACD,eACM,aACF,wBACW,qBACF,CACxB,8EAaC,aAAe,CAChB,KAGC,aAAe,CAChB,MAIC,eAAiB,CAClB,aAIC,WAAa,CACd,oDAMC,WAAY,YACE,CACf,MAGC,yBAA0B,gBACR,CACnB,UAKC,iBAAmB,CACpB,UAFC,WAAa,CAMd,KAGC,YAAa,YAEA,wBACb,+BAAA,uBAAwB,8BACxB,sBAAuB,cACP,CACjB,WALC,oBAAA,qBAAA,aAAc,4BAGd,4BAAuB,CAIzB,MACE,eAAA,OAAQ,8BAER,qBAAuB,CACxB,iBAHC,kBAAQ,CAKV,WACE,eAAA,OAAQ,aACO,CAChB","file":"app.vue","sourcesContent":["* {\n  --background-blue: #3089DC;\n  --basic-orange: #f18f3e;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  box-sizing: border-box;\n}\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\nhtml,\nbody {\n  height: 100%;\n  overflow-y: hidden;\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  width: 10rem;\n  display: flex;\n  height: 100%;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 12px;\n}\n\n.main {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n}\n\n.container {\n  flex: 1;\n  overflow: auto;\n}"],"sourceRoot":"webpack://"}]);
+	
 	// exports
 
 
@@ -7800,7 +7829,7 @@
 	// css base code, injected by the css-loader
 	module.exports = function() {
 		var list = [];
-
+	
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
@@ -7814,7 +7843,7 @@
 			}
 			return result.join("");
 		};
-
+	
 		// import a list of modules into the list
 		list.i = function(modules, mediaQuery) {
 			if(typeof modules === "string")
@@ -7854,9 +7883,9 @@
 	  Author Tobias Koppers @sokra
 	  Modified by Evan You @yyx990803
 	*/
-
+	
 	var hasDocument = typeof document !== 'undefined'
-
+	
 	if (false) {
 	  if (!hasDocument) {
 	    throw new Error(
@@ -7864,22 +7893,22 @@
 	    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
 	  ) }
 	}
-
+	
 	var listToStyles = __webpack_require__(9)
-
+	
 	/*
 	type StyleObject = {
 	  id: number;
 	  parts: Array<StyleObjectPart>
 	}
-
+	
 	type StyleObjectPart = {
 	  css: string;
 	  media: string;
 	  sourceMap: ?string
 	}
 	*/
-
+	
 	var stylesInDom = {/*
 	  [id: number]: {
 	    id: number,
@@ -7887,23 +7916,23 @@
 	    parts: Array<(obj?: StyleObjectPart) => void>
 	  }
 	*/}
-
+	
 	var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
 	var singletonElement = null
 	var singletonCounter = 0
 	var isProduction = false
 	var noop = function () {}
-
+	
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
 	var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
+	
 	module.exports = function (parentId, list, _isProduction) {
 	  isProduction = _isProduction
-
+	
 	  var styles = listToStyles(parentId, list)
 	  addStylesToDom(styles)
-
+	
 	  return function update (newList) {
 	    var mayRemove = []
 	    for (var i = 0; i < styles.length; i++) {
@@ -7929,7 +7958,7 @@
 	    }
 	  }
 	}
-
+	
 	function addStylesToDom (styles /* Array<StyleObject> */) {
 	  for (var i = 0; i < styles.length; i++) {
 	    var item = styles[i]
@@ -7954,18 +7983,18 @@
 	    }
 	  }
 	}
-
+	
 	function createStyleElement () {
 	  var styleElement = document.createElement('style')
 	  styleElement.type = 'text/css'
 	  head.appendChild(styleElement)
 	  return styleElement
 	}
-
+	
 	function addStyle (obj /* StyleObjectPart */) {
 	  var update, remove
 	  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
-
+	
 	  if (styleElement) {
 	    if (isProduction) {
 	      // has SSR styles and in production mode.
@@ -7980,7 +8009,7 @@
 	      styleElement.parentNode.removeChild(styleElement)
 	    }
 	  }
-
+	
 	  if (isOldIE) {
 	    // use singleton mode for IE9.
 	    var styleIndex = singletonCounter++
@@ -7995,9 +8024,9 @@
 	      styleElement.parentNode.removeChild(styleElement)
 	    }
 	  }
-
+	
 	  update(obj)
-
+	
 	  return function updateStyle (newObj /* StyleObjectPart */) {
 	    if (newObj) {
 	      if (newObj.css === obj.css &&
@@ -8011,19 +8040,19 @@
 	    }
 	  }
 	}
-
+	
 	var replaceText = (function () {
 	  var textStore = []
-
+	
 	  return function (index, replacement) {
 	    textStore[index] = replacement
 	    return textStore.filter(Boolean).join('\n')
 	  }
 	})()
-
+	
 	function applyToSingletonTag (styleElement, index, remove, obj) {
 	  var css = remove ? '' : obj.css
-
+	
 	  if (styleElement.styleSheet) {
 	    styleElement.styleSheet.cssText = replaceText(index, css)
 	  } else {
@@ -8037,16 +8066,16 @@
 	    }
 	  }
 	}
-
+	
 	function applyToTag (styleElement, obj) {
 	  var css = obj.css
 	  var media = obj.media
 	  var sourceMap = obj.sourceMap
-
+	
 	  if (media) {
 	    styleElement.setAttribute('media', media)
 	  }
-
+	
 	  if (sourceMap) {
 	    // https://developer.chrome.com/devtools/docs/javascript-debugging
 	    // this makes source maps inside style tags work properly in Chrome
@@ -8054,7 +8083,7 @@
 	    // http://stackoverflow.com/a/26603875
 	    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
 	  }
-
+	
 	  if (styleElement.styleSheet) {
 	    styleElement.styleSheet.cssText = css
 	  } else {
@@ -8111,30 +8140,30 @@
 	) {
 	  var esModule
 	  var scriptExports = rawScriptExports = rawScriptExports || {}
-
+	
 	  // ES6 modules interop
 	  var type = typeof rawScriptExports.default
 	  if (type === 'object' || type === 'function') {
 	    esModule = rawScriptExports
 	    scriptExports = rawScriptExports.default
 	  }
-
+	
 	  // Vue.extend constructor export interop
 	  var options = typeof scriptExports === 'function'
 	    ? scriptExports.options
 	    : scriptExports
-
+	
 	  // render functions
 	  if (compiledTemplate) {
 	    options.render = compiledTemplate.render
 	    options.staticRenderFns = compiledTemplate.staticRenderFns
 	  }
-
+	
 	  // scopedId
 	  if (scopeId) {
 	    options._scopeId = scopeId
 	  }
-
+	
 	  // inject cssModules
 	  if (cssModules) {
 	    var computed = options.computed || (options.computed = {})
@@ -8143,7 +8172,7 @@
 	      computed[key] = function () { return module }
 	    })
 	  }
-
+	
 	  return {
 	    esModule: esModule,
 	    exports: scriptExports,
@@ -8157,21 +8186,21 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
+	
 	var _toolbar = __webpack_require__(12);
-
+	
 	var _toolbar2 = _interopRequireDefault(_toolbar);
-
+	
 	var _sidebar = __webpack_require__(17);
-
+	
 	var _sidebar2 = _interopRequireDefault(_sidebar);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	//
 	//
 	//
@@ -8268,7 +8297,7 @@
 	//
 	//
 	//
-
+	
 	exports.default = {
 	  components: {
 	    Toolbar: _toolbar2.default,
@@ -8288,7 +8317,7 @@
 	
 	/* styles */
 	__webpack_require__(13)
-
+	
 	var Component = __webpack_require__(10)(
 	  /* script */
 	  __webpack_require__(15),
@@ -8299,7 +8328,23 @@
 	  /* cssModules */
 	  null
 	)
-
+	Component.options.__file = "/Users/vianshen/Documents/projects/teamblog/vueApp/components/toolbar.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] toolbar.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-0dce2dd4", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-0dce2dd4", Component.options)
+	  }
+	})()}
+	
 	module.exports = Component.exports
 
 
@@ -8308,13 +8353,26 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
-	var update = __webpack_require__(8)("f6de841a", content, true);
+	var update = __webpack_require__(8)("072f4594", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-0dce2dd4&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./toolbar.vue", function() {
+	     var newContent = require("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-0dce2dd4&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./toolbar.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
 
 /***/ }),
 /* 14 */
@@ -8322,11 +8380,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
-	exports.push([module.id, ".md-toolbar[data-v-0dce2dd4]{padding-top:.4rem}.icon-caidan[data-v-0dce2dd4]{cursor:pointer}", ""]);
-
+	exports.push([module.id, ".md-toolbar[data-v-0dce2dd4]{padding-top:.4rem}.icon-caidan[data-v-0dce2dd4]{cursor:pointer}", "", {"version":3,"sources":["/./vueApp/components/<input css 3>"],"names":[],"mappings":"AAAA,6BACE,iBAAoB,CACrB,8BAGC,cAAgB,CACjB","file":"toolbar.vue","sourcesContent":[".md-toolbar {\n  padding-top: 0.4rem;\n}\n\n.icon-caidan {\n  cursor: pointer;\n}"],"sourceRoot":"webpack://"}]);
+	
 	// exports
 
 
@@ -8335,7 +8393,7 @@
 /***/ (function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -8358,7 +8416,7 @@
 	//
 	//
 	//
-
+	
 	exports.default = {
 	  props: {
 	    toggleLeftSidenav: {
@@ -8372,7 +8430,7 @@
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('md-toolbar', [_c('md-button', {
@@ -8386,6 +8444,13 @@
 	    staticClass: "md-title"
 	  }, [_vm._v("手淘ATC团队")])], 1)
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-0dce2dd4", module.exports)
+	  }
+	}
 
 /***/ }),
 /* 17 */
@@ -8394,7 +8459,7 @@
 	
 	/* styles */
 	__webpack_require__(18)
-
+	
 	var Component = __webpack_require__(10)(
 	  /* script */
 	  __webpack_require__(20),
@@ -8405,7 +8470,23 @@
 	  /* cssModules */
 	  null
 	)
-
+	Component.options.__file = "/Users/vianshen/Documents/projects/teamblog/vueApp/components/sidebar.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] sidebar.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-edd05596", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-edd05596", Component.options)
+	  }
+	})()}
+	
 	module.exports = Component.exports
 
 
@@ -8414,13 +8495,26 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(19);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
-	var update = __webpack_require__(8)("51cb3022", content, true);
+	var update = __webpack_require__(8)("6cba6136", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-edd05596&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./sidebar.vue", function() {
+	     var newContent = require("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-edd05596&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./sidebar.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
 
 /***/ }),
 /* 19 */
@@ -8428,11 +8522,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
-	exports.push([module.id, ".md-title[data-v-edd05596]{padding-top:.4rem}.list-item[data-v-edd05596]{display:-webkit-box;display:flex;height:1.333333rem;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-align:center;align-items:center;font-size:16px}.list-item i[data-v-edd05596]{margin:0 .4rem;font-size:16px}", ""]);
-
+	exports.push([module.id, ".md-title[data-v-edd05596]{padding-top:.4rem}.list-item[data-v-edd05596]{display:-webkit-box;display:-webkit-flex;display:flex;height:1.333333rem;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row;-webkit-box-align:center;-webkit-align-items:center;align-items:center;font-size:16px}.list-item i[data-v-edd05596]{margin:0 .4rem;font-size:16px}", "", {"version":3,"sources":["/./vueApp/components/<input css 4>"],"names":[],"mappings":"AAAA,2BACE,iBAAoB,CACrB,4BAGC,oBAAA,qBAAA,aAAc,mBACM,8BACpB,6BAAA,2BAAA,mBAAoB,yBACpB,2BAAA,mBAAoB,cACJ,CACjB,8BAGC,eAAiB,cACD,CACjB","file":"sidebar.vue","sourcesContent":[".md-title {\n  padding-top: 0.4rem;\n}\n\n.list-item {\n  display: flex;\n  height: 1.333333rem;\n  flex-direction: row;\n  align-items: center;\n  font-size: 16px;\n}\n\n.list-item i {\n  margin: 0 0.4rem;\n  font-size: 16px;\n}"],"sourceRoot":"webpack://"}]);
+	
 	// exports
 
 
@@ -8441,7 +8535,7 @@
 /***/ (function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -8485,7 +8579,7 @@
 	//
 	//
 	//
-
+	
 	exports.default = {
 	  data: function data() {
 	    return {};
@@ -8494,7 +8588,7 @@
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('md-sidenav', {
@@ -8520,10 +8614,17 @@
 	    staticClass: "iconfont icon-tubiao-"
 	  }), _vm._v(" "), _c('span', [_vm._v("招聘")])])], 1)
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-edd05596", module.exports)
+	  }
+	}
 
 /***/ }),
 /* 22 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
@@ -8536,33 +8637,40 @@
 	    ref: "leftSidenavContainer"
 	  }), _vm._v(" "), _c('div', [_c('router-view')], 1)], 1)
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7dfdc494", module.exports)
+	  }
+	}
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
+	
 	var _vue = __webpack_require__(2);
-
+	
 	var _vue2 = _interopRequireDefault(_vue);
-
+	
 	var _vueRouter = __webpack_require__(24);
-
+	
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
-
+	
 	var _welcome = __webpack_require__(25);
-
+	
 	var _welcome2 = _interopRequireDefault(_welcome);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	_vue2.default.use(_vueRouter2.default);
-
+	
 	exports.default = new _vueRouter2.default({
 	  routes: [{
 	    path: '/welcome',
@@ -8583,25 +8691,25 @@
 	  * @license MIT
 	  */
 	'use strict';
-
+	
 	/*  */
-
+	
 	function assert (condition, message) {
 	  if (!condition) {
 	    throw new Error(("[vue-router] " + message))
 	  }
 	}
-
+	
 	function warn (condition, message) {
 	  if (process.env.NODE_ENV !== 'production' && !condition) {
 	    typeof console !== 'undefined' && console.warn(("[vue-router] " + message));
 	  }
 	}
-
+	
 	function isError (err) {
 	  return Object.prototype.toString.call(err).indexOf('Error') > -1
 	}
-
+	
 	var View = {
 	  name: 'router-view',
 	  functional: true,
@@ -8616,16 +8724,16 @@
 	    var children = ref.children;
 	    var parent = ref.parent;
 	    var data = ref.data;
-
+	
 	    data.routerView = true;
-
+	
 	    // directly use parent context's createElement() function
 	    // so that components rendered by router-view can resolve named slots
 	    var h = parent.$createElement;
 	    var name = props.name;
 	    var route = parent.$route;
 	    var cache = parent._routerViewCache || (parent._routerViewCache = {});
-
+	
 	    // determine current view depth, also check to see if the tree
 	    // has been toggled inactive but kept-alive.
 	    var depth = 0;
@@ -8640,21 +8748,21 @@
 	      parent = parent.$parent;
 	    }
 	    data.routerViewDepth = depth;
-
+	
 	    // render previous view if the tree is inactive and kept-alive
 	    if (inactive) {
 	      return h(cache[name], data, children)
 	    }
-
+	
 	    var matched = route.matched[depth];
 	    // render empty node if no matched route
 	    if (!matched) {
 	      cache[name] = null;
 	      return h()
 	    }
-
+	
 	    var component = cache[name] = matched.components[name];
-
+	
 	    // attach instance registration hook
 	    // this will be called in the instance's injected lifecycle hooks
 	    data.registerRouteInstance = function (vm, val) {
@@ -8667,20 +8775,20 @@
 	        matched.instances[name] = val;
 	      }
 	    }
-
+	
 	    // also regiseter instance in prepatch hook
 	    // in case the same component instance is reused across different routes
 	    ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
 	      matched.instances[name] = vnode.componentInstance;
 	    };
-
+	
 	    // resolve props
 	    data.props = resolveProps(route, matched.props && matched.props[name]);
-
+	
 	    return h(component, data, children)
 	  }
 	};
-
+	
 	function resolveProps (route, config) {
 	  switch (typeof config) {
 	    case 'undefined':
@@ -8701,29 +8809,29 @@
 	      }
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var encodeReserveRE = /[!'()*]/g;
 	var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
 	var commaRE = /%2C/g;
-
+	
 	// fixed encodeURIComponent which is more conformant to RFC3986:
 	// - escapes [!'()*]
 	// - preserve commas
 	var encode = function (str) { return encodeURIComponent(str)
 	  .replace(encodeReserveRE, encodeReserveReplacer)
 	  .replace(commaRE, ','); };
-
+	
 	var decode = decodeURIComponent;
-
+	
 	function resolveQuery (
 	  query,
 	  extraQuery,
 	  _parseQuery
 	) {
 	  if ( extraQuery === void 0 ) extraQuery = {};
-
+	
 	  var parse = _parseQuery || parseQuery;
 	  var parsedQuery;
 	  try {
@@ -8738,23 +8846,23 @@
 	  }
 	  return parsedQuery
 	}
-
+	
 	function parseQuery (query) {
 	  var res = {};
-
+	
 	  query = query.trim().replace(/^(\?|#|&)/, '');
-
+	
 	  if (!query) {
 	    return res
 	  }
-
+	
 	  query.split('&').forEach(function (param) {
 	    var parts = param.replace(/\+/g, ' ').split('=');
 	    var key = decode(parts.shift());
 	    var val = parts.length > 0
 	      ? decode(parts.join('='))
 	      : null;
-
+	
 	    if (res[key] === undefined) {
 	      res[key] = val;
 	    } else if (Array.isArray(res[key])) {
@@ -8763,22 +8871,22 @@
 	      res[key] = [res[key], val];
 	    }
 	  });
-
+	
 	  return res
 	}
-
+	
 	function stringifyQuery (obj) {
 	  var res = obj ? Object.keys(obj).map(function (key) {
 	    var val = obj[key];
-
+	
 	    if (val === undefined) {
 	      return ''
 	    }
-
+	
 	    if (val === null) {
 	      return encode(key)
 	    }
-
+	
 	    if (Array.isArray(val)) {
 	      var result = [];
 	      val.forEach(function (val2) {
@@ -8793,17 +8901,17 @@
 	      });
 	      return result.join('&')
 	    }
-
+	
 	    return encode(key) + '=' + encode(val)
 	  }).filter(function (x) { return x.length > 0; }).join('&') : null;
 	  return res ? ("?" + res) : ''
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var trailingSlashRE = /\/?$/;
-
+	
 	function createRoute (
 	  record,
 	  location,
@@ -8826,12 +8934,12 @@
 	  }
 	  return Object.freeze(route)
 	}
-
+	
 	// the starting route that represents the initial state
 	var START = createRoute(null, {
 	  path: '/'
 	});
-
+	
 	function formatMatch (record) {
 	  var res = [];
 	  while (record) {
@@ -8840,7 +8948,7 @@
 	  }
 	  return res
 	}
-
+	
 	function getFullPath (
 	  ref,
 	  _stringifyQuery
@@ -8848,11 +8956,11 @@
 	  var path = ref.path;
 	  var query = ref.query; if ( query === void 0 ) query = {};
 	  var hash = ref.hash; if ( hash === void 0 ) hash = '';
-
+	
 	  var stringify = _stringifyQuery || stringifyQuery;
 	  return (path || '/') + stringify(query) + hash
 	}
-
+	
 	function isSameRoute (a, b) {
 	  if (b === START) {
 	    return a === b
@@ -8875,11 +8983,11 @@
 	    return false
 	  }
 	}
-
+	
 	function isObjectEqual (a, b) {
 	  if ( a === void 0 ) a = {};
 	  if ( b === void 0 ) b = {};
-
+	
 	  var aKeys = Object.keys(a);
 	  var bKeys = Object.keys(b);
 	  if (aKeys.length !== bKeys.length) {
@@ -8895,7 +9003,7 @@
 	    return String(aVal) === String(bVal)
 	  })
 	}
-
+	
 	function isIncludedRoute (current, target) {
 	  return (
 	    current.path.replace(trailingSlashRE, '/').indexOf(
@@ -8905,7 +9013,7 @@
 	    queryIncludes(current.query, target.query)
 	  )
 	}
-
+	
 	function queryIncludes (current, target) {
 	  for (var key in target) {
 	    if (!(key in current)) {
@@ -8914,13 +9022,13 @@
 	  }
 	  return true
 	}
-
+	
 	/*  */
-
+	
 	// work around weird flow bug
 	var toTypes = [String, Object];
 	var eventTypes = [String, Array];
-
+	
 	var Link = {
 	  name: 'router-link',
 	  props: {
@@ -8944,14 +9052,14 @@
 	  },
 	  render: function render (h) {
 	    var this$1 = this;
-
+	
 	    var router = this.$router;
 	    var current = this.$route;
 	    var ref = router.resolve(this.to, current, this.append);
 	    var location = ref.location;
 	    var route = ref.route;
 	    var href = ref.href;
-
+	
 	    var classes = {};
 	    var globalActiveClass = router.options.linkActiveClass;
 	    var globalExactActiveClass = router.options.linkExactActiveClass;
@@ -8971,12 +9079,12 @@
 	    var compareTarget = location.path
 	      ? createRoute(null, location, null, router)
 	      : route;
-
+	
 	    classes[exactActiveClass] = isSameRoute(current, compareTarget);
 	    classes[activeClass] = this.exact
 	      ? classes[exactActiveClass]
 	      : isIncludedRoute(current, compareTarget);
-
+	
 	    var handler = function (e) {
 	      if (guardEvent(e)) {
 	        if (this$1.replace) {
@@ -8986,18 +9094,18 @@
 	        }
 	      }
 	    };
-
+	
 	    var on = { click: guardEvent };
 	    if (Array.isArray(this.event)) {
 	      this.event.forEach(function (e) { on[e] = handler; });
 	    } else {
 	      on[this.event] = handler;
 	    }
-
+	
 	    var data = {
 	      class: classes
 	    };
-
+	
 	    if (this.tag === 'a') {
 	      data.on = on;
 	      data.attrs = { href: href };
@@ -9017,11 +9125,11 @@
 	        data.on = on;
 	      }
 	    }
-
+	
 	    return h(this.tag, data, this.$slots.default)
 	  }
 	};
-
+	
 	function guardEvent (e) {
 	  // don't redirect with control keys
 	  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) { return }
@@ -9040,7 +9148,7 @@
 	  }
 	  return true
 	}
-
+	
 	function findAnchor (children) {
 	  if (children) {
 	    var child;
@@ -9055,24 +9163,24 @@
 	    }
 	  }
 	}
-
+	
 	var _Vue;
-
+	
 	function install (Vue) {
 	  if (install.installed) { return }
 	  install.installed = true;
-
+	
 	  _Vue = Vue;
-
+	
 	  var isDef = function (v) { return v !== undefined; };
-
+	
 	  var registerInstance = function (vm, callVal) {
 	    var i = vm.$options._parentVnode;
 	    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
 	      i(vm, callVal);
 	    }
 	  };
-
+	
 	  Vue.mixin({
 	    beforeCreate: function beforeCreate () {
 	      if (isDef(this.$options.router)) {
@@ -9089,29 +9197,29 @@
 	      registerInstance(this);
 	    }
 	  });
-
+	
 	  Object.defineProperty(Vue.prototype, '$router', {
 	    get: function get () { return this._routerRoot._router }
 	  });
-
+	
 	  Object.defineProperty(Vue.prototype, '$route', {
 	    get: function get () { return this._routerRoot._route }
 	  });
-
+	
 	  Vue.component('router-view', View);
 	  Vue.component('router-link', Link);
-
+	
 	  var strats = Vue.config.optionMergeStrategies;
 	  // use the same hook merging strategy for route hooks
 	  strats.beforeRouteEnter = strats.beforeRouteLeave = strats.beforeRouteUpdate = strats.created;
 	}
-
+	
 	/*  */
-
+	
 	var inBrowser = typeof window !== 'undefined';
-
+	
 	/*  */
-
+	
 	function resolvePath (
 	  relative,
 	  base,
@@ -9121,20 +9229,20 @@
 	  if (firstChar === '/') {
 	    return relative
 	  }
-
+	
 	  if (firstChar === '?' || firstChar === '#') {
 	    return base + relative
 	  }
-
+	
 	  var stack = base.split('/');
-
+	
 	  // remove trailing segment if:
 	  // - not appending
 	  // - appending to trailing slash (last segment is empty)
 	  if (!append || !stack[stack.length - 1]) {
 	    stack.pop();
 	  }
-
+	
 	  // resolve relative path
 	  var segments = relative.replace(/^\//, '').split('/');
 	  for (var i = 0; i < segments.length; i++) {
@@ -9145,46 +9253,46 @@
 	      stack.push(segment);
 	    }
 	  }
-
+	
 	  // ensure leading slash
 	  if (stack[0] !== '') {
 	    stack.unshift('');
 	  }
-
+	
 	  return stack.join('/')
 	}
-
+	
 	function parsePath (path) {
 	  var hash = '';
 	  var query = '';
-
+	
 	  var hashIndex = path.indexOf('#');
 	  if (hashIndex >= 0) {
 	    hash = path.slice(hashIndex);
 	    path = path.slice(0, hashIndex);
 	  }
-
+	
 	  var queryIndex = path.indexOf('?');
 	  if (queryIndex >= 0) {
 	    query = path.slice(queryIndex + 1);
 	    path = path.slice(0, queryIndex);
 	  }
-
+	
 	  return {
 	    path: path,
 	    query: query,
 	    hash: hash
 	  }
 	}
-
+	
 	function cleanPath (path) {
 	  return path.replace(/\/\//g, '/')
 	}
-
+	
 	var index$1 = Array.isArray || function (arr) {
 	  return Object.prototype.toString.call(arr) == '[object Array]';
 	};
-
+	
 	/**
 	 * Expose `pathToRegexp`.
 	 */
@@ -9193,7 +9301,7 @@
 	var compile_1 = compile;
 	var tokensToFunction_1 = tokensToFunction;
 	var tokensToRegExp_1 = tokensToRegExp;
-
+	
 	/**
 	 * The main path matching regexp utility.
 	 *
@@ -9211,7 +9319,7 @@
 	  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
 	  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
 	].join('|'), 'g');
-
+	
 	/**
 	 * Parse a string for the raw tokens.
 	 *
@@ -9226,20 +9334,20 @@
 	  var path = '';
 	  var defaultDelimiter = options && options.delimiter || '/';
 	  var res;
-
+	
 	  while ((res = PATH_REGEXP.exec(str)) != null) {
 	    var m = res[0];
 	    var escaped = res[1];
 	    var offset = res.index;
 	    path += str.slice(index, offset);
 	    index = offset + m.length;
-
+	
 	    // Ignore already escaped sequences.
 	    if (escaped) {
 	      path += escaped[1];
 	      continue
 	    }
-
+	
 	    var next = str[index];
 	    var prefix = res[2];
 	    var name = res[3];
@@ -9247,19 +9355,19 @@
 	    var group = res[5];
 	    var modifier = res[6];
 	    var asterisk = res[7];
-
+	
 	    // Push the current path onto the tokens.
 	    if (path) {
 	      tokens.push(path);
 	      path = '';
 	    }
-
+	
 	    var partial = prefix != null && next != null && next !== prefix;
 	    var repeat = modifier === '+' || modifier === '*';
 	    var optional = modifier === '?' || modifier === '*';
 	    var delimiter = res[2] || defaultDelimiter;
 	    var pattern = capture || group;
-
+	
 	    tokens.push({
 	      name: name || key++,
 	      prefix: prefix || '',
@@ -9271,20 +9379,20 @@
 	      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
 	    });
 	  }
-
+	
 	  // Match any characters still remaining.
 	  if (index < str.length) {
 	    path += str.substr(index);
 	  }
-
+	
 	  // If the path exists, push it onto the end.
 	  if (path) {
 	    tokens.push(path);
 	  }
-
+	
 	  return tokens
 	}
-
+	
 	/**
 	 * Compile a string to a template function for the path.
 	 *
@@ -9295,7 +9403,7 @@
 	function compile (str, options) {
 	  return tokensToFunction(parse(str, options))
 	}
-
+	
 	/**
 	 * Prettier encoding of URI path segments.
 	 *
@@ -9307,7 +9415,7 @@
 	    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
 	  })
 	}
-
+	
 	/**
 	 * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
 	 *
@@ -9319,57 +9427,57 @@
 	    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
 	  })
 	}
-
+	
 	/**
 	 * Expose a method for transforming tokens into the path function.
 	 */
 	function tokensToFunction (tokens) {
 	  // Compile all the tokens into regexps.
 	  var matches = new Array(tokens.length);
-
+	
 	  // Compile all the patterns before compilation.
 	  for (var i = 0; i < tokens.length; i++) {
 	    if (typeof tokens[i] === 'object') {
 	      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$');
 	    }
 	  }
-
+	
 	  return function (obj, opts) {
 	    var path = '';
 	    var data = obj || {};
 	    var options = opts || {};
 	    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent;
-
+	
 	    for (var i = 0; i < tokens.length; i++) {
 	      var token = tokens[i];
-
+	
 	      if (typeof token === 'string') {
 	        path += token;
-
+	
 	        continue
 	      }
-
+	
 	      var value = data[token.name];
 	      var segment;
-
+	
 	      if (value == null) {
 	        if (token.optional) {
 	          // Prepend partial segment prefixes.
 	          if (token.partial) {
 	            path += token.prefix;
 	          }
-
+	
 	          continue
 	        } else {
 	          throw new TypeError('Expected "' + token.name + '" to be defined')
 	        }
 	      }
-
+	
 	      if (index$1(value)) {
 	        if (!token.repeat) {
 	          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
 	        }
-
+	
 	        if (value.length === 0) {
 	          if (token.optional) {
 	            continue
@@ -9377,33 +9485,33 @@
 	            throw new TypeError('Expected "' + token.name + '" to not be empty')
 	          }
 	        }
-
+	
 	        for (var j = 0; j < value.length; j++) {
 	          segment = encode(value[j]);
-
+	
 	          if (!matches[i].test(segment)) {
 	            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
 	          }
-
+	
 	          path += (j === 0 ? token.prefix : token.delimiter) + segment;
 	        }
-
+	
 	        continue
 	      }
-
+	
 	      segment = token.asterisk ? encodeAsterisk(value) : encode(value);
-
+	
 	      if (!matches[i].test(segment)) {
 	        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
 	      }
-
+	
 	      path += token.prefix + segment;
 	    }
-
+	
 	    return path
 	  }
 	}
-
+	
 	/**
 	 * Escape a regular expression string.
 	 *
@@ -9413,7 +9521,7 @@
 	function escapeString (str) {
 	  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
 	}
-
+	
 	/**
 	 * Escape the capturing group by escaping special characters and meaning.
 	 *
@@ -9423,7 +9531,7 @@
 	function escapeGroup (group) {
 	  return group.replace(/([=!:$\/()])/g, '\\$1')
 	}
-
+	
 	/**
 	 * Attach the keys as a property of the regexp.
 	 *
@@ -9435,7 +9543,7 @@
 	  re.keys = keys;
 	  return re
 	}
-
+	
 	/**
 	 * Get the flags for a regexp from the options.
 	 *
@@ -9445,7 +9553,7 @@
 	function flags (options) {
 	  return options.sensitive ? '' : 'i'
 	}
-
+	
 	/**
 	 * Pull out keys from a regexp.
 	 *
@@ -9456,7 +9564,7 @@
 	function regexpToRegexp (path, keys) {
 	  // Use a negative lookahead to match only capturing groups.
 	  var groups = path.source.match(/\((?!\?)/g);
-
+	
 	  if (groups) {
 	    for (var i = 0; i < groups.length; i++) {
 	      keys.push({
@@ -9471,10 +9579,10 @@
 	      });
 	    }
 	  }
-
+	
 	  return attachKeys(path, keys)
 	}
-
+	
 	/**
 	 * Transform an array into a regexp.
 	 *
@@ -9485,16 +9593,16 @@
 	 */
 	function arrayToRegexp (path, keys, options) {
 	  var parts = [];
-
+	
 	  for (var i = 0; i < path.length; i++) {
 	    parts.push(pathToRegexp(path[i], keys, options).source);
 	  }
-
+	
 	  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
-
+	
 	  return attachKeys(regexp, keys)
 	}
-
+	
 	/**
 	 * Create a path regexp from string input.
 	 *
@@ -9506,7 +9614,7 @@
 	function stringToRegexp (path, keys, options) {
 	  return tokensToRegExp(parse(path, options), keys, options)
 	}
-
+	
 	/**
 	 * Expose a function for taking tokens and returning a RegExp.
 	 *
@@ -9520,29 +9628,29 @@
 	    options = /** @type {!Object} */ (keys || options);
 	    keys = [];
 	  }
-
+	
 	  options = options || {};
-
+	
 	  var strict = options.strict;
 	  var end = options.end !== false;
 	  var route = '';
-
+	
 	  // Iterate over the tokens and create our regexp string.
 	  for (var i = 0; i < tokens.length; i++) {
 	    var token = tokens[i];
-
+	
 	    if (typeof token === 'string') {
 	      route += escapeString(token);
 	    } else {
 	      var prefix = escapeString(token.prefix);
 	      var capture = '(?:' + token.pattern + ')';
-
+	
 	      keys.push(token);
-
+	
 	      if (token.repeat) {
 	        capture += '(?:' + prefix + capture + ')*';
 	      }
-
+	
 	      if (token.optional) {
 	        if (!token.partial) {
 	          capture = '(?:' + prefix + '(' + capture + '))?';
@@ -9552,14 +9660,14 @@
 	      } else {
 	        capture = prefix + '(' + capture + ')';
 	      }
-
+	
 	      route += capture;
 	    }
 	  }
-
+	
 	  var delimiter = escapeString(options.delimiter || '/');
 	  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter;
-
+	
 	  // In non-strict mode we allow a slash at the end of match. If the path to
 	  // match already ends with a slash, we remove it for consistency. The slash
 	  // is valid at the end of a path match, not in the middle. This is important
@@ -9567,7 +9675,7 @@
 	  if (!strict) {
 	    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?';
 	  }
-
+	
 	  if (end) {
 	    route += '$';
 	  } else {
@@ -9575,10 +9683,10 @@
 	    // possible by using a positive lookahead to the end or next path segment.
 	    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)';
 	  }
-
+	
 	  return attachKeys(new RegExp('^' + route, flags(options)), keys)
 	}
-
+	
 	/**
 	 * Normalize the given path string, returning a regular expression.
 	 *
@@ -9596,29 +9704,29 @@
 	    options = /** @type {!Object} */ (keys || options);
 	    keys = [];
 	  }
-
+	
 	  options = options || {};
-
+	
 	  if (path instanceof RegExp) {
 	    return regexpToRegexp(path, /** @type {!Array} */ (keys))
 	  }
-
+	
 	  if (index$1(path)) {
 	    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
 	  }
-
+	
 	  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
 	}
-
+	
 	index.parse = parse_1;
 	index.compile = compile_1;
 	index.tokensToFunction = tokensToFunction_1;
 	index.tokensToRegExp = tokensToRegExp_1;
-
+	
 	/*  */
-
+	
 	var regexpCompileCache = Object.create(null);
-
+	
 	function fillParams (
 	  path,
 	  params,
@@ -9636,9 +9744,9 @@
 	    return ''
 	  }
 	}
-
+	
 	/*  */
-
+	
 	function createRouteMap (
 	  routes,
 	  oldPathList,
@@ -9649,11 +9757,11 @@
 	  var pathList = oldPathList || [];
 	  var pathMap = oldPathMap || Object.create(null);
 	  var nameMap = oldNameMap || Object.create(null);
-
+	
 	  routes.forEach(function (route) {
 	    addRouteRecord(pathList, pathMap, nameMap, route);
 	  });
-
+	
 	  // ensure wildcard routes are always at the end
 	  for (var i = 0, l = pathList.length; i < l; i++) {
 	    if (pathList[i] === '*') {
@@ -9662,14 +9770,14 @@
 	      i--;
 	    }
 	  }
-
+	
 	  return {
 	    pathList: pathList,
 	    pathMap: pathMap,
 	    nameMap: nameMap
 	  }
 	}
-
+	
 	function addRouteRecord (
 	  pathList,
 	  pathMap,
@@ -9688,14 +9796,14 @@
 	      "string id. Use an actual component instead."
 	    );
 	  }
-
+	
 	  var normalizedPath = normalizePath(path, parent);
 	  var pathToRegexpOptions = route.pathToRegexpOptions || {};
-
+	
 	  if (typeof route.caseSensitive === 'boolean') {
 	    pathToRegexpOptions.sensitive = route.caseSensitive;
 	  }
-
+	
 	  var record = {
 	    path: normalizedPath,
 	    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
@@ -9713,7 +9821,7 @@
 	        ? route.props
 	        : { default: route.props }
 	  };
-
+	
 	  if (route.children) {
 	    // Warn if route is named, does not redirect and has a default child route.
 	    // If users navigate to this route by name, the default child will
@@ -9737,12 +9845,12 @@
 	      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
 	    });
 	  }
-
+	
 	  if (route.alias !== undefined) {
 	    var aliases = Array.isArray(route.alias)
 	      ? route.alias
 	      : [route.alias];
-
+	
 	    aliases.forEach(function (alias) {
 	      var aliasRoute = {
 	        path: alias,
@@ -9758,12 +9866,12 @@
 	      );
 	    });
 	  }
-
+	
 	  if (!pathMap[record.path]) {
 	    pathList.push(record.path);
 	    pathMap[record.path] = record;
 	  }
-
+	
 	  if (name) {
 	    if (!nameMap[name]) {
 	      nameMap[name] = record;
@@ -9776,7 +9884,7 @@
 	    }
 	  }
 	}
-
+	
 	function compileRouteRegex (path, pathToRegexpOptions) {
 	  var regex = index(path, [], pathToRegexpOptions);
 	  if (process.env.NODE_ENV !== 'production') {
@@ -9788,17 +9896,17 @@
 	  }
 	  return regex
 	}
-
+	
 	function normalizePath (path, parent) {
 	  path = path.replace(/\/$/, '');
 	  if (path[0] === '/') { return path }
 	  if (parent == null) { return path }
 	  return cleanPath(((parent.path) + "/" + path))
 	}
-
+	
 	/*  */
-
-
+	
+	
 	function normalizeLocation (
 	  raw,
 	  current,
@@ -9810,7 +9918,7 @@
 	  if (next.name || next._normalized) {
 	    return next
 	  }
-
+	
 	  // relative params
 	  if (!next.path && next.params && current) {
 	    next = assign({}, next);
@@ -9827,24 +9935,24 @@
 	    }
 	    return next
 	  }
-
+	
 	  var parsedPath = parsePath(next.path || '');
 	  var basePath = (current && current.path) || '/';
 	  var path = parsedPath.path
 	    ? resolvePath(parsedPath.path, basePath, append || next.append)
 	    : basePath;
-
+	
 	  var query = resolveQuery(
 	    parsedPath.query,
 	    next.query,
 	    router && router.options.parseQuery
 	  );
-
+	
 	  var hash = next.hash || parsedPath.hash;
 	  if (hash && hash.charAt(0) !== '#') {
 	    hash = "#" + hash;
 	  }
-
+	
 	  return {
 	    _normalized: true,
 	    path: path,
@@ -9852,17 +9960,17 @@
 	    hash: hash
 	  }
 	}
-
+	
 	function assign (a, b) {
 	  for (var key in b) {
 	    a[key] = b[key];
 	  }
 	  return a
 	}
-
+	
 	/*  */
-
-
+	
+	
 	function createMatcher (
 	  routes,
 	  router
@@ -9871,11 +9979,11 @@
 	  var pathList = ref.pathList;
 	  var pathMap = ref.pathMap;
 	  var nameMap = ref.nameMap;
-
+	
 	  function addRoutes (routes) {
 	    createRouteMap(routes, pathList, pathMap, nameMap);
 	  }
-
+	
 	  function match (
 	    raw,
 	    currentRoute,
@@ -9883,7 +9991,7 @@
 	  ) {
 	    var location = normalizeLocation(raw, currentRoute, false, router);
 	    var name = location.name;
-
+	
 	    if (name) {
 	      var record = nameMap[name];
 	      if (process.env.NODE_ENV !== 'production') {
@@ -9893,11 +10001,11 @@
 	      var paramNames = record.regex.keys
 	        .filter(function (key) { return !key.optional; })
 	        .map(function (key) { return key.name; });
-
+	
 	      if (typeof location.params !== 'object') {
 	        location.params = {};
 	      }
-
+	
 	      if (currentRoute && typeof currentRoute.params === 'object') {
 	        for (var key in currentRoute.params) {
 	          if (!(key in location.params) && paramNames.indexOf(key) > -1) {
@@ -9905,7 +10013,7 @@
 	          }
 	        }
 	      }
-
+	
 	      if (record) {
 	        location.path = fillParams(record.path, location.params, ("named route \"" + name + "\""));
 	        return _createRoute(record, location, redirectedFrom)
@@ -9923,7 +10031,7 @@
 	    // no match
 	    return _createRoute(null, location)
 	  }
-
+	
 	  function redirect (
 	    record,
 	    location
@@ -9932,11 +10040,11 @@
 	    var redirect = typeof originalRedirect === 'function'
 	        ? originalRedirect(createRoute(record, location, null, router))
 	        : originalRedirect;
-
+	
 	    if (typeof redirect === 'string') {
 	      redirect = { path: redirect };
 	    }
-
+	
 	    if (!redirect || typeof redirect !== 'object') {
 	      if (process.env.NODE_ENV !== 'production') {
 	        warn(
@@ -9945,7 +10053,7 @@
 	      }
 	      return _createRoute(null, location)
 	    }
-
+	
 	    var re = redirect;
 	    var name = re.name;
 	    var path = re.path;
@@ -9955,7 +10063,7 @@
 	    query = re.hasOwnProperty('query') ? re.query : query;
 	    hash = re.hasOwnProperty('hash') ? re.hash : hash;
 	    params = re.hasOwnProperty('params') ? re.params : params;
-
+	
 	    if (name) {
 	      // resolved named direct
 	      var targetRecord = nameMap[name];
@@ -9988,7 +10096,7 @@
 	      return _createRoute(null, location)
 	    }
 	  }
-
+	
 	  function alias (
 	    record,
 	    location,
@@ -10007,7 +10115,7 @@
 	    }
 	    return _createRoute(null, location)
 	  }
-
+	
 	  function _createRoute (
 	    record,
 	    location,
@@ -10021,26 +10129,26 @@
 	    }
 	    return createRoute(record, location, redirectedFrom, router)
 	  }
-
+	
 	  return {
 	    match: match,
 	    addRoutes: addRoutes
 	  }
 	}
-
+	
 	function matchRoute (
 	  regex,
 	  path,
 	  params
 	) {
 	  var m = path.match(regex);
-
+	
 	  if (!m) {
 	    return false
 	  } else if (!params) {
 	    return true
 	  }
-
+	
 	  for (var i = 1, len = m.length; i < len; ++i) {
 	    var key = regex.keys[i - 1];
 	    var val = typeof m[i] === 'string' ? decodeURIComponent(m[i]) : m[i];
@@ -10048,19 +10156,19 @@
 	      params[key.name] = val;
 	    }
 	  }
-
+	
 	  return true
 	}
-
+	
 	function resolveRecordPath (path, record) {
 	  return resolvePath(path, record.parent ? record.parent.path : '/', true)
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var positionStore = Object.create(null);
-
+	
 	function setupScroll () {
 	  window.addEventListener('popstate', function (e) {
 	    saveScrollPosition();
@@ -10069,7 +10177,7 @@
 	    }
 	  });
 	}
-
+	
 	function handleScroll (
 	  router,
 	  to,
@@ -10079,16 +10187,16 @@
 	  if (!router.app) {
 	    return
 	  }
-
+	
 	  var behavior = router.options.scrollBehavior;
 	  if (!behavior) {
 	    return
 	  }
-
+	
 	  if (process.env.NODE_ENV !== 'production') {
 	    assert(typeof behavior === 'function', "scrollBehavior must be a function");
 	  }
-
+	
 	  // wait until re-render finishes before scrolling
 	  router.app.$nextTick(function () {
 	    var position = getScrollPosition();
@@ -10109,13 +10217,13 @@
 	    } else if (isObject && isValidPosition(shouldScroll)) {
 	      position = normalizePosition(shouldScroll);
 	    }
-
+	
 	    if (position) {
 	      window.scrollTo(position.x, position.y);
 	    }
 	  });
 	}
-
+	
 	function saveScrollPosition () {
 	  var key = getStateKey();
 	  if (key) {
@@ -10125,14 +10233,14 @@
 	    };
 	  }
 	}
-
+	
 	function getScrollPosition () {
 	  var key = getStateKey();
 	  if (key) {
 	    return positionStore[key]
 	  }
 	}
-
+	
 	function getElementPosition (el, offset) {
 	  var docEl = document.documentElement;
 	  var docRect = docEl.getBoundingClientRect();
@@ -10142,34 +10250,34 @@
 	    y: elRect.top - docRect.top - offset.y
 	  }
 	}
-
+	
 	function isValidPosition (obj) {
 	  return isNumber(obj.x) || isNumber(obj.y)
 	}
-
+	
 	function normalizePosition (obj) {
 	  return {
 	    x: isNumber(obj.x) ? obj.x : window.pageXOffset,
 	    y: isNumber(obj.y) ? obj.y : window.pageYOffset
 	  }
 	}
-
+	
 	function normalizeOffset (obj) {
 	  return {
 	    x: isNumber(obj.x) ? obj.x : 0,
 	    y: isNumber(obj.y) ? obj.y : 0
 	  }
 	}
-
+	
 	function isNumber (v) {
 	  return typeof v === 'number'
 	}
-
+	
 	/*  */
-
+	
 	var supportsPushState = inBrowser && (function () {
 	  var ua = window.navigator.userAgent;
-
+	
 	  if (
 	    (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
 	    ua.indexOf('Mobile Safari') !== -1 &&
@@ -10178,29 +10286,29 @@
 	  ) {
 	    return false
 	  }
-
+	
 	  return window.history && 'pushState' in window.history
 	})();
-
+	
 	// use User Timing api (if present) for more accurate key precision
 	var Time = inBrowser && window.performance && window.performance.now
 	  ? window.performance
 	  : Date;
-
+	
 	var _key = genKey();
-
+	
 	function genKey () {
 	  return Time.now().toFixed(3)
 	}
-
+	
 	function getStateKey () {
 	  return _key
 	}
-
+	
 	function setStateKey (key) {
 	  _key = key;
 	}
-
+	
 	function pushState (url, replace) {
 	  saveScrollPosition();
 	  // try...catch the pushState call to get around Safari
@@ -10217,13 +10325,13 @@
 	    window.location[replace ? 'replace' : 'assign'](url);
 	  }
 	}
-
+	
 	function replaceState (url) {
 	  pushState(url, true);
 	}
-
+	
 	/*  */
-
+	
 	function runQueue (queue, fn, cb) {
 	  var step = function (index) {
 	    if (index >= queue.length) {
@@ -10240,15 +10348,15 @@
 	  };
 	  step(0);
 	}
-
+	
 	/*  */
-
+	
 	function resolveAsyncComponents (matched) {
 	  return function (to, from, next) {
 	    var hasAsync = false;
 	    var pending = 0;
 	    var error = null;
-
+	
 	    flatMapComponents(matched, function (def, _, match, key) {
 	      // if it's a function and doesn't have cid attached,
 	      // assume it's an async component resolve function.
@@ -10258,7 +10366,7 @@
 	      if (typeof def === 'function' && def.cid === undefined) {
 	        hasAsync = true;
 	        pending++;
-
+	
 	        var resolve = once(function (resolvedDef) {
 	          if (resolvedDef.__esModule && resolvedDef.default) {
 	            resolvedDef = resolvedDef.default;
@@ -10273,7 +10381,7 @@
 	            next();
 	          }
 	        });
-
+	
 	        var reject = once(function (reason) {
 	          var msg = "Failed to resolve async component " + key + ": " + reason;
 	          process.env.NODE_ENV !== 'production' && warn(false, msg);
@@ -10284,7 +10392,7 @@
 	            next(error);
 	          }
 	        });
-
+	
 	        var res;
 	        try {
 	          res = def(resolve, reject);
@@ -10304,11 +10412,11 @@
 	        }
 	      }
 	    });
-
+	
 	    if (!hasAsync) { next(); }
 	  }
 	}
-
+	
 	function flatMapComponents (
 	  matched,
 	  fn
@@ -10321,11 +10429,11 @@
 	    ); })
 	  }))
 	}
-
+	
 	function flatten (arr) {
 	  return Array.prototype.concat.apply([], arr)
 	}
-
+	
 	// in Webpack 2, require.ensure now also returns a Promise
 	// so the resolve/reject functions may get called an extra time
 	// if the user uses an arrow function shorthand that happens to
@@ -10335,15 +10443,15 @@
 	  return function () {
 	    var args = [], len = arguments.length;
 	    while ( len-- ) args[ len ] = arguments[ len ];
-
+	
 	    if (called) { return }
 	    called = true;
 	    return fn.apply(this, args)
 	  }
 	}
-
+	
 	/*  */
-
+	
 	var History = function History (router, base) {
 	  this.router = router;
 	  this.base = normalizeBase(base);
@@ -10355,11 +10463,11 @@
 	  this.readyErrorCbs = [];
 	  this.errorCbs = [];
 	};
-
+	
 	History.prototype.listen = function listen (cb) {
 	  this.cb = cb;
 	};
-
+	
 	History.prototype.onReady = function onReady (cb, errorCb) {
 	  if (this.ready) {
 	    cb();
@@ -10370,20 +10478,20 @@
 	    }
 	  }
 	};
-
+	
 	History.prototype.onError = function onError (errorCb) {
 	  this.errorCbs.push(errorCb);
 	};
-
+	
 	History.prototype.transitionTo = function transitionTo (location, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	  var route = this.router.match(location, this.current);
 	  this.confirmTransition(route, function () {
 	    this$1.updateRoute(route);
 	    onComplete && onComplete(route);
 	    this$1.ensureURL();
-
+	
 	    // fire ready cbs once
 	    if (!this$1.ready) {
 	      this$1.ready = true;
@@ -10399,10 +10507,10 @@
 	    }
 	  });
 	};
-
+	
 	History.prototype.confirmTransition = function confirmTransition (route, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	  var current = this.current;
 	  var abort = function (err) {
 	    if (isError(err)) {
@@ -10423,12 +10531,12 @@
 	    this.ensureURL();
 	    return abort()
 	  }
-
+	
 	  var ref = resolveQueue(this.current.matched, route.matched);
 	    var updated = ref.updated;
 	    var deactivated = ref.deactivated;
 	    var activated = ref.activated;
-
+	
 	  var queue = [].concat(
 	    // in-component leave guards
 	    extractLeaveGuards(deactivated),
@@ -10441,7 +10549,7 @@
 	    // async components
 	    resolveAsyncComponents(activated)
 	  );
-
+	
 	  this.pending = route;
 	  var iterator = function (hook, next) {
 	    if (this$1.pending !== route) {
@@ -10476,7 +10584,7 @@
 	      abort(e);
 	    }
 	  };
-
+	
 	  runQueue(queue, iterator, function () {
 	    var postEnterCbs = [];
 	    var isValid = function () { return this$1.current === route; };
@@ -10498,7 +10606,7 @@
 	    });
 	  });
 	};
-
+	
 	History.prototype.updateRoute = function updateRoute (route) {
 	  var prev = this.current;
 	  this.current = route;
@@ -10507,7 +10615,7 @@
 	    hook && hook(route, prev);
 	  });
 	};
-
+	
 	function normalizeBase (base) {
 	  if (!base) {
 	    if (inBrowser) {
@@ -10527,7 +10635,7 @@
 	  // remove trailing slash
 	  return base.replace(/\/$/, '')
 	}
-
+	
 	function resolveQueue (
 	  current,
 	  next
@@ -10545,7 +10653,7 @@
 	    deactivated: current.slice(i)
 	  }
 	}
-
+	
 	function extractGuards (
 	  records,
 	  name,
@@ -10562,7 +10670,7 @@
 	  });
 	  return flatten(reverse ? guards.reverse() : guards)
 	}
-
+	
 	function extractGuard (
 	  def,
 	  key
@@ -10573,15 +10681,15 @@
 	  }
 	  return def.options[key]
 	}
-
+	
 	function extractLeaveGuards (deactivated) {
 	  return extractGuards(deactivated, 'beforeRouteLeave', bindGuard, true)
 	}
-
+	
 	function extractUpdateHooks (updated) {
 	  return extractGuards(updated, 'beforeRouteUpdate', bindGuard)
 	}
-
+	
 	function bindGuard (guard, instance) {
 	  if (instance) {
 	    return function boundRouteGuard () {
@@ -10589,7 +10697,7 @@
 	    }
 	  }
 	}
-
+	
 	function extractEnterGuards (
 	  activated,
 	  cbs,
@@ -10599,7 +10707,7 @@
 	    return bindEnterGuard(guard, match, key, cbs, isValid)
 	  })
 	}
-
+	
 	function bindEnterGuard (
 	  guard,
 	  match,
@@ -10623,7 +10731,7 @@
 	    })
 	  }
 	}
-
+	
 	function poll (
 	  cb, // somehow flow cannot infer this is a function
 	  instances,
@@ -10638,22 +10746,22 @@
 	    }, 16);
 	  }
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var HTML5History = (function (History$$1) {
 	  function HTML5History (router, base) {
 	    var this$1 = this;
-
+	
 	    History$$1.call(this, router, base);
-
+	
 	    var expectScroll = router.options.scrollBehavior;
-
+	
 	    if (expectScroll) {
 	      setupScroll();
 	    }
-
+	
 	    window.addEventListener('popstate', function (e) {
 	      var current = this$1.current;
 	      this$1.transitionTo(getLocation(this$1.base), function (route) {
@@ -10663,18 +10771,18 @@
 	      });
 	    });
 	  }
-
+	
 	  if ( History$$1 ) HTML5History.__proto__ = History$$1;
 	  HTML5History.prototype = Object.create( History$$1 && History$$1.prototype );
 	  HTML5History.prototype.constructor = HTML5History;
-
+	
 	  HTML5History.prototype.go = function go (n) {
 	    window.history.go(n);
 	  };
-
+	
 	  HTML5History.prototype.push = function push (location, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	    var ref = this;
 	    var fromRoute = ref.current;
 	    this.transitionTo(location, function (route) {
@@ -10683,10 +10791,10 @@
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  HTML5History.prototype.replace = function replace (location, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	    var ref = this;
 	    var fromRoute = ref.current;
 	    this.transitionTo(location, function (route) {
@@ -10695,21 +10803,21 @@
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  HTML5History.prototype.ensureURL = function ensureURL (push) {
 	    if (getLocation(this.base) !== this.current.fullPath) {
 	      var current = cleanPath(this.base + this.current.fullPath);
 	      push ? pushState(current) : replaceState(current);
 	    }
 	  };
-
+	
 	  HTML5History.prototype.getCurrentLocation = function getCurrentLocation () {
 	    return getLocation(this.base)
 	  };
-
+	
 	  return HTML5History;
 	}(History));
-
+	
 	function getLocation (base) {
 	  var path = window.location.pathname;
 	  if (base && path.indexOf(base) === 0) {
@@ -10717,10 +10825,10 @@
 	  }
 	  return (path || '/') + window.location.search + window.location.hash
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var HashHistory = (function (History$$1) {
 	  function HashHistory (router, base, fallback) {
 	    History$$1.call(this, router, base);
@@ -10730,16 +10838,16 @@
 	    }
 	    ensureSlash();
 	  }
-
+	
 	  if ( History$$1 ) HashHistory.__proto__ = History$$1;
 	  HashHistory.prototype = Object.create( History$$1 && History$$1.prototype );
 	  HashHistory.prototype.constructor = HashHistory;
-
+	
 	  // this is delayed until the app mounts
 	  // to avoid the hashchange listener being fired too early
 	  HashHistory.prototype.setupListeners = function setupListeners () {
 	    var this$1 = this;
-
+	
 	    window.addEventListener('hashchange', function () {
 	      if (!ensureSlash()) {
 	        return
@@ -10749,39 +10857,39 @@
 	      });
 	    });
 	  };
-
+	
 	  HashHistory.prototype.push = function push (location, onComplete, onAbort) {
 	    this.transitionTo(location, function (route) {
 	      pushHash(route.fullPath);
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  HashHistory.prototype.replace = function replace (location, onComplete, onAbort) {
 	    this.transitionTo(location, function (route) {
 	      replaceHash(route.fullPath);
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  HashHistory.prototype.go = function go (n) {
 	    window.history.go(n);
 	  };
-
+	
 	  HashHistory.prototype.ensureURL = function ensureURL (push) {
 	    var current = this.current.fullPath;
 	    if (getHash() !== current) {
 	      push ? pushHash(current) : replaceHash(current);
 	    }
 	  };
-
+	
 	  HashHistory.prototype.getCurrentLocation = function getCurrentLocation () {
 	    return getHash()
 	  };
-
+	
 	  return HashHistory;
 	}(History));
-
+	
 	function checkFallback (base) {
 	  var location = getLocation(base);
 	  if (!/^\/#/.test(location)) {
@@ -10791,7 +10899,7 @@
 	    return true
 	  }
 	}
-
+	
 	function ensureSlash () {
 	  var path = getHash();
 	  if (path.charAt(0) === '/') {
@@ -10800,7 +10908,7 @@
 	  replaceHash('/' + path);
 	  return false
 	}
-
+	
 	function getHash () {
 	  // We can't use window.location.hash here because it's not
 	  // consistent across browsers - Firefox will pre-decode it!
@@ -10808,54 +10916,54 @@
 	  var index = href.indexOf('#');
 	  return index === -1 ? '' : href.slice(index + 1)
 	}
-
+	
 	function pushHash (path) {
 	  window.location.hash = path;
 	}
-
+	
 	function replaceHash (path) {
 	  var href = window.location.href;
 	  var i = href.indexOf('#');
 	  var base = i >= 0 ? href.slice(0, i) : href;
 	  window.location.replace((base + "#" + path));
 	}
-
+	
 	/*  */
-
-
+	
+	
 	var AbstractHistory = (function (History$$1) {
 	  function AbstractHistory (router, base) {
 	    History$$1.call(this, router, base);
 	    this.stack = [];
 	    this.index = -1;
 	  }
-
+	
 	  if ( History$$1 ) AbstractHistory.__proto__ = History$$1;
 	  AbstractHistory.prototype = Object.create( History$$1 && History$$1.prototype );
 	  AbstractHistory.prototype.constructor = AbstractHistory;
-
+	
 	  AbstractHistory.prototype.push = function push (location, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	    this.transitionTo(location, function (route) {
 	      this$1.stack = this$1.stack.slice(0, this$1.index + 1).concat(route);
 	      this$1.index++;
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  AbstractHistory.prototype.replace = function replace (location, onComplete, onAbort) {
 	    var this$1 = this;
-
+	
 	    this.transitionTo(location, function (route) {
 	      this$1.stack = this$1.stack.slice(0, this$1.index).concat(route);
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
-
+	
 	  AbstractHistory.prototype.go = function go (n) {
 	    var this$1 = this;
-
+	
 	    var targetIndex = this.index + n;
 	    if (targetIndex < 0 || targetIndex >= this.stack.length) {
 	      return
@@ -10866,24 +10974,24 @@
 	      this$1.updateRoute(route);
 	    });
 	  };
-
+	
 	  AbstractHistory.prototype.getCurrentLocation = function getCurrentLocation () {
 	    var current = this.stack[this.stack.length - 1];
 	    return current ? current.fullPath : '/'
 	  };
-
+	
 	  AbstractHistory.prototype.ensureURL = function ensureURL () {
 	    // noop
 	  };
-
+	
 	  return AbstractHistory;
 	}(History));
-
+	
 	/*  */
-
+	
 	var VueRouter = function VueRouter (options) {
 	  if ( options === void 0 ) options = {};
-
+	
 	  this.app = null;
 	  this.apps = [];
 	  this.options = options;
@@ -10891,7 +10999,7 @@
 	  this.resolveHooks = [];
 	  this.afterHooks = [];
 	  this.matcher = createMatcher(options.routes || [], this);
-
+	
 	  var mode = options.mode || 'hash';
 	  this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false;
 	  if (this.fallback) {
@@ -10901,7 +11009,7 @@
 	    mode = 'abstract';
 	  }
 	  this.mode = mode;
-
+	
 	  switch (mode) {
 	    case 'history':
 	      this.history = new HTML5History(this, options.base);
@@ -10918,9 +11026,9 @@
 	      }
 	  }
 	};
-
+	
 	var prototypeAccessors = { currentRoute: {} };
-
+	
 	VueRouter.prototype.match = function match (
 	  raw,
 	  current,
@@ -10928,31 +11036,31 @@
 	) {
 	  return this.matcher.match(raw, current, redirectedFrom)
 	};
-
+	
 	prototypeAccessors.currentRoute.get = function () {
 	  return this.history && this.history.current
 	};
-
+	
 	VueRouter.prototype.init = function init (app /* Vue component instance */) {
 	    var this$1 = this;
-
+	
 	  process.env.NODE_ENV !== 'production' && assert(
 	    install.installed,
 	    "not installed. Make sure to call `Vue.use(VueRouter)` " +
 	    "before creating root instance."
 	  );
-
+	
 	  this.apps.push(app);
-
+	
 	  // main app already initialized.
 	  if (this.app) {
 	    return
 	  }
-
+	
 	  this.app = app;
-
+	
 	  var history = this.history;
-
+	
 	  if (history instanceof HTML5History) {
 	    history.transitionTo(history.getCurrentLocation());
 	  } else if (history instanceof HashHistory) {
@@ -10965,54 +11073,54 @@
 	      setupHashListener
 	    );
 	  }
-
+	
 	  history.listen(function (route) {
 	    this$1.apps.forEach(function (app) {
 	      app._route = route;
 	    });
 	  });
 	};
-
+	
 	VueRouter.prototype.beforeEach = function beforeEach (fn) {
 	  return registerHook(this.beforeHooks, fn)
 	};
-
+	
 	VueRouter.prototype.beforeResolve = function beforeResolve (fn) {
 	  return registerHook(this.resolveHooks, fn)
 	};
-
+	
 	VueRouter.prototype.afterEach = function afterEach (fn) {
 	  return registerHook(this.afterHooks, fn)
 	};
-
+	
 	VueRouter.prototype.onReady = function onReady (cb, errorCb) {
 	  this.history.onReady(cb, errorCb);
 	};
-
+	
 	VueRouter.prototype.onError = function onError (errorCb) {
 	  this.history.onError(errorCb);
 	};
-
+	
 	VueRouter.prototype.push = function push (location, onComplete, onAbort) {
 	  this.history.push(location, onComplete, onAbort);
 	};
-
+	
 	VueRouter.prototype.replace = function replace (location, onComplete, onAbort) {
 	  this.history.replace(location, onComplete, onAbort);
 	};
-
+	
 	VueRouter.prototype.go = function go (n) {
 	  this.history.go(n);
 	};
-
+	
 	VueRouter.prototype.back = function back () {
 	  this.go(-1);
 	};
-
+	
 	VueRouter.prototype.forward = function forward () {
 	  this.go(1);
 	};
-
+	
 	VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
 	  var route = to
 	    ? to.matched
@@ -11028,7 +11136,7 @@
 	    })
 	  }))
 	};
-
+	
 	VueRouter.prototype.resolve = function resolve (
 	  to,
 	  current,
@@ -11053,16 +11161,16 @@
 	    resolved: route
 	  }
 	};
-
+	
 	VueRouter.prototype.addRoutes = function addRoutes (routes) {
 	  this.matcher.addRoutes(routes);
 	  if (this.history.current !== START) {
 	    this.history.transitionTo(this.history.getCurrentLocation());
 	  }
 	};
-
+	
 	Object.defineProperties( VueRouter.prototype, prototypeAccessors );
-
+	
 	function registerHook (list, fn) {
 	  list.push(fn);
 	  return function () {
@@ -11070,21 +11178,21 @@
 	    if (i > -1) { list.splice(i, 1); }
 	  }
 	}
-
+	
 	function createHref (base, fullPath, mode) {
 	  var path = mode === 'hash' ? '#' + fullPath : fullPath;
 	  return base ? cleanPath(base + '/' + path) : path
 	}
-
+	
 	VueRouter.install = install;
 	VueRouter.version = '2.7.0';
-
+	
 	if (inBrowser && window.Vue) {
 	  window.Vue.use(VueRouter);
 	}
-
+	
 	module.exports = VueRouter;
-
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
@@ -11094,7 +11202,7 @@
 	
 	/* styles */
 	__webpack_require__(26)
-
+	
 	var Component = __webpack_require__(10)(
 	  /* script */
 	  __webpack_require__(28),
@@ -11105,7 +11213,23 @@
 	  /* cssModules */
 	  null
 	)
-
+	Component.options.__file = "/Users/vianshen/Documents/projects/teamblog/vueApp/components/welcome.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] welcome.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-bd4c1b8a", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-bd4c1b8a", Component.options)
+	  }
+	})()}
+	
 	module.exports = Component.exports
 
 
@@ -11114,13 +11238,26 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(27);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
-	var update = __webpack_require__(8)("00c1d7f9", content, true);
+	var update = __webpack_require__(8)("7899773c", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-bd4c1b8a&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./welcome.vue", function() {
+	     var newContent = require("!!../../node_modules/.0.25.0@css-loader/index.js?sourceMap!../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-bd4c1b8a&scoped=true!../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./welcome.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
 
 /***/ }),
 /* 27 */
@@ -11128,11 +11265,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
-	exports.push([module.id, "p[data-v-bd4c1b8a]{display:block;text-align:center}p.qux[data-v-bd4c1b8a]{margin:1em 2em}", ""]);
-
+	exports.push([module.id, "p[data-v-bd4c1b8a]{display:block;text-align:center}p.qux[data-v-bd4c1b8a]{margin:1em 2em}", "", {"version":3,"sources":["/./vueApp/components/<input css 2>"],"names":[],"mappings":"AAAA,mBACE,cAAe,iBACI,CACpB,uBAGC,cAAgB,CACjB","file":"welcome.vue","sourcesContent":["p {\n  display: block;\n  text-align: center;\n}\n\np.qux {\n  margin: 1em 2em;\n}"],"sourceRoot":"webpack://"}]);
+	
 	// exports
 
 
@@ -11141,7 +11278,7 @@
 /***/ (function(module, exports) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -11163,7 +11300,7 @@
 	//
 	//
 	//
-
+	
 	exports.default = {
 	  // props: ['baz'],
 	  props: {
@@ -11184,7 +11321,7 @@
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('p', {
@@ -11195,6 +11332,13 @@
 	    }, [_vm._v(_vm._s(item))])
 	  })], 2)
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-bd4c1b8a", module.exports)
+	  }
+	}
 
 /***/ }),
 /* 30 */
@@ -11218,7 +11362,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(32);
 	if(typeof content === 'string') content = [[module.id, content, '']];
@@ -11245,11 +11389,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
 	exports.push([module.id, "/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-ink-ripple {\n  pointer-events: none;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  -webkit-mask-image: radial-gradient(circle, white 100%, black 100%);\n  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n}\n.md-ripple {\n  position: absolute;\n  background-color: currentColor;\n  border-radius: 50%;\n  opacity: .2;\n  transform: scale(0) translateZ(0);\n  transition: none;\n  will-change: background-color, opacity, transform, width, height, top, left;\n}\n.md-ripple.md-active {\n    animation: ripple 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;\n}\n.md-ripple.md-active.md-fadeout {\n      opacity: 0 !important;\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      transition-duration: .6s;\n}\n@keyframes ripple {\nto {\n    transform: scale(2.2) translateZ(0);\n}\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/*  Text and Titles\n   ========================================================================== */\n.md-caption {\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: .02em;\n  line-height: 17px; }\n\n.md-body-1, body {\n  font-size: 14px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 20px; }\n\n.md-body-2 {\n  font-size: 14px;\n  font-weight: 500;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-subheading {\n  font-size: 16px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-title {\n  font-size: 20px;\n  font-weight: 500;\n  letter-spacing: .005em;\n  line-height: 26px; }\n\n.md-headline {\n  font-size: 24px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 32px; }\n\n.md-display-1 {\n  font-size: 34px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 40px; }\n\n.md-display-2 {\n  font-size: 45px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 48px; }\n\n.md-display-3 {\n  font-size: 56px;\n  font-weight: 400;\n  letter-spacing: -.005em;\n  line-height: 58px; }\n\n.md-display-4 {\n  font-size: 112px;\n  font-weight: 300;\n  letter-spacing: -.01em;\n  line-height: 112px; }\n\n/*  Links & Buttons\n   ========================================================================== */\na:not(.md-button):not(.md-bottom-bar-item) {\n  text-decoration: none; }\n  a:not(.md-button):not(.md-bottom-bar-item):hover {\n    text-decoration: underline; }\n\nbutton:focus {\n  outline: none; }\n\n/*  Structure\n   ========================================================================== */\nhtml {\n  height: 100%;\n  box-sizing: border-box; }\n  html *,\n  html *:before,\n  html *:after {\n    box-sizing: inherit; }\n\nbody {\n  min-height: 100%;\n  margin: 0;\n  position: relative;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-touch-callout: none;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  color: rgba(0, 0, 0, 0.87);\n  font-family: Roboto, \"Noto Sans\", Noto, sans-serif; }\n\n/*  Fluid Media\n   ========================================================================== */\nul:not(.md-list) > li + li {\n  margin-top: 8px; }\n\n/*  Fluid Media\n   ========================================================================== */\naudio,\nimg,\nsvg,\nobject,\nembed,\ncanvas,\nvideo,\niframe {\n  max-width: 100%;\n  font-style: italic;\n  vertical-align: middle; }\n  audio:not(.md-image),\n  img:not(.md-image),\n  svg:not(.md-image),\n  object:not(.md-image),\n  embed:not(.md-image),\n  canvas:not(.md-image),\n  video:not(.md-image),\n  iframe:not(.md-image) {\n    height: auto; }\n\n/*  Suppress the focus outline on links that cannot be accessed via keyboard.\n    This prevents an unwanted focus outline from appearing around elements\n    that might still respond to pointer events.\n   ========================================================================== */\n[tabindex=\"-1\"]:focus {\n  outline: none !important; }\n\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-scrollbar::-webkit-scrollbar,\n.md-scrollbar ::-webkit-scrollbar {\n  width: 10px;\n  height: 10px;\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.12);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n  background-color: rgba(0, 0, 0, 0.05); }\n  .md-scrollbar::-webkit-scrollbar:hover,\n  .md-scrollbar ::-webkit-scrollbar:hover {\n    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.038);\n    background-color: rgba(0, 0, 0, 0.087); }\n\n.md-scrollbar::-webkit-scrollbar-button,\n.md-scrollbar ::-webkit-scrollbar-button {\n  display: none; }\n\n.md-scrollbar::-webkit-scrollbar-corner,\n.md-scrollbar ::-webkit-scrollbar-corner {\n  background-color: transparent; }\n\n.md-scrollbar::-webkit-scrollbar-thumb,\n.md-scrollbar ::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.26);\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.087);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1); }\n\n/*  Text and Titles\n   ========================================================================== */\n.md-caption {\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: .02em;\n  line-height: 17px; }\n\n.md-body-1, body {\n  font-size: 14px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 20px; }\n\n.md-body-2 {\n  font-size: 14px;\n  font-weight: 500;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-subheading {\n  font-size: 16px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-title {\n  font-size: 20px;\n  font-weight: 500;\n  letter-spacing: .005em;\n  line-height: 26px; }\n\n.md-headline {\n  font-size: 24px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 32px; }\n\n.md-display-1 {\n  font-size: 34px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 40px; }\n\n.md-display-2 {\n  font-size: 45px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 48px; }\n\n.md-display-3 {\n  font-size: 56px;\n  font-weight: 400;\n  letter-spacing: -.005em;\n  line-height: 58px; }\n\n.md-display-4 {\n  font-size: 112px;\n  font-weight: 300;\n  letter-spacing: -.01em;\n  line-height: 112px; }\n\n/*  Links & Buttons\n   ========================================================================== */\na:not(.md-button):not(.md-bottom-bar-item) {\n  text-decoration: none; }\n  a:not(.md-button):not(.md-bottom-bar-item):hover {\n    text-decoration: underline; }\n\nbutton:focus {\n  outline: none; }\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-avatar {\n  width: 40px;\n  min-width: 40px;\n  height: 40px;\n  min-height: 40px;\n  margin: auto;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  position: relative;\n  border-radius: 40px;\n  vertical-align: middle;\n}\n.md-avatar.md-large {\n    width: 64px;\n    min-width: 64px;\n    height: 64px;\n    min-height: 64px;\n    border-radius: 64px;\n}\n.md-avatar.md-large .md-icon {\n      width: 40px;\n      min-width: 40px;\n      height: 40px;\n      min-height: 40px;\n      font-size: 40px;\n      line-height: 40px;\n}\n.md-avatar.md-avatar-icon {\n    background-color: rgba(0, 0, 0, 0.38);\n}\n.md-avatar.md-avatar-icon .md-icon {\n      color: #fff;\n}\n.md-avatar .md-icon {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.md-avatar img {\n    width: 100%;\n    height: 100%;\n    display: block;\n}\n.md-avatar .md-ink-ripple {\n    border-radius: 50%;\n}\n.md-avatar .md-ink-ripple .md-ripple.md-active {\n      animation-duration: .9s;\n}\n.md-avatar-tooltip.md-tooltip-top {\n  margin-top: -8px;\n}\n.md-avatar-tooltip.md-tooltip-right {\n  margin-left: 8px;\n}\n.md-avatar-tooltip.md-tooltip-bottom {\n  margin-top: 8px;\n}\n.md-avatar-tooltip.md-tooltip-left {\n  margin-left: -8px;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-backdrop {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 99;\n  pointer-events: none;\n  background-color: rgba(0, 0, 0, 0.54);\n  transform: translate3d(0, 0, 0);\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n}\n.md-backdrop.md-active {\n    opacity: 1;\n    pointer-events: auto;\n}\n.md-backdrop.md-transparent {\n    background: rgba(0, 0, 0, 0.005);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-bottom-bar {\n  width: 100%;\n  min-width: 100%;\n  height: 56px;\n  position: relative;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: center;\n      justify-content: center;\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-bottom-bar-item {\n  max-width: 168px;\n  min-width: 80px;\n  height: 100%;\n  padding: 8px 12px 10px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  -ms-flex: 1;\n      flex: 1;\n  position: relative;\n  cursor: pointer;\n  border: none;\n  background: transparent;\n  transform: translate3d(0, 0, 0);\n  color: currentColor;\n  font-family: inherit;\n  font-size: 14px;\n  line-height: 1em;\n  text-decoration: none;\n}\n.md-bottom-bar-item.md-active {\n    padding-top: 6px;\n}\n.md-bottom-bar-item.md-active .md-text {\n      transform: scale(1) translate3d(0, 0, 0);\n}\n.md-bottom-bar-item.md-active .md-text,\n    .md-bottom-bar-item.md-active .md-icon {\n      color: currentColor;\n}\n.md-bottom-bar-item[disabled] {\n    opacity: .38;\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item {\n    min-width: 56px;\n    max-width: 96px;\n    position: static;\n    -ms-flex: 1 1 32px;\n        flex: 1 1 32px;\n    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: flex, min-width, max-width;\n    transition-property: flex, min-width, max-width, -ms-flex;\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item .md-icon {\n      transform: translate3d(0, 8px, 0);\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item .md-text {\n      opacity: 0;\n      transform: scale(1) translate3d(0, 6px, 0);\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item.md-active {\n      min-width: 96px;\n      max-width: 168px;\n      -ms-flex: 1 1 72px;\n          flex: 1 1 72px;\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item.md-active .md-icon,\n      .md-bottom-bar.md-shift .md-bottom-bar-item.md-active .md-text {\n        opacity: 1;\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item.md-active .md-icon {\n        transform: scale(1) translate3d(0, 0, 0);\n}\n.md-bottom-bar.md-shift .md-bottom-bar-item.md-active .md-text {\n        transform: scale(1) translate3d(0, 2px, 0);\n}\n.md-bottom-bar-item .md-text {\n    transform: scale(0.8571) translateY(2px);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.15s linear, opacity 0.15s linear;\n}\n.md-bottom-bar-item .md-icon {\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.15s linear;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-button {\n  min-width: 88px;\n  min-height: 36px;\n  margin: 6px 8px;\n  padding: 0 16px;\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  cursor: pointer;\n  outline: none;\n  background: none;\n  border: 0;\n  border-radius: 2px;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  color: currentColor;\n  font-family: inherit;\n  font-size: 14px;\n  font-style: inherit;\n  font-variant: inherit;\n  font-weight: 500;\n  letter-spacing: inherit;\n  line-height: 36px;\n  text-align: center;\n  text-transform: uppercase;\n  text-decoration: none;\n  vertical-align: top;\n  white-space: nowrap;\n}\n.md-button:focus {\n    outline: none;\n}\n.md-button::-moz-focus-inner {\n    border: 0;\n}\n.md-button:hover:not([disabled]):not(.md-raised) {\n    background-color: rgba(153, 153, 153, 0.2);\n    text-decoration: none;\n}\n.md-button:hover:not([disabled]).md-raised {\n    background-color: rgba(0, 0, 0, 0.12);\n}\n.md-button:active:not([disabled]) {\n    background-color: rgba(153, 153, 153, 0.4);\n}\n.md-button.md-raised:not([disabled]) {\n    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n}\n.md-button.md-dense {\n    min-height: 32px;\n    line-height: 32px;\n    font-size: 13px;\n}\n.md-button.md-icon-button .md-icon, .md-button.md-fab .md-icon {\n    position: absolute;\n    top: 1px;\n    right: 0;\n    bottom: 0;\n    left: 0;\n}\n.md-button.md-icon-button {\n    width: 40px;\n    min-width: 40px;\n    height: 40px;\n    margin: 0 6px;\n    padding: 8px;\n    border-radius: 50%;\n    line-height: 24px;\n}\n.md-button.md-icon-button:not([disabled]):hover {\n      background: none;\n}\n.md-button.md-icon-button.md-dense {\n      width: 32px;\n      min-width: 32px;\n      height: 32px;\n      min-height: 32px;\n      padding: 4px;\n      line-height: 32px;\n}\n.md-button.md-icon-button .md-ink-ripple {\n      border-radius: 50%;\n}\n.md-button.md-icon-button .md-ink-ripple .md-ripple {\n        top: 0 !important;\n        right: 0 !important;\n        bottom: 0 !important;\n        left: 0 !important;\n}\n.md-button.md-icon-button .md-ripple.md-active {\n      animation-duration: .9s;\n}\n.md-button.md-fab {\n    width: 56px;\n    height: 56px;\n    padding: 0;\n    min-width: 0;\n    overflow: hidden;\n    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n    border-radius: 56px;\n    line-height: 56px;\n    background-clip: padding-box;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: background-color, box-shadow, transform;\n}\n.md-button.md-fab:hover, .md-button.md-fab:focus {\n      box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px rgba(0, 0, 0, 0.14), 0 1px 14px rgba(0, 0, 0, 0.12);\n}\n.md-button.md-fab.md-mini {\n      width: 40px;\n      height: 40px;\n      line-height: 40px;\n}\n.md-button.md-fab .md-ink-ripple {\n      border-radius: 56px;\n}\n.md-button[disabled] {\n    color: rgba(0, 0, 0, 0.26);\n    cursor: default;\n    pointer-events: none;\n}\n.md-button[disabled].md-raised, .md-button[disabled].md-fab {\n      background-color: rgba(0, 0, 0, 0.12);\n}\n.md-button[disabled].md-fab {\n      box-shadow: none;\n}\n.md-button:after {\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-button .md-ink-ripple {\n    border-radius: 2px;\n    background-clip: padding-box;\n    overflow: hidden;\n}\n.md-button.md-icon-button .md-icon,\n.md-button.md-fab .md-icon {\n  display: block;\n}\n.md-fab.md-fab-top-left, .md-fab.md-fab-top-center, .md-fab.md-fab-top-right, .md-fab.md-fab-bottom-left, .md-fab.md-fab-bottom-center, .md-fab.md-fab-bottom-right,\n.md-speed-dial.md-fab-top-left,\n.md-speed-dial.md-fab-top-center,\n.md-speed-dial.md-fab-top-right,\n.md-speed-dial.md-fab-bottom-left,\n.md-speed-dial.md-fab-bottom-center,\n.md-speed-dial.md-fab-bottom-right {\n  margin: 0;\n  position: absolute;\n  z-index: 10;\n}\n.md-fab.md-fab-top-left,\n.md-speed-dial.md-fab-top-left {\n  top: 24px;\n  left: 24px;\n}\n.md-fab.md-fab-top-center,\n.md-speed-dial.md-fab-top-center {\n  top: 24px;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.md-fab.md-fab-top-right,\n.md-speed-dial.md-fab-top-right {\n  top: 24px;\n  right: 24px;\n}\n.md-fab.md-fab-bottom-left,\n.md-speed-dial.md-fab-bottom-left {\n  bottom: 24px;\n  left: 24px;\n}\n.md-fab.md-fab-bottom-center,\n.md-speed-dial.md-fab-bottom-center {\n  bottom: 24px;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.md-fab.md-fab-bottom-right,\n.md-speed-dial.md-fab-bottom-right {\n  right: 24px;\n  bottom: 24px;\n}\n.md-button-tooltip.md-tooltip-top {\n  margin-top: -8px;\n}\n.md-button-tooltip.md-tooltip-right {\n  margin-left: 8px;\n}\n.md-button-tooltip.md-tooltip-bottom {\n  margin-top: 8px;\n}\n.md-button-tooltip.md-tooltip-left {\n  margin-left: -8px;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-button-toggle {\n  width: auto;\n  display: -ms-flexbox;\n  display: flex;\n}\n.md-button-toggle > .md-button {\n    margin: 0;\n    overflow: hidden;\n    border-width: 1px 0 1px 1px;\n    border-radius: 0;\n    text-align: center;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n.md-button-toggle > .md-button:first-child {\n      border-radius: 2px 0 0 2px;\n}\n.md-button-toggle > .md-button:last-child {\n      border-right-width: 1px;\n      border-radius: 0 2px 2px 0;\n}\n.md-button-toggle > .md-button:not([disabled]) {\n      color: rgba(0, 0, 0, 0.54);\n}\n.md-button-toggle > .md-button:not([disabled]):hover:not(.md-toggle):not(.md-raised) {\n        background-color: rgba(153, 153, 153, 0.2);\n        text-decoration: none;\n}\n.md-button-toggle > .md-button .md-ink-ripple {\n      border-radius: 2px;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Image aspect ratio calculator */\n/* Responsive breakpoints */\n.md-card {\n  overflow: auto;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  position: relative;\n  z-index: 1;\n  border-radius: 2px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n}\n.md-card.md-with-hover {\n    cursor: pointer;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: box-shadow;\n}\n.md-card.md-with-hover:hover {\n      z-index: 2;\n      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.md-card .md-card-media {\n    position: relative;\n}\n.md-card .md-card-media.md-16-9 {\n      overflow: hidden;\n}\n.md-card .md-card-media.md-16-9:before {\n        width: 100%;\n        padding-top: 56.25%;\n        display: block;\n        content: \" \";\n}\n.md-card .md-card-media.md-16-9 img {\n        position: absolute;\n        top: 50%;\n        right: 0;\n        left: 0;\n        transform: translateY(-50%);\n}\n.md-card .md-card-media.md-4-3 {\n      overflow: hidden;\n}\n.md-card .md-card-media.md-4-3:before {\n        width: 100%;\n        padding-top: 75%;\n        display: block;\n        content: \" \";\n}\n.md-card .md-card-media.md-4-3 img {\n        position: absolute;\n        top: 50%;\n        right: 0;\n        left: 0;\n        transform: translateY(-50%);\n}\n.md-card .md-card-media.md-1-1 {\n      overflow: hidden;\n}\n.md-card .md-card-media.md-1-1:before {\n        width: 100%;\n        padding-top: 100%;\n        display: block;\n        content: \" \";\n}\n.md-card .md-card-media.md-1-1 img {\n        position: absolute;\n        top: 50%;\n        right: 0;\n        left: 0;\n        transform: translateY(-50%);\n}\n.md-card .md-card-media + .md-card-header {\n      padding-top: 24px;\n}\n.md-card .md-card-media + .md-card-content:last-child {\n      padding-bottom: 16px;\n}\n.md-card .md-card-media img {\n      width: 100%;\n}\n.md-card .md-card-header {\n    padding: 16px;\n}\n.md-card .md-card-header:first-child > .md-title:first-child,\n    .md-card .md-card-header:first-child > .md-card-header-text > .md-title:first-child {\n      margin-top: 8px;\n}\n.md-card .md-card-header:last-child {\n      margin-bottom: 8px;\n}\n.md-card .md-card-header.md-card-header-flex {\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.md-card .md-card-header + .md-card-content {\n      padding-top: 0;\n}\n.md-card .md-card-header + .md-card-actions:not(:last-child) {\n      padding: 0 8px;\n}\n.md-card .md-card-header .md-avatar {\n      margin-right: 16px;\n      float: left;\n}\n.md-card .md-card-header .md-avatar ~ .md-title {\n        font-size: 14px;\n}\n.md-card .md-card-header .md-avatar ~ .md-title,\n      .md-card .md-card-header .md-avatar ~ .md-subhead {\n        font-weight: 500;\n        line-height: 20px;\n}\n.md-card .md-card-header .md-button {\n      margin: 0;\n}\n.md-card .md-card-header .md-button:last-child {\n        margin-right: -4px;\n}\n.md-card .md-card-header .md-button + .md-button {\n        margin-left: 8px;\n}\n.md-card .md-card-header .md-card-header-text {\n      -ms-flex: 1;\n          flex: 1;\n}\n.md-card .md-card-header .md-card-media {\n      width: 80px;\n      -ms-flex: 0 0 80px;\n          flex: 0 0 80px;\n      height: 80px;\n      margin-left: 16px;\n}\n.md-card .md-card-header .md-card-media.md-medium {\n        width: 120px;\n        -ms-flex: 0 0 120px;\n            flex: 0 0 120px;\n        height: 120px;\n}\n.md-card .md-card-header .md-card-media.md-big {\n        width: 160px;\n        -ms-flex: 0 0 160px;\n            flex: 0 0 160px;\n        height: 160px;\n}\n.md-card .md-subhead,\n  .md-card .md-title,\n  .md-card .md-subheading {\n    margin: 0;\n    font-weight: 400;\n}\n.md-card .md-subhead {\n    opacity: .54;\n    font-size: 14px;\n    letter-spacing: .01em;\n    line-height: 20px;\n}\n.md-card .md-subhead + .md-title {\n      margin-top: 4px;\n}\n.md-card .md-title {\n    font-size: 24px;\n    letter-spacing: 0;\n    line-height: 32px;\n}\n.md-card .md-card-media-actions {\n    padding: 16px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: justify;\n        justify-content: space-between;\n}\n.md-card .md-card-media-actions .md-card-media {\n      max-width: 240px;\n      max-height: 240px;\n      -ms-flex: 1;\n          flex: 1;\n}\n.md-card .md-card-media-actions .md-card-actions {\n      margin-left: 16px;\n      -ms-flex-direction: column;\n          flex-direction: column;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.md-card .md-card-media-actions .md-card-actions .md-button + .md-button {\n        margin: 8px 0 0;\n}\n.md-card .md-card-content {\n    padding: 16px;\n    font-size: 14px;\n    line-height: 22px;\n}\n.md-card .md-card-content:last-child {\n      padding-bottom: 24px;\n}\n.md-card .md-card-actions {\n    padding: 8px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: end;\n        justify-content: flex-end;\n    -ms-flex-align: center;\n        align-items: center;\n}\n.md-card .md-card-actions .md-button {\n      margin: 0;\n}\n.md-card .md-card-actions .md-button:first-child {\n        margin-left: 0;\n}\n.md-card .md-card-actions .md-button:last-child {\n        margin-right: 0;\n}\n.md-card .md-card-actions .md-button + .md-button {\n        margin-left: 4px;\n}\n.md-card .md-card-area {\n    position: relative;\n}\n.md-card > .md-card-area:not(:last-child) {\n    position: relative;\n}\n.md-card > .md-card-area:not(:last-child):after {\n      height: 1px;\n      position: absolute;\n      bottom: 0;\n      content: \" \";\n}\n.md-card > .md-card-area:not(:last-child):not(.md-inset):after {\n      right: 0;\n      left: 0;\n}\n.md-card > .md-card-area:not(:last-child).md-inset:after {\n      right: 16px;\n      left: 16px;\n}\n.md-card .md-card-media-cover {\n    position: relative;\n    color: #fff;\n}\n.md-card .md-card-media-cover.md-text-scrim .md-card-backdrop {\n      position: absolute;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1;\n}\n.md-card .md-card-media-cover .md-card-area {\n      position: absolute;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 2;\n}\n.md-card .md-card-media-cover .md-card-header + .md-card-actions {\n      padding-top: 0;\n}\n.md-card .md-card-media-cover .md-subhead {\n      opacity: 1;\n}\n.md-card .md-card-expand {\n    overflow: hidden;\n}\n.md-card .md-card-expand.md-active [md-expand-trigger] {\n      transform: rotateZ(180deg) translate3D(0, 0, 0);\n}\n.md-card .md-card-expand.md-active .md-card-content {\n      margin-top: 0 !important;\n      opacity: 1;\n      padding: 4px 16px 24px 16px;\n      height: auto;\n}\n.md-card .md-card-expand .md-card-actions {\n      padding-top: 0;\n      position: relative;\n      z-index: 2;\n}\n.md-card .md-card-expand [md-expand-trigger] {\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      will-change: transform;\n}\n.md-card .md-card-expand .md-card-content {\n      height: 0;\n      padding: 0 16px;\n      position: relative;\n      z-index: 1;\n      opacity: 0;\n      transform: translate3D(0, 0, 0);\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      will-change: margin, height;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-checkbox {\n  width: auto;\n  margin: 16px 8px 16px 0;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  position: relative;\n}\n.md-checkbox:not(.md-disabled) {\n    cursor: pointer;\n}\n.md-checkbox:not(.md-disabled) .md-checkbox-label {\n      cursor: pointer;\n}\n.md-checkbox .md-checkbox-container {\n    width: 20px;\n    min-width: 20px;\n    height: 20px;\n    position: relative;\n    border-radius: 2px;\n    border: 2px solid rgba(0, 0, 0, 0.54);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-checkbox .md-checkbox-container:focus {\n      outline: none;\n}\n.md-checkbox .md-checkbox-container:before {\n      width: 48px;\n      height: 48px;\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      content: \" \";\n}\n.md-checkbox .md-checkbox-container:after {\n      width: 6px;\n      height: 13px;\n      position: absolute;\n      top: 0;\n      left: 5px;\n      border: 2px solid #fff;\n      border-top: 0;\n      border-left: 0;\n      opacity: 0;\n      transform: rotate(45deg) scale3D(0.15, 0.15, 1);\n      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      content: \" \";\n}\n.md-checkbox .md-checkbox-container input {\n      position: absolute;\n      left: -999em;\n}\n.md-checkbox .md-checkbox-container .md-ink-ripple {\n      top: -16px;\n      right: -16px;\n      bottom: -16px;\n      left: -16px;\n      border-radius: 50%;\n      color: rgba(0, 0, 0, 0.54);\n}\n.md-checkbox .md-checkbox-container .md-ink-ripple .md-ripple {\n        width: 48px !important;\n        height: 48px !important;\n        top: 0 !important;\n        right: 0 !important;\n        bottom: 0 !important;\n        left: 0 !important;\n}\n.md-checkbox .md-checkbox-label {\n    height: 20px;\n    padding-left: 8px;\n    line-height: 20px;\n}\n.md-checkbox.md-checked .md-checkbox-container:after {\n  opacity: 1;\n  transform: rotate(45deg) scale3D(1, 1, 1);\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-chip {\n  height: 32px;\n  padding: 8px 12px;\n  display: inline-block;\n  border-radius: 32px;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  font-size: 13px;\n  line-height: 16px;\n  white-space: nowrap;\n}\n.md-chip.md-deletable {\n    position: relative;\n    padding-right: 32px;\n}\n.md-chip.md-editable .md-chip-container {\n    cursor: pointer;\n}\n.md-chip:focus, .md-chip:active {\n    outline: none;\n}\n.md-chip:focus:not(.md-disabled), .md-chip:active:not(.md-disabled) {\n      cursor: pointer;\n      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n}\n.md-chip.md-disabled .md-button {\n    pointer-events: none;\n    cursor: default;\n}\n.md-chip .md-button.md-delete {\n    width: 24px;\n    min-width: 24px;\n    height: 24px;\n    min-height: 24px;\n    margin: 0;\n    padding: 0;\n    position: absolute;\n    top: 4px;\n    right: 4px;\n    border-radius: 24px;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-chip .md-button.md-delete .md-icon {\n      width: 20px;\n      min-width: 20px;\n      height: 20px;\n      min-height: 20px;\n      margin: 0;\n      font-size: 20px;\n}\n.md-chip .md-button.md-delete .md-ink-ripple {\n      border-radius: 32px;\n}\n.md-chip .md-button.md-delete .md-ripple {\n      opacity: .54;\n}\n.md-chips {\n  min-height: 54px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.md-chips .md-chip {\n    margin-right: 8px;\n    margin-bottom: 4px;\n}\n.md-chips .md-input {\n    width: 128px;\n    -ms-flex: 1;\n        flex: 1;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-dialog-container {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  -ms-flex-pack: center;\n      justify-content: center;\n  -ms-flex-align: center;\n      align-items: center;\n  pointer-events: none;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 108;\n}\n.md-dialog-container.md-active {\n    pointer-events: auto;\n}\n.md-dialog-container.md-active .md-dialog {\n      opacity: 1 !important;\n      transform: scale(1) !important;\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      transition-property: opacity, transform;\n}\n.md-dialog-backdrop {\n  position: fixed;\n  z-index: 109;\n}\n.md-dialog {\n  min-width: 280px;\n  max-width: 80%;\n  max-height: 80%;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  overflow: hidden;\n  position: relative;\n  z-index: 110;\n  outline: none;\n  border-radius: 2px;\n  opacity: 0;\n  box-shadow: 0 7px 9px -4px rgba(0, 0, 0, 0.2), 0 14px 21px 2px rgba(0, 0, 0, 0.14), 0 5px 26px 4px rgba(0, 0, 0, 0.12);\n  transform: scale(0.9, 0.85);\n  transform-origin: center center;\n  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s 0.05s cubic-bezier(0.25, 0.8, 0.25, 1);\n  will-change: opacity, transform;\n}\n.md-dialog.md-reference {\n    transform-origin: top center;\n}\n.md-dialog.md-transition-off {\n    transition: none !important;\n}\n.md-dialog p {\n    margin: 0;\n}\n.md-dialog-title {\n  margin-bottom: 20px;\n  padding: 24px 24px 0;\n}\n.md-dialog-content {\n  padding: 0 24px 24px;\n  -ms-flex: 1;\n      flex: 1;\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  overflow: auto;\n  position: relative;\n}\n.md-dialog-content:first-child {\n    padding-top: 24px;\n}\n.md-dialog-content p:first-child:not(:only-child) {\n    margin-top: 0;\n}\n.md-dialog-content p:last-child:not(:only-child) {\n    margin-bottom: 0;\n}\n.md-dialog-body {\n  margin: 0 -24px;\n  padding: 0 24px;\n  overflow: auto;\n}\n.md-dialog-actions {\n  min-height: 52px;\n  padding: 8px 8px 8px 24px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  position: relative;\n}\n.md-dialog-actions:before {\n    height: 1px;\n    position: absolute;\n    top: -1px;\n    right: 0;\n    left: 0;\n    content: \" \";\n}\n.md-dialog-actions .md-button {\n    min-width: 64px;\n    margin: 0;\n    padding: 0 8px;\n}\n.md-dialog-actions .md-button + .md-button {\n      margin-left: 8px;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-divider {\n  height: 1px;\n  margin: 0;\n  padding: 0;\n  display: block;\n  border: 0;\n  background-color: rgba(0, 0, 0, 0.12);\n}\n.md-divider.md-inset {\n    margin-left: 72px;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-file {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1;\n}\n.md-file input[type=\"file\"] {\n    width: 1px;\n    height: 1px;\n    margin: -1px;\n    padding: 0;\n    overflow: hidden;\n    position: absolute;\n    clip: rect(0 0 0 0);\n    border: 0;\n}\n.md-file .md-icon {\n    cursor: pointer;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-icon {\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  min-height: 24px;\n  font-size: 24px;\n  margin: auto;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-align: center;\n      align-items: center;\n  fill: currentColor;\n  text-rendering: optimizeLegibility;\n  vertical-align: middle;\n}\n.md-icon.md-size-2x {\n    width: 48px;\n    min-width: 48px;\n    height: 48px;\n    min-height: 48px;\n    font-size: 48px;\n}\n.md-icon.md-size-3x {\n    width: 72px;\n    min-width: 72px;\n    height: 72px;\n    min-height: 72px;\n    font-size: 72px;\n}\n.md-icon.md-size-4x {\n    width: 96px;\n    min-width: 96px;\n    height: 96px;\n    min-height: 96px;\n    font-size: 96px;\n}\n.md-icon.md-size-5x {\n    width: 120px;\n    min-width: 120px;\n    height: 120px;\n    min-height: 120px;\n    font-size: 120px;\n}\n.md-icon svg {\n    width: 100%;\n    height: 100%;\n}\nimg.md-icon {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-user-drag: none;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-image {\n  opacity: 0;\n  -webkit-filter: saturate(20%);\n          filter: saturate(20%);\n}\n.md-image.md-black-output {\n    -webkit-filter: brightness(0.4) saturate(20%);\n            filter: brightness(0.4) saturate(20%);\n}\n.md-image.md-loaded {\n    opacity: 1;\n    -webkit-filter: saturate(100%);\n            filter: saturate(100%);\n    transition: opacity 1.1s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-filter 2.2s 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition: opacity 1.1s cubic-bezier(0.25, 0.8, 0.25, 1), filter 2.2s 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition: opacity 1.1s cubic-bezier(0.25, 0.8, 0.25, 1), filter 2.2s 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-filter 2.2s 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-input-container {\n  width: 100%;\n  min-height: 48px;\n  margin: 4px 0 24px;\n  padding-top: 16px;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n}\n.md-input-container:after {\n    height: 1px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, 0.12);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    content: \" \";\n}\n.md-input-container label {\n    position: absolute;\n    top: 23px;\n    left: 0;\n    pointer-events: none;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-duration: .3s;\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 16px;\n    line-height: 20px;\n}\n.md-input-container input,\n  .md-input-container textarea {\n    width: 100%;\n    height: 32px;\n    padding: 0;\n    display: block;\n    -ms-flex: 1;\n        flex: 1;\n    border: none;\n    background: none;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: font-size;\n    color: rgba(0, 0, 0, 0.54);\n    font-family: inherit;\n    font-size: 1px;\n    line-height: 32px;\n}\n.md-input-container input:focus,\n    .md-input-container textarea:focus {\n      outline: none;\n}\n.md-input-container input::-webkit-input-placeholder,\n    .md-input-container textarea::-webkit-input-placeholder {\n      color: rgba(0, 0, 0, 0.54);\n      font-size: 16px;\n      text-shadow: none;\n      -webkit-text-fill-color: initial;\n}\n.md-input-container input ~ .md-icon:not(.md-icon-delete),\n    .md-input-container textarea ~ .md-icon:not(.md-icon-delete) {\n      margin-left: 12px;\n}\n.md-input-container input ~ .md-icon:not(.md-icon-delete):after,\n      .md-input-container textarea ~ .md-icon:not(.md-icon-delete):after {\n        right: 0;\n        left: auto;\n}\n.md-input-container textarea {\n    min-height: 32px;\n    max-height: 230px;\n    padding: 5px 0;\n    resize: none;\n    line-height: 1.3em;\n}\n.md-input-container .md-error,\n  .md-input-container .md-count {\n    height: 20px;\n    position: absolute;\n    bottom: -22px;\n    font-size: 12px;\n}\n.md-input-container .md-error {\n    display: block !important;\n    left: 0;\n    opacity: 0;\n    transform: translate3d(0, -8px, 0);\n    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n}\n.md-input-container .md-count {\n    right: 0;\n}\n.md-input-container .md-icon:not(.md-icon-delete) {\n    margin: 4px auto;\n    color: rgba(0, 0, 0, 0.54);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-input-container .md-icon:not(.md-icon-delete):after {\n      width: 36px;\n      height: 2px;\n      position: absolute;\n      left: 0;\n      bottom: 0;\n      z-index: 2;\n      content: \"\";\n}\n.md-input-container .md-icon:not(.md-icon-delete) ~ label {\n      left: 36px;\n}\n.md-input-container .md-icon:not(.md-icon-delete) ~ .md-input,\n    .md-input-container .md-icon:not(.md-icon-delete) ~ .md-textarea,\n    .md-input-container .md-icon:not(.md-icon-delete) ~ .md-file {\n      margin-left: 12px;\n}\n.md-input-container .md-autocomplete,\n.md-input-container .md-autocomplete .md-menu,\n.md-input-container .md-autocomplete .md-menu .md-input {\n  width: 100%;\n}\n.md-theme-default.md-input-container .md-autocomplete .md-icon:not(.md-icon-search):after {\n  height: 0;\n}\n.md-input-container.md-input-placeholder label {\n  pointer-events: auto;\n  top: 10px;\n  opacity: 0;\n  font-size: 12px;\n}\n.md-input-container.md-input-placeholder input,\n.md-input-container.md-input-placeholder textarea {\n  font-size: 16px;\n}\n.md-input-container.md-input-focused label, .md-input-container.md-has-value label {\n  pointer-events: auto;\n  top: 0;\n  opacity: 1;\n  font-size: 12px;\n}\n.md-input-container.md-input-focused input,\n.md-input-container.md-input-focused textarea, .md-input-container.md-has-value input,\n.md-input-container.md-has-value textarea {\n  font-size: 16px;\n}\n.md-input-container.md-has-value input,\n.md-input-container.md-has-value textarea {\n  color: rgba(0, 0, 0, 0.87);\n}\n.md-input-container.md-input-inline label {\n  pointer-events: none;\n}\n.md-input-container.md-input-inline.md-input-focused label {\n  top: 23px;\n  font-size: 16px;\n}\n.md-input-container.md-input-inline.md-has-value label {\n  opacity: 0;\n}\n.md-input-container.md-input-disabled:after {\n  background: bottom left repeat-x;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.38) 33%, transparent 0%);\n  background-size: 4px 1px;\n}\n.md-input-container.md-input-disabled label,\n.md-input-container.md-input-disabled input,\n.md-input-container.md-input-disabled textarea {\n  color: rgba(0, 0, 0, 0.38);\n}\n.md-input-container.md-has-password.md-input-focused .md-toggle-password {\n  color: rgba(0, 0, 0, 0.54);\n}\n.md-input-container.md-has-password .md-toggle-password {\n  margin: 0;\n  position: absolute;\n  right: 0;\n  bottom: -2px;\n  color: rgba(0, 0, 0, 0.38);\n}\n.md-input-container.md-has-password .md-toggle-password .md-ink-ripple {\n    color: rgba(0, 0, 0, 0.87);\n}\n.md-input-container.md-clearable.md-input-focused .md-clear-input {\n  color: rgba(0, 0, 0, 0.54);\n}\n.md-input-container.md-clearable .md-clear-input {\n  margin: 0;\n  position: absolute;\n  right: 0;\n  bottom: -2px;\n  color: rgba(0, 0, 0, 0.38);\n}\n.md-input-container.md-clearable .md-clear-input .md-ink-ripple {\n    color: rgba(0, 0, 0, 0.87);\n}\n.md-input-container.md-input-invalid .md-error {\n  opacity: 1;\n  transform: translate3d(0, 0, 0);\n}\n.md-input-container.md-input-required label:after {\n  position: absolute;\n  top: 2px;\n  right: 0;\n  transform: translateX(calc(100% + 2px));\n  content: \"*\";\n  font-size: 12px;\n  line-height: 1em;\n  vertical-align: top;\n}\n.md-input-container.md-has-select:hover .md-select:not(.md-disabled):after {\n  color: rgba(0, 0, 0, 0.87);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Image aspect ratio calculator */\n/* Responsive breakpoints */\n/* Rows and Columns */\n.md-layout {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: row;\n      flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -ms-flex: 1;\n      flex: 1;\n}\n.md-row {\n  -ms-flex-direction: row;\n      flex-direction: row;\n}\n.md-column {\n  -ms-flex-direction: column;\n      flex-direction: column;\n}\n\n/* Container */\n.md-layout.md-container {\n  width: 100%;\n  max-width: 1200px;\n}\n.md-layout.md-container.md-centered {\n    margin: 0 auto;\n}\n\n/* Alignments */\n.md-align-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n}\n.md-align-center {\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n.md-align-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n}\n\n/* Vertical Alignments */\n.md-vertical-align-start {\n  -ms-flex-align: start;\n      align-items: flex-start;\n  -ms-flex-line-pack: start;\n      align-content: flex-start;\n}\n.md-vertical-align-center {\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n}\n.md-vertical-align-end {\n  -ms-flex-align: end;\n      align-items: flex-end;\n  -ms-flex-line-pack: end;\n      align-content: flex-end;\n}\n.md-vertical-align-stretch {\n  -ms-flex-align: stretch;\n      align-items: stretch;\n  -ms-flex-line-pack: stretch;\n      align-content: stretch;\n}\n\n/* Gutter Size */\n.md-gutter:not(.md-column) {\n  margin-right: -12px;\n  margin-left: -12px;\n}\n.md-gutter:not(.md-column) > .md-layout {\n    padding-right: 12px;\n    padding-left: 12px;\n}\n.md-gutter .md-column {\n  margin-top: -12px;\n  margin-bottom: -12px;\n}\n.md-gutter .md-column > .md-layout {\n    padding-top: 12px;\n    padding-bottom: 12px;\n}\n.md-gutter-8:not(.md-column) {\n  margin-right: -4px;\n  margin-left: -4px;\n}\n.md-gutter-8:not(.md-column) > .md-layout {\n    padding-right: 4px;\n    padding-left: 4px;\n}\n.md-gutter-8 .md-column {\n  margin-top: -4px;\n  margin-bottom: -4px;\n}\n.md-gutter-8 .md-column > .md-layout {\n    padding-top: 4px;\n    padding-bottom: 4px;\n}\n.md-gutter-16:not(.md-column) {\n  margin-right: -8px;\n  margin-left: -8px;\n}\n.md-gutter-16:not(.md-column) > .md-layout {\n    padding-right: 8px;\n    padding-left: 8px;\n}\n.md-gutter-16 .md-column {\n  margin-top: -8px;\n  margin-bottom: -8px;\n}\n.md-gutter-16 .md-column > .md-layout {\n    padding-top: 8px;\n    padding-bottom: 8px;\n}\n.md-gutter-24:not(.md-column) {\n  margin-right: -12px;\n  margin-left: -12px;\n}\n.md-gutter-24:not(.md-column) > .md-layout {\n    padding-right: 12px;\n    padding-left: 12px;\n}\n.md-gutter-24 .md-column {\n  margin-top: -12px;\n  margin-bottom: -12px;\n}\n.md-gutter-24 .md-column > .md-layout {\n    padding-top: 12px;\n    padding-bottom: 12px;\n}\n.md-gutter-40:not(.md-column) {\n  margin-right: -20px;\n  margin-left: -20px;\n}\n.md-gutter-40:not(.md-column) > .md-layout {\n    padding-right: 20px;\n    padding-left: 20px;\n}\n.md-gutter-40 .md-column {\n  margin-top: -20px;\n  margin-bottom: -20px;\n}\n.md-gutter-40 .md-column > .md-layout {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n/* Flex Size */\n.md-flex {\n  -ms-flex: 1 1;\n      flex: 1 1;\n}\n.md-flex-33 {\n  min-width: 33.33333%;\n  -ms-flex: 0 1 33.33333%;\n      flex: 0 1 33.33333%;\n}\n.md-flex-66 {\n  min-width: 33.33333%;\n  -ms-flex: 0 1 66.66666%;\n      flex: 0 1 66.66666%;\n}\n.md-flex-offset-33 {\n  margin-left: 33.33333%;\n}\n.md-flex-offset-66 {\n  margin-left: 66.66666%;\n}\n.md-flex-5 {\n  min-width: 5%;\n  -ms-flex: 0 1 5%;\n      flex: 0 1 5%;\n}\n.md-flex-offset-5 {\n  margin-left: 5%;\n}\n.md-flex-10 {\n  min-width: 10%;\n  -ms-flex: 0 1 10%;\n      flex: 0 1 10%;\n}\n.md-flex-offset-10 {\n  margin-left: 10%;\n}\n.md-flex-15 {\n  min-width: 15%;\n  -ms-flex: 0 1 15%;\n      flex: 0 1 15%;\n}\n.md-flex-offset-15 {\n  margin-left: 15%;\n}\n.md-flex-20 {\n  min-width: 20%;\n  -ms-flex: 0 1 20%;\n      flex: 0 1 20%;\n}\n.md-flex-offset-20 {\n  margin-left: 20%;\n}\n.md-flex-25 {\n  min-width: 25%;\n  -ms-flex: 0 1 25%;\n      flex: 0 1 25%;\n}\n.md-flex-offset-25 {\n  margin-left: 25%;\n}\n.md-flex-30 {\n  min-width: 30%;\n  -ms-flex: 0 1 30%;\n      flex: 0 1 30%;\n}\n.md-flex-offset-30 {\n  margin-left: 30%;\n}\n.md-flex-35 {\n  min-width: 35%;\n  -ms-flex: 0 1 35%;\n      flex: 0 1 35%;\n}\n.md-flex-offset-35 {\n  margin-left: 35%;\n}\n.md-flex-40 {\n  min-width: 40%;\n  -ms-flex: 0 1 40%;\n      flex: 0 1 40%;\n}\n.md-flex-offset-40 {\n  margin-left: 40%;\n}\n.md-flex-45 {\n  min-width: 45%;\n  -ms-flex: 0 1 45%;\n      flex: 0 1 45%;\n}\n.md-flex-offset-45 {\n  margin-left: 45%;\n}\n.md-flex-50 {\n  min-width: 50%;\n  -ms-flex: 0 1 50%;\n      flex: 0 1 50%;\n}\n.md-flex-offset-50 {\n  margin-left: 50%;\n}\n.md-flex-55 {\n  min-width: 55%;\n  -ms-flex: 0 1 55%;\n      flex: 0 1 55%;\n}\n.md-flex-offset-55 {\n  margin-left: 55%;\n}\n.md-flex-60 {\n  min-width: 60%;\n  -ms-flex: 0 1 60%;\n      flex: 0 1 60%;\n}\n.md-flex-offset-60 {\n  margin-left: 60%;\n}\n.md-flex-65 {\n  min-width: 65%;\n  -ms-flex: 0 1 65%;\n      flex: 0 1 65%;\n}\n.md-flex-offset-65 {\n  margin-left: 65%;\n}\n.md-flex-70 {\n  min-width: 70%;\n  -ms-flex: 0 1 70%;\n      flex: 0 1 70%;\n}\n.md-flex-offset-70 {\n  margin-left: 70%;\n}\n.md-flex-75 {\n  min-width: 75%;\n  -ms-flex: 0 1 75%;\n      flex: 0 1 75%;\n}\n.md-flex-offset-75 {\n  margin-left: 75%;\n}\n.md-flex-80 {\n  min-width: 80%;\n  -ms-flex: 0 1 80%;\n      flex: 0 1 80%;\n}\n.md-flex-offset-80 {\n  margin-left: 80%;\n}\n.md-flex-85 {\n  min-width: 85%;\n  -ms-flex: 0 1 85%;\n      flex: 0 1 85%;\n}\n.md-flex-offset-85 {\n  margin-left: 85%;\n}\n.md-flex-90 {\n  min-width: 90%;\n  -ms-flex: 0 1 90%;\n      flex: 0 1 90%;\n}\n.md-flex-offset-90 {\n  margin-left: 90%;\n}\n.md-flex-95 {\n  min-width: 95%;\n  -ms-flex: 0 1 95%;\n      flex: 0 1 95%;\n}\n.md-flex-offset-95 {\n  margin-left: 95%;\n}\n.md-flex-100 {\n  min-width: 100%;\n  -ms-flex: 0 1 100%;\n      flex: 0 1 100%;\n}\n.md-flex-offset-100 {\n  margin-left: 100%;\n}\n\n/* Responsive Breakpoints */\n\n@media (max-width: 944px) {\n  .md-gutter:not(.md-column) {\n    margin-right: -8px;\n    margin-left: -8px;\n  }\n  .md-gutter:not(.md-column) > .md-layout {\n    padding-right: 8px;\n    padding-left: 8px;\n  }\n  .md-gutter .md-column {\n    margin-top: -8px;\n    margin-bottom: -8px;\n  }\n  .md-gutter .md-column > .md-layout {\n    padding-top: 8px;\n    padding-bottom: 8px;\n  }\n  .md-row-small {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-small {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-small {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-small-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-small-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-small-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-small-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-small-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-small-5 {\n    margin-left: 5%;\n  }\n  .md-flex-small-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-small-10 {\n    margin-left: 10%;\n  }\n  .md-flex-small-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-small-15 {\n    margin-left: 15%;\n  }\n  .md-flex-small-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-small-20 {\n    margin-left: 20%;\n  }\n  .md-flex-small-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-small-25 {\n    margin-left: 25%;\n  }\n  .md-flex-small-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-small-30 {\n    margin-left: 30%;\n  }\n  .md-flex-small-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-small-35 {\n    margin-left: 35%;\n  }\n  .md-flex-small-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-small-40 {\n    margin-left: 40%;\n  }\n  .md-flex-small-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-small-45 {\n    margin-left: 45%;\n  }\n  .md-flex-small-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-small-50 {\n    margin-left: 50%;\n  }\n  .md-flex-small-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-small-55 {\n    margin-left: 55%;\n  }\n  .md-flex-small-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-small-60 {\n    margin-left: 60%;\n  }\n  .md-flex-small-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-small-65 {\n    margin-left: 65%;\n  }\n  .md-flex-small-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-small-70 {\n    margin-left: 70%;\n  }\n  .md-flex-small-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-small-75 {\n    margin-left: 75%;\n  }\n  .md-flex-small-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-small-80 {\n    margin-left: 80%;\n  }\n  .md-flex-small-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-small-85 {\n    margin-left: 85%;\n  }\n  .md-flex-small-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-small-90 {\n    margin-left: 90%;\n  }\n  .md-flex-small-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-small-95 {\n    margin-left: 95%;\n  }\n  .md-flex-small-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-small-100 {\n    margin-left: 100%;\n  }\n  .md-align-small-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-small-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-small-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-small {\n    display: none;\n  }\n}\n\n@media (min-width: 1904px) {\n  .md-row-xlarge {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-xlarge {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-xlarge {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-xlarge-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-xlarge-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-xlarge-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-xlarge-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-xlarge-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-xlarge-5 {\n    margin-left: 5%;\n  }\n  .md-flex-xlarge-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-xlarge-10 {\n    margin-left: 10%;\n  }\n  .md-flex-xlarge-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-xlarge-15 {\n    margin-left: 15%;\n  }\n  .md-flex-xlarge-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-xlarge-20 {\n    margin-left: 20%;\n  }\n  .md-flex-xlarge-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-xlarge-25 {\n    margin-left: 25%;\n  }\n  .md-flex-xlarge-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-xlarge-30 {\n    margin-left: 30%;\n  }\n  .md-flex-xlarge-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-xlarge-35 {\n    margin-left: 35%;\n  }\n  .md-flex-xlarge-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-xlarge-40 {\n    margin-left: 40%;\n  }\n  .md-flex-xlarge-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-xlarge-45 {\n    margin-left: 45%;\n  }\n  .md-flex-xlarge-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-xlarge-50 {\n    margin-left: 50%;\n  }\n  .md-flex-xlarge-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-xlarge-55 {\n    margin-left: 55%;\n  }\n  .md-flex-xlarge-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-xlarge-60 {\n    margin-left: 60%;\n  }\n  .md-flex-xlarge-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-xlarge-65 {\n    margin-left: 65%;\n  }\n  .md-flex-xlarge-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-xlarge-70 {\n    margin-left: 70%;\n  }\n  .md-flex-xlarge-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-xlarge-75 {\n    margin-left: 75%;\n  }\n  .md-flex-xlarge-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-xlarge-80 {\n    margin-left: 80%;\n  }\n  .md-flex-xlarge-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-xlarge-85 {\n    margin-left: 85%;\n  }\n  .md-flex-xlarge-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-xlarge-90 {\n    margin-left: 90%;\n  }\n  .md-flex-xlarge-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-xlarge-95 {\n    margin-left: 95%;\n  }\n  .md-flex-xlarge-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-xlarge-100 {\n    margin-left: 100%;\n  }\n  .md-align-xlarge-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-xlarge-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-xlarge-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-xlarge {\n    display: none;\n  }\n}\n\n@media (max-width: 1903px) {\n  .md-row-large {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-large {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-large {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-large-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-large-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-large-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-large-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-large-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-large-5 {\n    margin-left: 5%;\n  }\n  .md-flex-large-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-large-10 {\n    margin-left: 10%;\n  }\n  .md-flex-large-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-large-15 {\n    margin-left: 15%;\n  }\n  .md-flex-large-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-large-20 {\n    margin-left: 20%;\n  }\n  .md-flex-large-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-large-25 {\n    margin-left: 25%;\n  }\n  .md-flex-large-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-large-30 {\n    margin-left: 30%;\n  }\n  .md-flex-large-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-large-35 {\n    margin-left: 35%;\n  }\n  .md-flex-large-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-large-40 {\n    margin-left: 40%;\n  }\n  .md-flex-large-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-large-45 {\n    margin-left: 45%;\n  }\n  .md-flex-large-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-large-50 {\n    margin-left: 50%;\n  }\n  .md-flex-large-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-large-55 {\n    margin-left: 55%;\n  }\n  .md-flex-large-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-large-60 {\n    margin-left: 60%;\n  }\n  .md-flex-large-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-large-65 {\n    margin-left: 65%;\n  }\n  .md-flex-large-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-large-70 {\n    margin-left: 70%;\n  }\n  .md-flex-large-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-large-75 {\n    margin-left: 75%;\n  }\n  .md-flex-large-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-large-80 {\n    margin-left: 80%;\n  }\n  .md-flex-large-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-large-85 {\n    margin-left: 85%;\n  }\n  .md-flex-large-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-large-90 {\n    margin-left: 90%;\n  }\n  .md-flex-large-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-large-95 {\n    margin-left: 95%;\n  }\n  .md-flex-large-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-large-100 {\n    margin-left: 100%;\n  }\n  .md-align-large-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-large-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-large-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-large {\n    display: none;\n  }\n}\n\n@media (max-width: 1264px) {\n  .md-row-medium {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-medium {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-medium {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-medium-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-medium-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-medium-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-medium-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-medium-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-medium-5 {\n    margin-left: 5%;\n  }\n  .md-flex-medium-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-medium-10 {\n    margin-left: 10%;\n  }\n  .md-flex-medium-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-medium-15 {\n    margin-left: 15%;\n  }\n  .md-flex-medium-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-medium-20 {\n    margin-left: 20%;\n  }\n  .md-flex-medium-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-medium-25 {\n    margin-left: 25%;\n  }\n  .md-flex-medium-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-medium-30 {\n    margin-left: 30%;\n  }\n  .md-flex-medium-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-medium-35 {\n    margin-left: 35%;\n  }\n  .md-flex-medium-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-medium-40 {\n    margin-left: 40%;\n  }\n  .md-flex-medium-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-medium-45 {\n    margin-left: 45%;\n  }\n  .md-flex-medium-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-medium-50 {\n    margin-left: 50%;\n  }\n  .md-flex-medium-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-medium-55 {\n    margin-left: 55%;\n  }\n  .md-flex-medium-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-medium-60 {\n    margin-left: 60%;\n  }\n  .md-flex-medium-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-medium-65 {\n    margin-left: 65%;\n  }\n  .md-flex-medium-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-medium-70 {\n    margin-left: 70%;\n  }\n  .md-flex-medium-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-medium-75 {\n    margin-left: 75%;\n  }\n  .md-flex-medium-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-medium-80 {\n    margin-left: 80%;\n  }\n  .md-flex-medium-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-medium-85 {\n    margin-left: 85%;\n  }\n  .md-flex-medium-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-medium-90 {\n    margin-left: 90%;\n  }\n  .md-flex-medium-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-medium-95 {\n    margin-left: 95%;\n  }\n  .md-flex-medium-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-medium-100 {\n    margin-left: 100%;\n  }\n  .md-align-medium-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-medium-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-medium-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-medium {\n    display: none;\n  }\n}\n\n@media (max-width: 600px) {\n  .md-row-xsmall {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-xsmall {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-xsmall {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-xsmall-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-xsmall-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-xsmall-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-xsmall-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-xsmall-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-xsmall-5 {\n    margin-left: 5%;\n  }\n  .md-flex-xsmall-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-xsmall-10 {\n    margin-left: 10%;\n  }\n  .md-flex-xsmall-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-xsmall-15 {\n    margin-left: 15%;\n  }\n  .md-flex-xsmall-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-xsmall-20 {\n    margin-left: 20%;\n  }\n  .md-flex-xsmall-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-xsmall-25 {\n    margin-left: 25%;\n  }\n  .md-flex-xsmall-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-xsmall-30 {\n    margin-left: 30%;\n  }\n  .md-flex-xsmall-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-xsmall-35 {\n    margin-left: 35%;\n  }\n  .md-flex-xsmall-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-xsmall-40 {\n    margin-left: 40%;\n  }\n  .md-flex-xsmall-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-xsmall-45 {\n    margin-left: 45%;\n  }\n  .md-flex-xsmall-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-xsmall-50 {\n    margin-left: 50%;\n  }\n  .md-flex-xsmall-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-xsmall-55 {\n    margin-left: 55%;\n  }\n  .md-flex-xsmall-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-xsmall-60 {\n    margin-left: 60%;\n  }\n  .md-flex-xsmall-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-xsmall-65 {\n    margin-left: 65%;\n  }\n  .md-flex-xsmall-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-xsmall-70 {\n    margin-left: 70%;\n  }\n  .md-flex-xsmall-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-xsmall-75 {\n    margin-left: 75%;\n  }\n  .md-flex-xsmall-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-xsmall-80 {\n    margin-left: 80%;\n  }\n  .md-flex-xsmall-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-xsmall-85 {\n    margin-left: 85%;\n  }\n  .md-flex-xsmall-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-xsmall-90 {\n    margin-left: 90%;\n  }\n  .md-flex-xsmall-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-xsmall-95 {\n    margin-left: 95%;\n  }\n  .md-flex-xsmall-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-xsmall-100 {\n    margin-left: 100%;\n  }\n  .md-align-xsmall-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-xsmall-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-xsmall-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-xsmall {\n    display: none;\n  }\n}\n\n@media (min-width: 1264px) {\n  .md-row-large-and-up {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-large-and-up {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-large-and-up {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-large-and-up-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-large-and-up-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-large-and-up-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-large-and-up-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-large-and-up-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-large-and-up-5 {\n    margin-left: 5%;\n  }\n  .md-flex-large-and-up-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-large-and-up-10 {\n    margin-left: 10%;\n  }\n  .md-flex-large-and-up-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-large-and-up-15 {\n    margin-left: 15%;\n  }\n  .md-flex-large-and-up-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-large-and-up-20 {\n    margin-left: 20%;\n  }\n  .md-flex-large-and-up-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-large-and-up-25 {\n    margin-left: 25%;\n  }\n  .md-flex-large-and-up-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-large-and-up-30 {\n    margin-left: 30%;\n  }\n  .md-flex-large-and-up-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-large-and-up-35 {\n    margin-left: 35%;\n  }\n  .md-flex-large-and-up-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-large-and-up-40 {\n    margin-left: 40%;\n  }\n  .md-flex-large-and-up-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-large-and-up-45 {\n    margin-left: 45%;\n  }\n  .md-flex-large-and-up-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-large-and-up-50 {\n    margin-left: 50%;\n  }\n  .md-flex-large-and-up-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-large-and-up-55 {\n    margin-left: 55%;\n  }\n  .md-flex-large-and-up-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-large-and-up-60 {\n    margin-left: 60%;\n  }\n  .md-flex-large-and-up-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-large-and-up-65 {\n    margin-left: 65%;\n  }\n  .md-flex-large-and-up-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-large-and-up-70 {\n    margin-left: 70%;\n  }\n  .md-flex-large-and-up-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-large-and-up-75 {\n    margin-left: 75%;\n  }\n  .md-flex-large-and-up-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-large-and-up-80 {\n    margin-left: 80%;\n  }\n  .md-flex-large-and-up-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-large-and-up-85 {\n    margin-left: 85%;\n  }\n  .md-flex-large-and-up-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-large-and-up-90 {\n    margin-left: 90%;\n  }\n  .md-flex-large-and-up-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-large-and-up-95 {\n    margin-left: 95%;\n  }\n  .md-flex-large-and-up-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-large-and-up-100 {\n    margin-left: 100%;\n  }\n  .md-align-large-and-up-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-large-and-up-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-large-and-up-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-large-and-up {\n    display: none;\n  }\n}\n\n@media (min-width: 944px) {\n  .md-row-medium-and-up {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-medium-and-up {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-medium-and-up {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-medium-and-up-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-medium-and-up-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-medium-and-up-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-medium-and-up-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-medium-and-up-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-medium-and-up-5 {\n    margin-left: 5%;\n  }\n  .md-flex-medium-and-up-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-medium-and-up-10 {\n    margin-left: 10%;\n  }\n  .md-flex-medium-and-up-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-medium-and-up-15 {\n    margin-left: 15%;\n  }\n  .md-flex-medium-and-up-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-medium-and-up-20 {\n    margin-left: 20%;\n  }\n  .md-flex-medium-and-up-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-medium-and-up-25 {\n    margin-left: 25%;\n  }\n  .md-flex-medium-and-up-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-medium-and-up-30 {\n    margin-left: 30%;\n  }\n  .md-flex-medium-and-up-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-medium-and-up-35 {\n    margin-left: 35%;\n  }\n  .md-flex-medium-and-up-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-medium-and-up-40 {\n    margin-left: 40%;\n  }\n  .md-flex-medium-and-up-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-medium-and-up-45 {\n    margin-left: 45%;\n  }\n  .md-flex-medium-and-up-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-medium-and-up-50 {\n    margin-left: 50%;\n  }\n  .md-flex-medium-and-up-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-medium-and-up-55 {\n    margin-left: 55%;\n  }\n  .md-flex-medium-and-up-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-medium-and-up-60 {\n    margin-left: 60%;\n  }\n  .md-flex-medium-and-up-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-medium-and-up-65 {\n    margin-left: 65%;\n  }\n  .md-flex-medium-and-up-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-medium-and-up-70 {\n    margin-left: 70%;\n  }\n  .md-flex-medium-and-up-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-medium-and-up-75 {\n    margin-left: 75%;\n  }\n  .md-flex-medium-and-up-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-medium-and-up-80 {\n    margin-left: 80%;\n  }\n  .md-flex-medium-and-up-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-medium-and-up-85 {\n    margin-left: 85%;\n  }\n  .md-flex-medium-and-up-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-medium-and-up-90 {\n    margin-left: 90%;\n  }\n  .md-flex-medium-and-up-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-medium-and-up-95 {\n    margin-left: 95%;\n  }\n  .md-flex-medium-and-up-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-medium-and-up-100 {\n    margin-left: 100%;\n  }\n  .md-align-medium-and-up-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-medium-and-up-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-medium-and-up-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-medium-and-up {\n    display: none;\n  }\n}\n\n@media (min-width: 660px) {\n  .md-row-small-and-up {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-small-and-up {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-small-and-up {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-small-and-up-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-small-and-up-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-small-and-up-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-small-and-up-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-small-and-up-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-small-and-up-5 {\n    margin-left: 5%;\n  }\n  .md-flex-small-and-up-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-small-and-up-10 {\n    margin-left: 10%;\n  }\n  .md-flex-small-and-up-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-small-and-up-15 {\n    margin-left: 15%;\n  }\n  .md-flex-small-and-up-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-small-and-up-20 {\n    margin-left: 20%;\n  }\n  .md-flex-small-and-up-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-small-and-up-25 {\n    margin-left: 25%;\n  }\n  .md-flex-small-and-up-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-small-and-up-30 {\n    margin-left: 30%;\n  }\n  .md-flex-small-and-up-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-small-and-up-35 {\n    margin-left: 35%;\n  }\n  .md-flex-small-and-up-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-small-and-up-40 {\n    margin-left: 40%;\n  }\n  .md-flex-small-and-up-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-small-and-up-45 {\n    margin-left: 45%;\n  }\n  .md-flex-small-and-up-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-small-and-up-50 {\n    margin-left: 50%;\n  }\n  .md-flex-small-and-up-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-small-and-up-55 {\n    margin-left: 55%;\n  }\n  .md-flex-small-and-up-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-small-and-up-60 {\n    margin-left: 60%;\n  }\n  .md-flex-small-and-up-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-small-and-up-65 {\n    margin-left: 65%;\n  }\n  .md-flex-small-and-up-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-small-and-up-70 {\n    margin-left: 70%;\n  }\n  .md-flex-small-and-up-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-small-and-up-75 {\n    margin-left: 75%;\n  }\n  .md-flex-small-and-up-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-small-and-up-80 {\n    margin-left: 80%;\n  }\n  .md-flex-small-and-up-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-small-and-up-85 {\n    margin-left: 85%;\n  }\n  .md-flex-small-and-up-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-small-and-up-90 {\n    margin-left: 90%;\n  }\n  .md-flex-small-and-up-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-small-and-up-95 {\n    margin-left: 95%;\n  }\n  .md-flex-small-and-up-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-small-and-up-100 {\n    margin-left: 100%;\n  }\n  .md-align-small-and-up-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-small-and-up-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-small-and-up-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-small-and-up {\n    display: none;\n  }\n}\n\n@media (min-width: 300px) {\n  .md-row-xsmall-and-up {\n    -ms-flex-direction: row;\n    flex-direction: row;\n  }\n  .md-column-xsmall-and-up {\n    -ms-flex-direction: column;\n    flex-direction: column;\n  }\n  .md-flex-xsmall-and-up {\n    -ms-flex: 1 1;\n    flex: 1 1;\n  }\n  .md-flex-xsmall-and-up-33 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 33.33333%;\n    flex: 0 1 33.33333%;\n  }\n  .md-flex-xsmall-and-up-66 {\n    min-width: 33.33333%;\n    -ms-flex: 0 1 66.66666%;\n    flex: 0 1 66.66666%;\n  }\n  .md-flex-offset-xsmall-and-up-33 {\n    margin-left: 33.33333%;\n  }\n  .md-flex-offset-xsmall-and-up-66 {\n    margin-left: 66.66666%;\n  }\n  .md-flex-xsmall-and-up-5 {\n    min-width: 5%;\n    -ms-flex: 0 1 5%;\n    flex: 0 1 5%;\n  }\n  .md-flex-offset-xsmall-and-up-5 {\n    margin-left: 5%;\n  }\n  .md-flex-xsmall-and-up-10 {\n    min-width: 10%;\n    -ms-flex: 0 1 10%;\n    flex: 0 1 10%;\n  }\n  .md-flex-offset-xsmall-and-up-10 {\n    margin-left: 10%;\n  }\n  .md-flex-xsmall-and-up-15 {\n    min-width: 15%;\n    -ms-flex: 0 1 15%;\n    flex: 0 1 15%;\n  }\n  .md-flex-offset-xsmall-and-up-15 {\n    margin-left: 15%;\n  }\n  .md-flex-xsmall-and-up-20 {\n    min-width: 20%;\n    -ms-flex: 0 1 20%;\n    flex: 0 1 20%;\n  }\n  .md-flex-offset-xsmall-and-up-20 {\n    margin-left: 20%;\n  }\n  .md-flex-xsmall-and-up-25 {\n    min-width: 25%;\n    -ms-flex: 0 1 25%;\n    flex: 0 1 25%;\n  }\n  .md-flex-offset-xsmall-and-up-25 {\n    margin-left: 25%;\n  }\n  .md-flex-xsmall-and-up-30 {\n    min-width: 30%;\n    -ms-flex: 0 1 30%;\n    flex: 0 1 30%;\n  }\n  .md-flex-offset-xsmall-and-up-30 {\n    margin-left: 30%;\n  }\n  .md-flex-xsmall-and-up-35 {\n    min-width: 35%;\n    -ms-flex: 0 1 35%;\n    flex: 0 1 35%;\n  }\n  .md-flex-offset-xsmall-and-up-35 {\n    margin-left: 35%;\n  }\n  .md-flex-xsmall-and-up-40 {\n    min-width: 40%;\n    -ms-flex: 0 1 40%;\n    flex: 0 1 40%;\n  }\n  .md-flex-offset-xsmall-and-up-40 {\n    margin-left: 40%;\n  }\n  .md-flex-xsmall-and-up-45 {\n    min-width: 45%;\n    -ms-flex: 0 1 45%;\n    flex: 0 1 45%;\n  }\n  .md-flex-offset-xsmall-and-up-45 {\n    margin-left: 45%;\n  }\n  .md-flex-xsmall-and-up-50 {\n    min-width: 50%;\n    -ms-flex: 0 1 50%;\n    flex: 0 1 50%;\n  }\n  .md-flex-offset-xsmall-and-up-50 {\n    margin-left: 50%;\n  }\n  .md-flex-xsmall-and-up-55 {\n    min-width: 55%;\n    -ms-flex: 0 1 55%;\n    flex: 0 1 55%;\n  }\n  .md-flex-offset-xsmall-and-up-55 {\n    margin-left: 55%;\n  }\n  .md-flex-xsmall-and-up-60 {\n    min-width: 60%;\n    -ms-flex: 0 1 60%;\n    flex: 0 1 60%;\n  }\n  .md-flex-offset-xsmall-and-up-60 {\n    margin-left: 60%;\n  }\n  .md-flex-xsmall-and-up-65 {\n    min-width: 65%;\n    -ms-flex: 0 1 65%;\n    flex: 0 1 65%;\n  }\n  .md-flex-offset-xsmall-and-up-65 {\n    margin-left: 65%;\n  }\n  .md-flex-xsmall-and-up-70 {\n    min-width: 70%;\n    -ms-flex: 0 1 70%;\n    flex: 0 1 70%;\n  }\n  .md-flex-offset-xsmall-and-up-70 {\n    margin-left: 70%;\n  }\n  .md-flex-xsmall-and-up-75 {\n    min-width: 75%;\n    -ms-flex: 0 1 75%;\n    flex: 0 1 75%;\n  }\n  .md-flex-offset-xsmall-and-up-75 {\n    margin-left: 75%;\n  }\n  .md-flex-xsmall-and-up-80 {\n    min-width: 80%;\n    -ms-flex: 0 1 80%;\n    flex: 0 1 80%;\n  }\n  .md-flex-offset-xsmall-and-up-80 {\n    margin-left: 80%;\n  }\n  .md-flex-xsmall-and-up-85 {\n    min-width: 85%;\n    -ms-flex: 0 1 85%;\n    flex: 0 1 85%;\n  }\n  .md-flex-offset-xsmall-and-up-85 {\n    margin-left: 85%;\n  }\n  .md-flex-xsmall-and-up-90 {\n    min-width: 90%;\n    -ms-flex: 0 1 90%;\n    flex: 0 1 90%;\n  }\n  .md-flex-offset-xsmall-and-up-90 {\n    margin-left: 90%;\n  }\n  .md-flex-xsmall-and-up-95 {\n    min-width: 95%;\n    -ms-flex: 0 1 95%;\n    flex: 0 1 95%;\n  }\n  .md-flex-offset-xsmall-and-up-95 {\n    margin-left: 95%;\n  }\n  .md-flex-xsmall-and-up-100 {\n    min-width: 100%;\n    -ms-flex: 0 1 100%;\n    flex: 0 1 100%;\n  }\n  .md-flex-offset-xsmall-and-up-100 {\n    margin-left: 100%;\n  }\n  .md-align-xsmall-and-up-start {\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n  }\n  .md-align-xsmall-and-up-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n  }\n  .md-align-xsmall-and-up-end {\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n  }\n  .md-hide-xsmall-and-up {\n    display: none;\n  }\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-list {\n  margin: 0;\n  padding: 8px 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  position: relative;\n  list-style: none;\n}\n.md-list.md-dense {\n    padding: 4px 0;\n}\n.md-list.md-dense .md-list-item.md-inset .md-list-item-container {\n      padding-left: 72px;\n}\n.md-list.md-dense .md-list-item .md-list-item-container {\n      min-height: 40px;\n      font-size: 13px;\n}\n.md-list.md-dense .md-list-item .md-list-item-container .md-avatar:first-child,\n      .md-list.md-dense .md-list-item .md-list-item-container .md-list-action:first-child {\n        margin-right: 24px;\n}\n.md-list.md-dense .md-avatar {\n      width: 32px;\n      min-width: 32px;\n      height: 32px;\n      min-height: 32px;\n}\n.md-list.md-dense .md-list-item-expand {\n      min-height: 40px;\n}\n.md-list.md-double-line.md-dense .md-list-item .md-list-item-container {\n    min-height: 60px;\n}\n.md-list.md-double-line.md-dense .md-list-item .md-avatar {\n    width: 36px;\n    min-width: 36px;\n    height: 36px;\n    min-height: 36px;\n}\n.md-list.md-double-line.md-dense .md-list-item .md-avatar .md-avatar:first-child,\n    .md-list.md-double-line.md-dense .md-list-item .md-avatar .md-list-action:first-child {\n      margin-right: 20px;\n}\n.md-list.md-double-line.md-dense .md-list-text-container > :nth-child(1) {\n    font-size: 13px;\n}\n.md-list.md-double-line.md-dense .md-list-text-container > :nth-child(2) {\n    font-size: 13px;\n}\n.md-list.md-double-line .md-list-item .md-list-item-container {\n    min-height: 72px;\n}\n.md-list.md-triple-line.md-dense .md-list-item .md-list-item-container {\n    min-height: 76px;\n}\n.md-list.md-triple-line.md-dense .md-list-item .md-avatar {\n    width: 36px;\n    min-width: 36px;\n    height: 36px;\n    min-height: 36px;\n}\n.md-list.md-triple-line.md-dense .md-list-item .md-avatar .md-avatar:first-child,\n    .md-list.md-triple-line.md-dense .md-list-item .md-avatar .md-list-action:first-child {\n      margin-right: 20px;\n}\n.md-list.md-triple-line.md-dense .md-list-text-container > :nth-child(1) {\n    font-size: 13px;\n}\n.md-list.md-triple-line.md-dense .md-list-text-container > :nth-child(2) {\n    font-size: 13px;\n}\n.md-list.md-triple-line .md-list-item .md-list-item-container {\n    min-height: 88px;\n}\n.md-list.md-triple-line .md-avatar {\n    margin: 0;\n}\n.md-list .md-subheader.md-inset {\n    padding-left: 72px;\n}\n.md-list > .md-subheader:first-of-type {\n    margin-top: -8px;\n}\n.md-list-item {\n  height: auto;\n  position: relative;\n  z-index: 2;\n}\n.md-list-item.md-disabled {\n    cursor: default;\n    pointer-events: none;\n}\n.md-list-item.md-inset .md-list-item-container {\n    padding-left: 72px;\n}\n.md-list-item .md-button-ghost {\n    width: 100%;\n    margin: 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    border-radius: 0;\n}\n.md-list-item .md-button:not(.md-button-ghost):not(.md-list-item-container) {\n    position: relative;\n    z-index: 2;\n}\n.md-list-item .md-button:not(.md-button-ghost):not(.md-list-item-container) .md-icon {\n      position: relative;\n}\n.md-list-item .md-list-item-container {\n    min-height: 48px;\n    margin: 0;\n    padding: 0 16px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n    -ms-flex-align: center;\n        align-items: center;\n    -ms-flex-pack: justify;\n        justify-content: space-between;\n    -ms-flex: 1;\n        flex: 1;\n    position: relative;\n    font-size: 16px;\n    font-weight: 400;\n    text-align: left;\n    text-transform: none;\n}\n.md-list-item .md-list-item-container:hover {\n      text-decoration: none;\n}\n.md-list-item .md-list-item-container > .md-icon:first-child {\n      margin-right: 32px;\n}\n.md-list-item .md-list-item-container .md-avatar:first-child,\n    .md-list-item .md-list-item-container .md-list-action:first-child {\n      margin-right: 16px;\n}\n.md-list-item .md-list-item-container .md-list-action {\n      margin: 0 -10px 0 0;\n}\n.md-list-item .md-list-item-container .md-list-action:nth-child(3) {\n        margin: 0 -10px 0 16px;\n}\n.md-list-item .md-divider {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    left: 0;\n}\n.md-list-item .md-icon,\n  .md-list-item .md-avatar,\n  .md-list-item .md-list-action:first-child {\n    margin: 0;\n}\n.md-list-item .md-icon:first-of-type + *,\n    .md-list-item .md-avatar:first-of-type + *,\n    .md-list-item .md-list-action:first-child:first-of-type + * {\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n}\n.md-list-item .md-avatar {\n    margin-top: 8px;\n    margin-bottom: 8px;\n}\n.md-list-item .md-icon {\n    color: rgba(0, 0, 0, 0.54);\n}\n.md-list-item .md-ink-ripple {\n    border-radius: 0;\n}\n.md-list-item-expand {\n  min-height: 48px;\n  -ms-flex-flow: column wrap;\n      flex-flow: column wrap;\n  overflow: hidden;\n  transform: translate3D(0, 0, 0);\n}\n.md-list-item-expand:before, .md-list-item-expand:after {\n    height: 1px;\n    position: absolute;\n    right: 0;\n    left: 0;\n    z-index: 3;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    content: \" \";\n}\n.md-list-item-expand:before {\n    top: 0;\n}\n.md-list-item-expand:after {\n    bottom: 0;\n}\n.md-list-item-expand.md-active {\n    position: relative;\n}\n.md-list-item-expand.md-active:before, .md-list-item-expand.md-active:after {\n      background-color: rgba(0, 0, 0, 0.12);\n}\n.md-list-item-expand.md-active:first-of-type:before {\n      background: none;\n}\n.md-list-item-expand.md-active:last-of-type:after {\n      background: none;\n}\n.md-list-item-expand.md-active.md-active + .md-active:before {\n      background: none;\n}\n.md-list-item-expand.md-active > .md-list-item-container .md-list-expand-indicator {\n      transform: rotateZ(180deg) translate3D(0, 0, 0);\n}\n.md-list-item-expand.md-active > .md-list-expand {\n      margin-bottom: 0 !important;\n}\n.md-list-item-expand .md-expansion-indicator,\n  .md-list-item-expand .md-list-item-container,\n  .md-list-item-expand .md-icon {\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-list-item-expand .md-list-expand {\n    position: relative;\n    z-index: 1;\n    transform: translate3D(0, 0, 0);\n    will-change: margin-bottom;\n    transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n}\n.md-list-item-expand .md-list-expand.md-transition-off {\n      transition: none !important;\n}\n.md-list-item-expand .md-list-expand .md-list {\n      padding: 0;\n}\n.md-list-text-container {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  -ms-flex: 1;\n      flex: 1;\n  overflow: hidden;\n  line-height: 1.25em;\n  white-space: normal;\n}\n.md-list-text-container > * {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n.md-list-text-container > :nth-child(1) {\n    font-size: 16px;\n}\n.md-list-text-container > :nth-child(2),\n  .md-list-text-container > :nth-child(3) {\n    margin: 0;\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 14px;\n}\n.md-list-text-container > :nth-child(2):not(:last-child) {\n    color: rgba(0, 0, 0, 0.87);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-menu {\n  display: inline-block;\n}\n.md-menu-content {\n  width: 168px;\n  min-width: 84px;\n  max-width: 392px;\n  min-height: 64px;\n  max-height: calc(100vh - 32px);\n  overflow-x: hidden;\n  overflow-y: auto;\n  position: absolute;\n  z-index: 131;\n  transform: scale(0.9, 0.85) translateZ(0);\n  border-radius: 2px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n  opacity: 0;\n  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), margin 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), transform 0s 0.4s cubic-bezier(0.55, 0, 0.55, 0.2);\n  will-change: transform, opacity, width;\n}\n.md-menu-content.md-direction-bottom-right {\n    margin-top: -20px;\n    margin-left: -8px;\n    transform-origin: top left;\n}\n.md-menu-content.md-direction-bottom-right.md-active {\n      margin-top: -11px;\n}\n.md-menu-content.md-direction-bottom-left {\n    margin-top: -20px;\n    margin-left: 8px;\n    transform-origin: top right;\n}\n.md-menu-content.md-direction-bottom-left.md-active {\n      margin-top: -11px;\n}\n.md-menu-content.md-direction-top-right {\n    margin-top: 20px;\n    margin-left: -8px;\n    transform-origin: bottom left;\n}\n.md-menu-content.md-direction-top-right.md-active {\n      margin-top: 11px;\n}\n.md-menu-content.md-direction-top-left {\n    margin-top: 20px;\n    margin-left: 8px;\n    transform-origin: bottom right;\n}\n.md-menu-content.md-direction-top-left.md-active {\n      margin-top: 11px;\n}\n.md-menu-content.md-align-trigger {\n    margin: 0;\n}\n.md-menu-content.md-size-1 {\n    width: 84px;\n}\n.md-menu-content.md-size-2 {\n    width: 112px;\n}\n.md-menu-content.md-size-3 {\n    width: 168px;\n}\n.md-menu-content.md-size-4 {\n    width: 224px;\n}\n.md-menu-content.md-size-5 {\n    width: 280px;\n}\n.md-menu-content.md-size-6 {\n    width: 336px;\n}\n.md-menu-content.md-size-7 {\n    width: 392px;\n}\n.md-menu-content.md-active {\n    pointer-events: auto;\n    opacity: 1;\n    transform: scale(1) translateZ(0);\n    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-menu-content.md-active .md-list {\n      opacity: 1;\n      transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-menu-content .md-list {\n    opacity: 0;\n    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-menu-item {\n  cursor: pointer;\n  font-size: 16px;\n  line-height: 1.2em;\n}\n.md-menu-item[disabled] {\n    cursor: default;\n}\n.md-menu-item .md-list-item-holder {\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.md-menu-backdrop {\n  z-index: 130;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-boards {\n  width: 100%;\n  height: 100% !important;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  position: relative;\n}\n.md-boards.md-transition-off * {\n    transition: none !important;\n}\n.md-boards.md-dynamic-height .md-boards-content {\n    transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-boards .md-boards-navigation {\n    bottom: 0;\n    width: 100%;\n    height: 48px;\n    min-height: 48px;\n    position: relative;\n    z-index: 1;\n    display: -ms-flexbox;\n    display: flex;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    -ms-flex-pack: justify;\n        justify-content: space-between;\n}\n.md-boards .md-board-header {\n    min-width: 24px;\n    max-width: 24px;\n    margin: 0;\n    padding: 0 12px;\n    display: inline-block;\n    position: relative;\n    cursor: pointer;\n    border: 0;\n    background: none;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    font-family: inherit;\n    font-size: 14px;\n    font-weight: 500;\n    text-transform: uppercase;\n}\n.md-boards .md-board-header.md-disabled {\n      cursor: default;\n      pointer-events: none;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none;\n      -webkit-user-drag: none;\n}\n.md-boards .md-board-header-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: column;\n        flex-flow: column;\n    -ms-flex-pack: center;\n        justify-content: center;\n    -ms-flex-align: center;\n        align-items: center;\n}\n.md-boards .md-board-header-container .md-icon {\n      margin: 0;\n}\n.md-boards .md-board-header-container .md-icon:not(.md-control) {\n      width: 16px;\n      min-width: 16px;\n      height: 16px;\n      min-height: 16px;\n      font-size: 16px;\n}\n.md-boards .md-boards-content {\n    width: 100%;\n    position: relative;\n    overflow: hidden;\n}\n.md-boards .md-boards-wrapper {\n    width: 9999em;\n    height: 100% !important;\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    transform: translate3d(0, 0, 0);\n    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-boards .md-board {\n    padding: 16px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-progress {\n  width: 100%;\n  height: 4px;\n  position: relative;\n  overflow: hidden;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-progress.md-indeterminate .md-progress-track {\n    right: 0;\n}\n.md-progress.md-indeterminate .md-progress-track:before, .md-progress.md-indeterminate .md-progress-track:after {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      will-change: left, right;\n      content: '';\n}\n.md-progress.md-indeterminate .md-progress-track:before {\n      animation: progress-indeterminate 2.3s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;\n}\n.md-progress.md-indeterminate .md-progress-track:after {\n      animation: progress-indeterminate-short 2.3s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;\n      animation-delay: 1.15s;\n}\n.md-progress.md-progress-enter, .md-progress.md-progress-leave-active {\n    opacity: 0;\n    transform: scaleY(0) translateZ(0);\n}\n.md-progress.md-progress-enter-active {\n    transform: scaleY(1) translateZ(0);\n}\n.md-progress-track {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n@keyframes progress-indeterminate {\n0% {\n    right: 100%;\n    left: -35%;\n}\n60% {\n    right: -100%;\n    left: 100%;\n}\n100% {\n    right: -100%;\n    left: 100%;\n}\n}\n@keyframes progress-indeterminate-short {\n0% {\n    right: 100%;\n    left: -200%;\n}\n60% {\n    right: -8%;\n    left: 107%;\n}\n100% {\n    right: -8%;\n    left: 107%;\n}\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-radio {\n  width: auto;\n  margin: 16px 8px 16px 0;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  position: relative;\n}\n.md-radio:not(.md-disabled) {\n    cursor: pointer;\n}\n.md-radio:not(.md-disabled) .md-radio-label {\n      cursor: pointer;\n}\n.md-radio .md-radio-container {\n    width: 20px;\n    height: 20px;\n    position: relative;\n    border-radius: 50%;\n    border: 2px solid rgba(0, 0, 0, 0.54);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-radio .md-radio-container:before {\n      width: 48px;\n      height: 48px;\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      content: \" \";\n}\n.md-radio .md-radio-container:after {\n      position: absolute;\n      top: 3px;\n      right: 3px;\n      bottom: 3px;\n      left: 3px;\n      border-radius: 50%;\n      opacity: 0;\n      transform: scale3D(0.38, 0.38, 1);\n      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      content: \" \";\n}\n.md-radio .md-radio-container input {\n      position: absolute;\n      left: -999em;\n}\n.md-radio .md-radio-container .md-ink-ripple {\n      top: -16px;\n      right: -16px;\n      bottom: -16px;\n      left: -16px;\n      border-radius: 50%;\n      color: rgba(0, 0, 0, 0.54);\n}\n.md-radio .md-radio-container .md-ink-ripple .md-ripple {\n        width: 48px !important;\n        height: 48px !important;\n        top: 0 !important;\n        right: 0 !important;\n        bottom: 0 !important;\n        left: 0 !important;\n}\n.md-radio .md-radio-label {\n    height: 20px;\n    padding-left: 8px;\n    line-height: 20px;\n}\n.md-radio.md-checked .md-radio-container:after {\n  opacity: 1;\n  transform: scale3D(1, 1, 1);\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-rating-bar {\n  width: auto;\n  display: -ms-flexbox;\n  display: flex;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 3px;\n  border-radius: 2px;\n}\n.md-rating-bar > .md-full-icon {\n    overflow-x: hidden;\n    display: inherit;\n}\n.md-rating-bar > .md-empty-icon > .md-icon,\n  .md-rating-bar > .md-full-icon > .md-icon {\n    margin: 0;\n    white-space: nowrap;\n    cursor: pointer;\n}\n.md-rating-bar:not([disabled]):hover {\n    background-color: rgba(153, 153, 153, 0.2);\n}\n.md-rating-bar[disabled] > .md-empty-icon > .md-icon,\n  .md-rating-bar[disabled] > .md-full-icon > .md-icon {\n    cursor: default;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-select {\n  width: 100%;\n  min-width: 128px;\n  height: 32px;\n  position: relative;\n}\n.md-select:focus {\n    outline: none;\n}\n.md-select:not(.md-select-icon):after {\n    margin-top: 2px;\n    position: absolute;\n    top: 50%;\n    right: 0;\n    transform: translateY(-50%) scaleY(0.45) scaleX(0.85);\n    transition: all 0.15s linear;\n    content: \"\\25BC\";\n}\n.md-select.md-active .md-select-menu {\n    top: -8px;\n    pointer-events: auto;\n    opacity: 1;\n    transform: translateY(-8px) scale3D(1, 1, 1);\n    transform-origin: center top;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-duration: .25s;\n    transition-property: opacity, transform, top;\n}\n.md-select.md-active .md-select-menu > * {\n      opacity: 1;\n      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      transition-duration: .15s;\n      transition-delay: .1s;\n}\n.md-select.md-disabled {\n    pointer-events: none;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    user-drag: none;\n}\n.md-select select {\n    position: absolute;\n    left: -999em;\n}\n.md-select .md-menu {\n    width: 100%;\n    height: 32px;\n    display: block;\n    position: relative;\n}\n.md-select .md-select-value {\n    width: 100%;\n    height: 32px;\n    padding-right: 24px;\n    display: block;\n    cursor: pointer;\n    overflow: hidden;\n    position: relative;\n    z-index: 2;\n    font-size: 16px;\n    line-height: 33px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n.md-select .md-subheader {\n    color: rgba(117, 117, 117, 0.87);\n    text-transform: uppercase;\n}\n.md-select .md-subheader:first-child {\n      margin-top: -8px;\n}\n.md-select-content {\n  width: auto;\n  max-height: 256px;\n}\n.md-select-content.md-direction-bottom-right {\n    margin-top: -15px;\n    margin-left: -16px;\n}\n.md-select-content .md-option[disabled] {\n    pointer-events: none;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    user-drag: none;\n}\n.md-select-content .md-menu-item .md-list-item-holder {\n    overflow: visible;\n    -ms-flex-pack: start;\n        justify-content: flex-start;\n}\n.md-select-content.md-multiple .md-checkbox {\n    margin: 0;\n}\n.md-select-content.md-multiple .md-checkbox-label {\n    padding-left: 16px;\n    cursor: pointer;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-sidenav.md-left .md-sidenav-content {\n  left: 0;\n  transform: translate3D(-100%, 0, 0);\n}\n.md-sidenav.md-right .md-sidenav-content {\n  right: 0;\n  transform: translate3D(100%, 0, 0);\n}\n.md-sidenav.md-fixed .md-sidenav-content,\n.md-sidenav.md-fixed .md-sidenav-backdrop {\n  position: fixed;\n}\n.md-sidenav .md-sidenav-content {\n  width: 304px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  z-index: 100;\n  pointer-events: none;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition-property: transform;\n  will-change: transform;\n}\n.md-sidenav .md-backdrop {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 99;\n  pointer-events: none;\n  background-color: rgba(0, 0, 0, 0.54);\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n  transition-property: opacity;\n  will-change: opacity;\n}\n.md-sidenav.md-active .md-sidenav-content {\n  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);\n  pointer-events: auto;\n  transform: translate3D(0, 0, 0);\n}\n.md-sidenav.md-active .md-sidenav-backdrop {\n  opacity: 1;\n  pointer-events: auto;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Image aspect ratio calculator */\n/* Responsive breakpoints */\n.md-snackbar {\n  display: -ms-flexbox;\n  display: flex;\n  position: fixed;\n  right: 0;\n  left: 0;\n  z-index: 120;\n  pointer-events: none;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition-property: margin-top, margin-bottom;\n}\n.md-snackbar.md-position-top-center, .md-snackbar.md-position-bottom-center {\n    -ms-flex-pack: center;\n        justify-content: center;\n}\n.md-snackbar.md-position-top-right, .md-snackbar.md-position-bottom-right {\n    margin-right: 24px;\n    -ms-flex-pack: end;\n        justify-content: flex-end;\n}\n.md-snackbar.md-position-top-left, .md-snackbar.md-position-bottom-left {\n    margin-left: 24px;\n    -ms-flex-pack: start;\n        justify-content: flex-start;\n}\n.md-snackbar.md-position-top-right, .md-snackbar.md-position-top-left, .md-snackbar.md-position-top-center {\n    margin-top: 24px;\n}\n.md-snackbar.md-position-bottom-right, .md-snackbar.md-position-bottom-left {\n    margin-bottom: 24px;\n}\n.md-snackbar.md-position-top-center, .md-snackbar.md-position-top-right, .md-snackbar.md-position-top-left {\n    top: 0;\n}\n.md-snackbar.md-position-top-center .md-snackbar-container, .md-snackbar.md-position-top-right .md-snackbar-container, .md-snackbar.md-position-top-left .md-snackbar-container {\n      transform: translate3D(0, calc(-100% - 24px), 0);\n}\n.md-snackbar.md-position-bottom-center, .md-snackbar.md-position-bottom-right, .md-snackbar.md-position-bottom-left {\n    bottom: 0;\n}\n.md-snackbar.md-position-bottom-center .md-snackbar-container, .md-snackbar.md-position-bottom-right .md-snackbar-container, .md-snackbar.md-position-bottom-left .md-snackbar-container {\n      transform: translate3D(0, calc(100% + 24px), 0);\n}\n.md-snackbar.md-active .md-snackbar-container {\n    transform: translate3D(0, 0, 0);\n}\n.md-snackbar.md-active .md-snackbar-content {\n    opacity: 1;\n    transition: opacity 0.4s 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-snackbar .md-snackbar-content {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n        align-items: center;\n    -ms-flex-pack: justify;\n        justify-content: space-between;\n    opacity: 0;\n    transition: opacity 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);\n    will-change: opacity;\n}\n.md-snackbar .md-button {\n    min-width: 64px;\n    margin: -8px -16px;\n}\n.md-snackbar .md-button:last-child {\n      margin-left: 48px;\n}\n.md-snackbar-container {\n  width: auto;\n  min-width: 288px;\n  max-width: 568px;\n  min-height: 48px;\n  padding: 14px 24px;\n  overflow: hidden;\n  pointer-events: auto;\n  border-radius: 2px;\n  background-color: #323232;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  color: #fff;\n  font-size: 14px;\n}\n.md-has-toast-top-right .md-fab.md-fab-top-right {\n  transform: translate3D(0, 68px, 0);\n}\n.md-has-toast-top-center .md-fab.md-fab-top-center {\n  transform: translate3D(-50%, 68px, 0);\n}\n.md-has-toast-top-left .md-fab.md-fab-top-left {\n  transform: translate3D(0, 68px, 0);\n}\n.md-has-toast-bottom-right .md-fab.md-fab-bottom-right {\n  transform: translate3D(0, -68px, 0);\n}\n.md-has-toast-bottom-center .md-fab.md-fab-bottom-center {\n  transform: translate3D(-50%, -68px, 0);\n}\n.md-has-toast-bottom-left .md-fab.md-fab-bottom-left {\n  transform: translate3D(0, -68px, 0);\n}\n@media (max-width: 600px) {\n  .md-snackbar {\n    margin: 0 !important;\n  }\n  .md-snackbar-container {\n    width: 100%;\n    max-width: 100%;\n    border-radius: 0;\n  }\n  .md-has-toast-top-right .md-fab.md-fab-top-right {\n    transform: translate3D(0, 48px, 0);\n  }\n  .md-has-toast-top-center .md-fab.md-fab-top-center {\n    transform: translate3D(-50%, 48px, 0);\n  }\n  .md-has-toast-top-left .md-fab.md-fab-top-left {\n    transform: translate3D(0, 48px, 0);\n  }\n  .md-has-toast-bottom-right .md-fab.md-fab-bottom-right {\n    transform: translate3D(0, -48px, 0);\n  }\n  .md-has-toast-bottom-center .md-fab.md-fab-bottom-center {\n    transform: translate3D(-50%, -48px, 0);\n  }\n  .md-has-toast-bottom-left .md-fab.md-fab-bottom-left {\n    transform: translate3D(0, -48px, 0);\n  }\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-speed-dial {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column-reverse;\n      flex-direction: column-reverse;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.md-speed-dial.md-direction-top.md-mode-fling [md-fab-trigger] ~ .md-button {\n    transform: scale(0.95) translate3D(0, 80%, 0);\n}\n.md-speed-dial.md-direction-top [md-fab-trigger] {\n    margin-top: 8px;\n}\n.md-speed-dial.md-direction-top [md-fab-trigger] ~ .md-button {\n      margin-bottom: 16px;\n}\n.md-speed-dial.md-direction-right {\n    -ms-flex-direction: row;\n        flex-direction: row;\n    -ms-flex-pack: center;\n        justify-content: center;\n}\n.md-speed-dial.md-direction-right.md-mode-fling [md-fab-trigger] ~ .md-button {\n      transform: scale(0.95) translate3D(-80%, 0, 0);\n}\n.md-speed-dial.md-direction-right [md-fab-trigger] {\n      margin-right: 8px;\n}\n.md-speed-dial.md-direction-right [md-fab-trigger] ~ .md-button {\n        margin-left: 16px;\n}\n.md-speed-dial.md-direction-bottom {\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.md-speed-dial.md-direction-bottom.md-mode-fling [md-fab-trigger] ~ .md-button {\n      transform: scale(0.95) translate3D(0, -80%, 0);\n}\n.md-speed-dial.md-direction-bottom [md-fab-trigger] {\n      margin-bottom: 8px;\n}\n.md-speed-dial.md-direction-bottom [md-fab-trigger] ~ .md-button {\n        margin-top: 16px;\n}\n.md-speed-dial.md-direction-left {\n    -ms-flex-direction: row-reverse;\n        flex-direction: row-reverse;\n    -ms-flex-pack: center;\n        justify-content: center;\n}\n.md-speed-dial.md-direction-left.md-mode-fling [md-fab-trigger] ~ .md-button {\n      transform: scale(0.95) translate3D(80%, 0, 0);\n}\n.md-speed-dial.md-direction-left [md-fab-trigger] {\n      margin-left: 8px;\n}\n.md-speed-dial.md-direction-left [md-fab-trigger] ~ .md-button {\n        margin-right: 16px;\n}\n.md-speed-dial.md-mode-scale [md-fab-trigger] ~ .md-button {\n    transform: scale(0.6);\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button {\n    opacity: 1;\n    pointer-events: auto;\n    transform: translate3D(0, 0, 0) !important;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(2) {\n      transition-delay: 0.05s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(3) {\n      transition-delay: 0.1s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(4) {\n      transition-delay: 0.15s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(5) {\n      transition-delay: 0.2s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(6) {\n      transition-delay: 0.25s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(7) {\n      transition-delay: 0.3s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(8) {\n      transition-delay: 0.35s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(9) {\n      transition-delay: 0.4s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(10) {\n      transition-delay: 0.45s;\n}\n.md-speed-dial.md-active [md-fab-trigger] ~ .md-button:nth-child(11) {\n      transition-delay: 0.5s;\n}\n.md-speed-dial.md-active [md-fab-trigger] [md-icon-morph] {\n    transform: rotateZ(0);\n    opacity: 1;\n}\n.md-speed-dial.md-active [md-fab-trigger] [md-icon-morph] + .md-icon {\n      transform: rotateZ(90deg) scale(0.8);\n      opacity: 0;\n}\n.md-speed-dial .md-button {\n    margin: 0;\n}\n.md-speed-dial [md-fab-trigger] {\n    position: relative;\n    z-index: 2;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button {\n      position: relative;\n      z-index: 1;\n      opacity: 0;\n      pointer-events: none;\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(2) {\n        transition-delay: 0.05s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(3) {\n        transition-delay: 0.1s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(4) {\n        transition-delay: 0.15s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(5) {\n        transition-delay: 0.2s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(6) {\n        transition-delay: 0.25s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(7) {\n        transition-delay: 0.3s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(8) {\n        transition-delay: 0.35s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(9) {\n        transition-delay: 0.4s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(10) {\n        transition-delay: 0.45s;\n}\n.md-speed-dial [md-fab-trigger] ~ .md-button:nth-last-child(11) {\n        transition-delay: 0.5s;\n}\n.md-speed-dial [md-icon-morph] + .md-icon,\n  .md-speed-dial [md-icon-morph] {\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-speed-dial [md-icon-morph] {\n    opacity: 0;\n    transform: rotateZ(-90deg) scale(0.8);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-spinner {\n  display: inline-block;\n  position: relative;\n  pointer-events: none;\n  will-change: transform, opacity;\n}\n.md-spinner.md-indeterminate .md-spinner-draw {\n    animation: spinner-rotate 1.9s linear infinite;\n    transform: rotate(0deg) translateZ(0);\n}\n.md-spinner.md-indeterminate .md-spinner-path {\n    stroke-dasharray: 2, 200;\n    animation: spinner-dash 1.425s ease-in-out infinite;\n}\n.md-spinner.md-spinner-leave-active {\n    opacity: 0;\n    transform: scale(0.8) translateZ(0);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-spinner:not(.md-indeterminate).md-spinner-enter-active {\n    transition-duration: 2s;\n}\n.md-spinner:not(.md-indeterminate).md-spinner-enter-active .md-spinner-draw {\n      animation: spinner-initial-rotate 1.98s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;\n}\n.md-spinner-draw {\n  width: 100%;\n  height: 100%;\n  margin: auto;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transform: rotate(270deg) translateZ(0);\n  transform-origin: center center;\n  will-change: transform, opacity;\n}\n.md-spinner-path {\n  fill: none;\n  stroke-dashoffset: 0;\n  stroke-miterlimit: 10;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n@keyframes spinner-rotate {\nto {\n    transform: rotate(360deg) translateZ(0);\n}\n}\n@keyframes spinner-initial-rotate {\n0% {\n    opacity: 0;\n    transform: rotate(-90deg) translateZ(0);\n}\n20% {\n    opacity: 1;\n}\n100% {\n    transform: rotate(270deg) translateZ(0);\n}\n}\n@keyframes spinner-dash {\n0% {\n    stroke-dasharray: 2, 200;\n    stroke-dashoffset: 0;\n}\n50% {\n    stroke-dasharray: 89, 200;\n    stroke-dashoffset: -35px;\n}\n100% {\n    stroke-dasharray: 89, 200;\n    stroke-dashoffset: -124px;\n}\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Image aspect ratio calculator */\n/* Responsive breakpoints */\n.md-stepper {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  position: relative;\n  width: 100%;\n}\n.md-stepper .md-step-header {\n    background: none;\n    border: 0;\n    cursor: pointer;\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n    font-family: inherit;\n    font-size: 12px;\n    font-weight: 500;\n    margin: 0;\n    max-height: 72px;\n    padding: 24px;\n    position: relative;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-stepper .md-step-header .md-step-icons, .md-stepper .md-step-header .md-step-titles {\n      display: inline-block;\n      vertical-align: middle;\n}\n.md-stepper .md-step-header.md-has-sub-message {\n      padding: 15px 24px;\n}\n.md-stepper .md-step-header.md-has-sub-message .md-step-title {\n        margin-bottom: -4px;\n}\n.md-stepper .md-step-header .md-step-icon {\n      border-radius: 50%;\n      font-size: 12px;\n      height: 24px;\n      line-height: 24px;\n      margin-right: 8px;\n      min-width: 24px;\n      padding: 0px 6px;\n      pointer-events: none;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none;\n      width: 24px;\n}\n.md-stepper .md-step-header .md-step-number {\n      border-radius: 50%;\n      display: inline-block;\n      font-size: 12px;\n      margin-right: 8px;\n      width: 24px;\n}\n.md-stepper .md-step-header .md-step-number span {\n        display: block;\n        line-height: 24px;\n        text-align: center;\n}\n.md-stepper .md-step-header .md-step-title {\n      font-size: inherit;\n}\n.md-stepper .md-step-header.md-disabled {\n      cursor: default;\n      pointer-events: none;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none;\n      -webkit-user-drag: none;\n}\n.md-stepper .md-steps-navigation {\n    display: -ms-flexbox;\n    display: flex;\n    height: 72px;\n    min-height: 72px;\n    overflow: hidden;\n    position: relative;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    z-index: 1;\n}\n.md-stepper .md-steps-navigation.md-alternate-labels {\n      height: 104px;\n      min-height: 104px;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container {\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n      width: 100%;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container .md-divider {\n        margin: 36px 0;\n        position: relative;\n        width: 100%;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels {\n        max-height: 104px;\n        text-align: center;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels.md-has-sub-message {\n          padding: 24px;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-icons, .md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-titles {\n          display: block;\n}\n.md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-titles {\n          margin-top: 10px;\n}\n.md-stepper .md-steps-container {\n    height: 0;\n    overflow: hidden;\n    position: relative;\n    width: 100%;\n}\n.md-stepper .md-steps-container .md-steps-wrapper {\n      bottom: 0;\n      left: 0;\n      position: absolute;\n      right: 0;\n      top: 0;\n      transform: translate3d(0, 0, 0);\n      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      width: 9999em;\n}\n.md-stepper .md-steps-container .md-steps-wrapper .md-step {\n        left: 0;\n        padding: 16px;\n        position: absolute;\n        right: 0;\n        top: 0;\n}\n.md-stepper .md-steps-container .md-steps-wrapper .md-step .md-step-content {\n          padding: 16px;\n          font-size: 14px;\n          line-height: 22px;\n}\n.md-stepper .md-steps-container .md-steps-wrapper .md-step .md-step-content:last-child {\n            padding-bottom: 24px;\n}\n.md-stepper .md-steps-vertical-container .md-step .md-step-header {\n    padding-bottom: 8px;\n}\n.md-stepper .md-steps-vertical-container .md-step:not(:first-of-type) .md-step-header {\n    padding-top: 8px;\n}\n.md-stepper .md-steps-vertical-container .md-step .md-step-content {\n    margin: 0 24px 0 34px;\n    padding-bottom: 32px;\n    padding-left: 24px;\n    padding-top: 8px;\n}\n.md-stepper .md-steps-vertical-container .md-step:not(:last-of-type) .md-step-content {\n    border-left: 1px solid #BDBDBD;\n}\n@media (min-width: 660px) {\n  .md-stepper .md-steps-navigation .md-steps-navigation-container {\n    margin-bottom: -15px;\n  }\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-subheader {\n  min-height: 48px;\n  padding: 0 16px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-flow: row wrap;\n      flex-flow: row wrap;\n  color: rgba(0, 0, 0, 0.54);\n  font-size: 14px;\n  font-weight: 500;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-switch {\n  width: auto;\n  margin: 16px 8px 16px 0;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  position: relative;\n}\n.md-switch .md-switch-container {\n    width: 34px;\n    height: 14px;\n    position: relative;\n    border-radius: 14px;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    background-color: rgba(0, 0, 0, 0.38);\n}\n.md-switch .md-switch-container .md-switch-thumb {\n      width: 20px;\n      height: 20px;\n      position: absolute;\n      top: 50%;\n      left: 0;\n      background-color: #fafafa;\n      border-radius: 50%;\n      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\n      transition: all 0.15s linear;\n}\n.md-switch .md-switch-container input {\n      position: absolute;\n      left: -999em;\n}\n.md-switch .md-switch-container .md-ink-ripple {\n      top: -16px;\n      right: -16px;\n      bottom: -16px;\n      left: -16px;\n      border-radius: 50%;\n      color: rgba(0, 0, 0, 0.54);\n}\n.md-switch .md-switch-container .md-ink-ripple .md-ripple {\n        width: 48px !important;\n        height: 48px !important;\n        top: 0 !important;\n        right: 0 !important;\n        bottom: 0 !important;\n        left: 0 !important;\n}\n.md-switch .md-switch-container .md-switch-holder {\n      width: 40px;\n      height: 40px;\n      margin: 0;\n      padding: 0;\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      z-index: 2;\n      background: none;\n      border: none;\n      transform: translate(-50%, -50%);\n}\n.md-switch .md-switch-container .md-switch-holder:focus {\n        outline: none;\n}\n.md-switch .md-switch-label {\n    height: 14px;\n    padding-left: 8px;\n    line-height: 14px;\n}\n.md-switch.md-dragging .md-switch-thumb {\n  cursor: -webkit-grabbing;\n  cursor: grabbing;\n}\n.md-switch.md-disabled .md-switch-thumb {\n  cursor: default;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-table {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column wrap;\n      flex-flow: column wrap;\n  overflow-x: auto;\n}\n.md-table.md-transition-off .md-table-cell,\n  .md-table.md-transition-off .md-checkbox .md-checkbox-container,\n  .md-table.md-transition-off .md-checkbox .md-checkbox-container:after {\n    transition: none !important;\n}\n.md-table table {\n    width: 100%;\n    border-spacing: 0;\n    border-collapse: collapse;\n    overflow: hidden;\n}\n.md-table tbody .md-table-row {\n    border-top: 1px solid #e0e0e0;\n}\n.md-table tbody .md-table-row.md-selected .md-table-cell {\n      background-color: #f5f5f5;\n}\n.md-table tbody .md-table-row:hover .md-table-cell {\n      background-color: #eee;\n}\n.md-table .md-table-head {\n    padding: 0;\n    position: relative;\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 12px;\n    line-height: 16px;\n    text-align: left;\n}\n.md-table .md-table-head:last-child .md-table-head-container .md-table-head-text {\n      padding-right: 24px;\n}\n.md-table .md-table-head.md-numeric {\n      text-align: right;\n}\n.md-table .md-table-head .md-icon {\n      width: 16px;\n      min-width: 16px;\n      height: 16px;\n      min-height: 16px;\n      font-size: 16px;\n      color: rgba(0, 0, 0, 0.54);\n}\n.md-table .md-table-head .md-icon:not(.md-sortable-icon) {\n        margin: 0 4px;\n}\n.md-table .md-table-head .md-icon:first-child {\n        margin-left: 0;\n}\n.md-table .md-table-head .md-icon:last-child {\n        margin-right: 0;\n}\n.md-table .md-table-head-container {\n    height: 56px;\n    padding: 14px 0;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-table .md-table-head-text {\n    height: 28px;\n    padding-right: 32px;\n    padding-left: 24px;\n    display: inline-block;\n    position: relative;\n    overflow: hidden;\n    line-height: 28px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n.md-table .md-sortable {\n    cursor: pointer;\n}\n.md-table .md-sortable:first-of-type .md-sortable-icon {\n      left: auto;\n      right: 10px;\n}\n.md-table .md-sortable:hover, .md-table .md-sortable.md-sorted {\n      color: rgba(0, 0, 0, 0.87);\n}\n.md-table .md-sortable:hover .md-sortable-icon, .md-table .md-sortable.md-sorted .md-sortable-icon {\n        opacity: 1;\n}\n.md-table .md-sortable.md-sorted .md-sortable-icon {\n      color: rgba(0, 0, 0, 0.87);\n}\n.md-table .md-sortable.md-sorted-descending .md-sortable-icon {\n      transform: translateY(-50%) rotate(180deg);\n}\n.md-table .md-sortable .md-sortable-icon {\n      position: absolute;\n      top: 50%;\n      left: 2px;\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      transform: translateY(-50%);\n      opacity: 0;\n      color: rgba(0, 0, 0, 0.38);\n}\n.md-table .md-sortable .md-ink-ripple {\n      color: rgba(0, 0, 0, 0.87);\n}\n.md-table .md-table-cell {\n    height: 48px;\n    position: relative;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    color: rgba(0, 0, 0, 0.87);\n    font-size: 13px;\n    line-height: 18px;\n}\n.md-table .md-table-cell:last-child .md-table-cell-container {\n      padding-right: 24px;\n}\n.md-table .md-table-cell.md-numeric {\n      text-align: right;\n}\n.md-table .md-table-cell.md-numeric .md-icon {\n        margin: 0;\n}\n.md-table .md-table-cell.md-numeric .md-table-cell-container {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-pack: center;\n            justify-content: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.md-table .md-table-cell.md-numeric .md-table-cell-container .md-icon,\n        .md-table .md-table-cell.md-numeric .md-table-cell-container .md-button .md-icon {\n          margin: auto;\n}\n.md-table .md-table-cell.md-has-action .md-table-cell-container {\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-align: center;\n          align-items: center;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.md-table .md-table-cell .md-table-cell-container {\n      padding: 6px 32px 6px 24px;\n}\n.md-table .md-table-cell .md-button {\n      width: 36px;\n      min-width: 36px;\n      height: 36px;\n      min-height: 36px;\n}\n.md-table .md-table-cell .md-button:last-child {\n        margin: 0 -10px 0 0;\n}\n.md-table .md-table-cell .md-button .md-icon {\n        margin: auto;\n        width: 18px;\n        min-width: 18px;\n        height: 18px;\n        min-height: 18px;\n        color: rgba(0, 0, 0, 0.54);\n        font-size: 18px;\n}\n.md-table .md-table-selection {\n    width: 60px;\n    position: relative;\n    vertical-align: middle;\n}\n.md-table .md-table-selection + .md-table-cell .md-table-cell-container,\n    .md-table .md-table-selection + .md-table-head .md-table-head-container .md-table-head-text {\n      padding-left: 8px;\n}\n.md-table .md-table-selection .md-table-cell-container {\n      padding-right: 16px;\n      padding-left: 24px;\n}\n.md-table .md-table-selection .md-checkbox {\n      margin: 0;\n}\n.md-table .md-table-selection .md-checkbox-container {\n      width: 18px;\n      height: 18px;\n      margin-top: 1px;\n}\n.md-table .md-table-selection .md-checkbox-container:after {\n        top: -1px;\n        left: 4px;\n}\n.md-table .md-select {\n    min-width: 84px;\n}\n.md-table .md-select-value,\n  .md-table .md-option {\n    font-size: 13px;\n}\n.md-table-edit-trigger {\n  display: inline-block;\n  cursor: pointer;\n  color: rgba(0, 0, 0, 0.38);\n}\n.md-table-edit-trigger.md-edited {\n    color: rgba(0, 0, 0, 0.87);\n}\n.md-table-dialog {\n  max-height: 0;\n  margin: 0;\n  padding: 0 24px 2px;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 24px;\n  z-index: 60;\n  overflow: hidden;\n  pointer-events: none;\n  border-radius: 2px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n  background-color: #fff;\n  opacity: 0;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), max-height 0s 0.5s;\n  transition-duration: .3s;\n  transform: translate3D(0, -8px, 0);\n}\n.md-table-dialog.md-active {\n    max-height: 400px;\n    pointer-events: auto;\n    transform: translate3D(#000);\n    opacity: 1;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-duration: .3s;\n}\n.md-table-dialog.md-large {\n    padding: 12px 24px 2px;\n}\n.md-table-dialog .md-input-container {\n    margin-top: 0;\n    margin-bottom: 16px;\n}\n.md-table-dialog .md-input-container.md-input-placeholder input {\n      font-size: 13px;\n}\n.md-table-dialog .md-input-container.md-input-placeholder input::-webkit-input-placeholder {\n        font-size: 13px;\n}\n.md-table-dialog .md-char-counter {\n    font-size: 13.5px;\n    color: rgba(0, 0, 0, 0.54);\n}\n.md-table-dialog .md-button {\n    min-width: 64px;\n}\n.md-table-card {\n  overflow: visible;\n}\n.md-table-card .md-toolbar {\n    padding-left: 16px;\n    background-color: #fff;\n}\n.md-table-card .md-title {\n    -ms-flex: 1;\n        flex: 1;\n    font-size: 20px;\n}\n.md-table-card .md-table-pagination {\n    height: 56px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex: 1;\n        flex: 1;\n    -ms-flex-align: center;\n        align-items: center;\n    -ms-flex-pack: end;\n        justify-content: flex-end;\n    border-top: 1px solid #e0e0e0;\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 12px;\n}\n.md-table-card .md-table-pagination .md-table-pagination-previous {\n      margin-right: 2px;\n      margin-left: 18px;\n}\n.md-table-card .md-table-pagination .md-select {\n      width: auto;\n      min-width: 36px;\n      margin: 0 32px;\n}\n.md-table-card .md-table-pagination .md-select:after {\n        margin-top: 0;\n}\n.md-table-card .md-table-pagination .md-select .md-select-value {\n        padding: 0;\n        border: none;\n        font-size: 13px;\n}\n.md-table-card .md-table-pagination .md-button:not([disabled]) {\n      color: rgba(0, 0, 0, 0.87);\n}\n.md-table-card .md-table-pagination .md-button[disabled] .md-icon {\n      color: rgba(0, 0, 0, 0.26);\n}\n.md-pagination-select.md-direction-bottom-right {\n  margin-top: -16px;\n}\n.md-pagination-select .md-list-item-holder {\n  font-size: 13px;\n}\n.md-table-alternate-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 10;\n  pointer-events: none;\n  opacity: 0;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition-duration: .3s;\n}\n.md-table-alternate-header.md-active {\n    pointer-events: auto;\n    opacity: 1;\n    transform: translate3D(#000);\n}\n.md-table-alternate-header .md-counter {\n    margin-left: 8px;\n    -ms-flex: 1;\n        flex: 1;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/* Image aspect ratio calculator */\n/* Responsive breakpoints */\n.md-tabs {\n  width: 100%;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  position: relative;\n}\n.md-tabs.md-transition-off * {\n    transition: none !important;\n}\n.md-tabs.md-dynamic-height .md-tabs-content {\n    transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-tabs .md-tabs-navigation {\n    height: 48px;\n    min-height: 48px;\n    position: relative;\n    z-index: 1;\n    display: -ms-flexbox;\n    display: flex;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    overflow: hidden;\n}\n.md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tab-header-navigation-button.md-left {\n      -ms-flex-order: 1;\n          order: 1;\n}\n.md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tabs-navigation-container {\n      -ms-flex-order: 2;\n          order: 2;\n}\n.md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tab-header-navigation-button.md-right {\n      -ms-flex-order: 3;\n          order: 3;\n}\n.md-tabs .md-tabs-navigation.md-has-icon.md-has-label {\n      min-height: 72px;\n}\n.md-tabs .md-tabs-navigation.md-has-icon.md-has-label .md-icon {\n        margin-bottom: 10px;\n}\n.md-tabs .md-tabs-navigation.md-centered {\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.md-tabs .md-tabs-navigation.md-fixed .md-tabs-navigation-container,\n    .md-tabs .md-tabs-navigation.md-fixed .md-tabs-navigation-scroll-container {\n      -ms-flex: 1;\n          flex: 1;\n}\n.md-tabs .md-tabs-navigation.md-fixed .md-tab-header {\n      -ms-flex: 1;\n          flex: 1;\n      max-width: none;\n}\n.md-tabs .md-tabs-navigation.md-right {\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n.md-tabs .md-tabs-navigation-container {\n    display: -ms-flexbox;\n    display: flex;\n    overflow-x: auto;\n}\n.md-tabs .md-tabs-navigation-scroll-container {\n    display: -ms-flexbox;\n    display: flex;\n}\n.md-tabs .md-tab-header {\n    min-width: 72px;\n    max-width: 264px;\n    margin: 0;\n    padding: 0 12px;\n    position: relative;\n    cursor: pointer;\n    border: 0;\n    background: none;\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    font-family: inherit;\n    font-size: 14px;\n    font-weight: 500;\n    text-transform: uppercase;\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n}\n.md-tabs .md-tab-header.md-disabled {\n      cursor: default;\n      pointer-events: none;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none;\n      -webkit-user-drag: none;\n}\n.md-tabs .md-tab-header-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: column;\n        flex-flow: column;\n    -ms-flex-pack: center;\n        justify-content: center;\n    -ms-flex-align: center;\n        align-items: center;\n}\n.md-tabs .md-tab-header-container .md-icon {\n      margin: 0;\n}\n.md-tabs .md-tab-indicator {\n    height: 2px;\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    transform: translate3D(0, 0, 0);\n}\n.md-tabs .md-tab-indicator.md-transition-off {\n      transition: none !important;\n}\n.md-tabs .md-tab-indicator.md-to-right {\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), right 0.15s cubic-bezier(0.35, 0, 0.25, 1);\n}\n.md-tabs .md-tab-indicator.md-to-left {\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.15s cubic-bezier(0.35, 0, 0.25, 1);\n}\n.md-tabs .md-tab-header-navigation-button {\n    border: none;\n    height: 100%;\n    cursor: pointer;\n    position: relative;\n}\n.md-tabs .md-tab-header-navigation-button.md-left {\n      left: 0;\n}\n.md-tabs .md-tab-header-navigation-button.md-right {\n      right: 0;\n}\n.md-tabs .md-tab-header-navigation-button.md-disabled {\n      pointer-events: none;\n      opacity: .4;\n}\n.md-tabs .md-tabs-content {\n    width: 100%;\n    height: 0;\n    position: relative;\n    overflow: hidden;\n}\n.md-tabs .md-tabs-wrapper {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    transform: translate3d(0, 0, 0);\n    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.md-tabs .md-tab {\n    padding: 16px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n}\n@media (min-width: 660px) {\n  .md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tabs-navigation-container {\n    margin-bottom: -15px;\n  }\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-toolbar {\n  min-height: 64px;\n  padding: 0 8px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -ms-flex-flow: row wrap;\n      flex-flow: row wrap;\n  position: relative;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transform: translate3D(0, 0, 0);\n}\n.md-toolbar.md-dense {\n    min-height: 48px;\n}\n.md-toolbar.md-dense.md-medium {\n      min-height: 72px;\n}\n.md-toolbar.md-dense.md-large {\n      min-height: 96px;\n}\n.md-toolbar.md-dense .md-toolbar-container {\n      height: 48px;\n}\n.md-toolbar.md-medium {\n    min-height: 88px;\n}\n.md-toolbar.md-medium .md-toolbar-container:nth-child(2) .md-title:first-child {\n      margin-left: 56px;\n}\n.md-toolbar.md-large {\n    min-height: 128px;\n    -ms-flex-line-pack: inherit;\n        align-content: inherit;\n}\n.md-toolbar.md-large .md-toolbar-container:nth-child(2) .md-title:first-child {\n      margin-left: 56px;\n}\n.md-toolbar.md-account-header {\n    min-height: 164px;\n}\n.md-toolbar.md-account-header .md-ink-ripple {\n      color: #fff;\n}\n.md-toolbar.md-account-header .md-list-item-container:hover:not([disabled]) {\n      background-color: rgba(255, 255, 255, 0.12);\n}\n.md-toolbar.md-account-header .md-avatar-list {\n      margin: 16px 0 8px;\n}\n.md-toolbar.md-account-header .md-avatar-list .md-list-item-container {\n        -ms-flex-align: start;\n            align-items: flex-start;\n}\n.md-toolbar.md-account-header .md-avatar-list .md-avatar + .md-avatar {\n        margin-left: 16px;\n}\n.md-toolbar .md-toolbar-container {\n    width: 100%;\n    height: 64px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n        align-items: center;\n    -ms-flex-item-align: start;\n        align-self: flex-start;\n}\n.md-toolbar .md-toolbar-container > .md-button:first-child {\n      margin-left: 0;\n      margin-right: 16px;\n}\n.md-toolbar .md-toolbar-container > .md-button + .md-button {\n      margin-left: 0;\n}\n.md-toolbar > .md-button:first-child {\n    margin-left: 0;\n    margin-right: 16px;\n}\n.md-toolbar > .md-button + .md-button {\n    margin-left: 0;\n}\n.md-toolbar .md-button:hover:not([disabled]):not(.md-raised):not(.md-icon-button):not(.md-fab) {\n    background-color: rgba(255, 255, 255, 0.1);\n}\n.md-toolbar .md-title {\n    margin: 0;\n    font-size: 20px;\n    font-weight: 400;\n}\n.md-toolbar .md-title:first-child {\n      margin-left: 8px;\n}\n.md-toolbar .md-title + .md-input-container {\n      margin-left: 24px;\n}\n.md-toolbar .md-input-container {\n    min-height: 32px;\n    margin-top: 0;\n    margin-bottom: 0;\n    padding-top: 0;\n}\n.md-toolbar .md-list {\n    padding: 0;\n    margin: 0 -8px;\n    -ms-flex: 1;\n        flex: 1;\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-tooltip {\n  height: 20px;\n  padding: 0 8px;\n  position: fixed;\n  z-index: 200;\n  pointer-events: none;\n  background-color: rgba(97, 97, 97, 0.87);\n  border-radius: 2px;\n  opacity: 0;\n  transform-origin: center top;\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition-duration: .3s;\n  transition-delay: 0s;\n  color: #fff;\n  font-family: Roboto, \"Noto Sans\", Noto, sans-serif;\n  font-size: 10px;\n  line-height: 20px;\n  text-transform: none;\n  white-space: nowrap;\n}\n.md-tooltip.md-active {\n    opacity: 1;\n    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n    transition-duration: .3s;\n}\n.md-tooltip:not(.md-active) {\n    transition-delay: 0s !important;\n}\n.md-tooltip.md-transition-off {\n    transition: none !important;\n}\n.md-tooltip.md-tooltip-top {\n    margin-top: -14px;\n    transform: translate(-50%, 8px);\n}\n.md-tooltip.md-tooltip-top.md-active {\n      transform: translate(-50%, 0);\n}\n.md-tooltip.md-tooltip-right {\n    margin-left: 14px;\n    transform: translate(-8px, 50%);\n}\n.md-tooltip.md-tooltip-right.md-active {\n      transform: translate(0, 50%);\n}\n.md-tooltip.md-tooltip-bottom {\n    margin-top: 14px;\n    transform: translate(-50%, -8px);\n}\n.md-tooltip.md-tooltip-bottom.md-active {\n      transform: translate(-50%, 0);\n}\n.md-tooltip.md-tooltip-left {\n    margin-left: -14px;\n    transform: translate(8px, 50%);\n}\n.md-tooltip.md-tooltip-left.md-active {\n      transform: translate(0, 50%);\n}\n/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n.md-whiteframe {\n  position: relative;\n  z-index: 1;\n}\n.md-whiteframe-1dp {\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-2dp {\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-3dp {\n  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 3px 4px rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-4dp {\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px rgba(0, 0, 0, 0.14), 0 1px 10px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-5dp {\n  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px rgba(0, 0, 0, 0.14), 0 1px 14px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-6dp {\n  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-7dp {\n  box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.2), 0 7px 10px 1px rgba(0, 0, 0, 0.14), 0 2px 16px 1px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-8dp {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-9dp {\n  box-shadow: 0 5px 6px -3px rgba(0, 0, 0, 0.2), 0 9px 12px 1px rgba(0, 0, 0, 0.14), 0 3px 16px 2px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-10dp {\n  box-shadow: 0 6px 6px -3px rgba(0, 0, 0, 0.2), 0 10px 14px 1px rgba(0, 0, 0, 0.14), 0 4px 18px 3px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-11dp {\n  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2), 0 11px 15px 1px rgba(0, 0, 0, 0.14), 0 4px 20px 3px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-12dp {\n  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-13dp {\n  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-14dp {\n  box-shadow: 0 7px 9px -4px rgba(0, 0, 0, 0.2), 0 14px 21px 2px rgba(0, 0, 0, 0.14), 0 5px 26px 4px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-15dp {\n  box-shadow: 0 8px 9px -5px rgba(0, 0, 0, 0.2), 0 15px 22px 2px rgba(0, 0, 0, 0.14), 0 6px 28px 5px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-16dp {\n  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-17dp {\n  box-shadow: 0 8px 11px -5px rgba(0, 0, 0, 0.2), 0 17px 26px 2px rgba(0, 0, 0, 0.14), 0 6px 32px 5px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-18dp {\n  box-shadow: 0 9px 11px -5px rgba(0, 0, 0, 0.2), 0 18px 28px 2px rgba(0, 0, 0, 0.14), 0 7px 34px 6px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-19dp {\n  box-shadow: 0 9px 12px -6px rgba(0, 0, 0, 0.2), 0 19px 29px 2px rgba(0, 0, 0, 0.14), 0 7px 36px 6px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-20dp {\n  box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2), 0 20px 31px 3px rgba(0, 0, 0, 0.14), 0 8px 38px 7px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-21dp {\n  box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2), 0 21px 33px 3px rgba(0, 0, 0, 0.14), 0 8px 40px 7px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-22dp {\n  box-shadow: 0 10px 14px -6px rgba(0, 0, 0, 0.2), 0 22px 35px 3px rgba(0, 0, 0, 0.14), 0 8px 42px 7px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-23dp {\n  box-shadow: 0 11px 14px -7px rgba(0, 0, 0, 0.2), 0 23px 36px 3px rgba(0, 0, 0, 0.14), 0 9px 44px 8px rgba(0, 0, 0, 0.12);\n}\n.md-whiteframe-24dp {\n  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);\n}\n\n/*# sourceMappingURL=vue-material.css.map*/", ""]);
-
+	
 	// exports
 
 
@@ -11278,23 +11422,23 @@
 		singletonElement = null,
 		singletonCounter = 0,
 		styleElementsInsertedAtTop = [];
-
+	
 	module.exports = function(list, options) {
 		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
-
+	
 		options = options || {};
 		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 		// tags it will allow on a page
 		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
+	
 		// By default, add <style> tags to the bottom of <head>.
 		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
+	
 		var styles = listToStyles(list);
 		addStylesToDom(styles, options);
-
+	
 		return function update(newList) {
 			var mayRemove = [];
 			for(var i = 0; i < styles.length; i++) {
@@ -11317,7 +11461,7 @@
 			}
 		};
 	}
-
+	
 	function addStylesToDom(styles, options) {
 		for(var i = 0; i < styles.length; i++) {
 			var item = styles[i];
@@ -11339,7 +11483,7 @@
 			}
 		}
 	}
-
+	
 	function listToStyles(list) {
 		var styles = [];
 		var newStyles = {};
@@ -11357,7 +11501,7 @@
 		}
 		return styles;
 	}
-
+	
 	function insertStyleElement(options, styleElement) {
 		var head = getHeadElement();
 		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
@@ -11376,7 +11520,7 @@
 			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 		}
 	}
-
+	
 	function removeStyleElement(styleElement) {
 		styleElement.parentNode.removeChild(styleElement);
 		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
@@ -11384,24 +11528,24 @@
 			styleElementsInsertedAtTop.splice(idx, 1);
 		}
 	}
-
+	
 	function createStyleElement(options) {
 		var styleElement = document.createElement("style");
 		styleElement.type = "text/css";
 		insertStyleElement(options, styleElement);
 		return styleElement;
 	}
-
+	
 	function createLinkElement(options) {
 		var linkElement = document.createElement("link");
 		linkElement.rel = "stylesheet";
 		insertStyleElement(options, linkElement);
 		return linkElement;
 	}
-
+	
 	function addStyle(obj, options) {
 		var styleElement, update, remove;
-
+	
 		if (options.singleton) {
 			var styleIndex = singletonCounter++;
 			styleElement = singletonElement || (singletonElement = createStyleElement(options));
@@ -11427,9 +11571,9 @@
 				removeStyleElement(styleElement);
 			};
 		}
-
+	
 		update(obj);
-
+	
 		return function updateStyle(newObj) {
 			if(newObj) {
 				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
@@ -11440,19 +11584,19 @@
 			}
 		};
 	}
-
+	
 	var replaceText = (function () {
 		var textStore = [];
-
+	
 		return function (index, replacement) {
 			textStore[index] = replacement;
 			return textStore.filter(Boolean).join('\n');
 		};
 	})();
-
+	
 	function applyToSingletonTag(styleElement, index, remove, obj) {
 		var css = remove ? "" : obj.css;
-
+	
 		if (styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = replaceText(index, css);
 		} else {
@@ -11466,15 +11610,15 @@
 			}
 		}
 	}
-
+	
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-
+	
 		if(media) {
 			styleElement.setAttribute("media", media)
 		}
-
+	
 		if(styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = css;
 		} else {
@@ -11484,22 +11628,22 @@
 			styleElement.appendChild(document.createTextNode(css));
 		}
 	}
-
+	
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
 		var sourceMap = obj.sourceMap;
-
+	
 		if(sourceMap) {
 			// http://stackoverflow.com/a/26603875
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
-
+	
 		var blob = new Blob([css], { type: "text/css" });
-
+	
 		var oldSrc = linkElement.href;
-
+	
 		linkElement.href = URL.createObjectURL(blob);
-
+	
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
@@ -11507,3 +11651,4 @@
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=index.js.map

@@ -18,7 +18,7 @@ let app = new Vue(Vue.util.extend({ el: '#app', router }, App))
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+    navigator.serviceWorker.register('js/service-worker.js').then(function(reg) {
       reg.onupdatefound = function() {
         var installingWorker = reg.installing;
 
