@@ -14,22 +14,21 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: 手淘ATC团队 前端博客
-baseurl: "/blog/" # the subpath of your site, e.g. /blog
 url: "https://atc-fe.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-cayman
-plugins:
+plugins_dir:
   - jekyll-feed
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vueApp
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
